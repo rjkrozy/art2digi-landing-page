@@ -334,6 +334,50 @@
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             }
         }
+
+        /* --- MOBILE NAVIGATION STYLES --- */
+
+    .menu-toggle {
+        display: none; /* Hidden by default on desktop */
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        /* Show the hamburger icon */
+        .menu-toggle {
+            display: block;
+        }
+
+        /* Stack and align the nav items when menu is closed */
+        .nav-links {
+            display: none; /* Hide menu by default */
+            flex-direction: column;
+            width: 100%;
+            position: absolute;
+            top: 60px; /* Below the header */
+            left: 0;
+            background: rgba(40, 40, 40, 0.95); /* Dark background for visibility */
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Style for menu items */
+        .nav-links li {
+            text-align: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Display the menu when the 'active' class is added by JS */
+        .nav-links.active {
+            display: flex; 
+        }
+    }
     </style>
 </head>
 <body>
@@ -349,9 +393,15 @@
                 <img src="img/logo.svg" alt="Art2Digi Solutions" class="logo-img"> 
                 Art2Digi Solutions
             </a>
+
+             <button class="menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
             <ul class="nav-links">
                 <li><a href="#solutions">Business Solutions</a></li>
-                <li><a href="#workshops">Workshops</a></li>  <li><a href="#photography">Creative Work</a></li>
+                <li><a href="#workshops">Workshops</a></li>  
+                <li><a href="#photography">Creative Work</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Connect</a></li>
             </ul>
@@ -436,7 +486,7 @@
                         </ul>
 
                         <a href="[YOUR_WORKSHOP_REGISTRATION_LINK_FOR_BUSINESS]" target="_blank" class="cta-button" style="background: linear-gradient(45deg, #1ba3d1, #a3d11b); margin-top: 1rem; padding: 0.75rem 1.5rem;">
-                            <i class="fas fa-paper-plane"></i> Register for Team Sessions
+                            <i class="fas fa-lock"></i> Reserve Your Spot
                         </a>
                     </div>
                     
@@ -449,7 +499,7 @@
                             A workshop for individuals and creators. Master natural light and authentic posing to capture stunning, professional-quality photos with the device you already have in your pocket.
                         </p>
                         <a href="[YOUR_WORKSHOP_REGISTRATION_LINK_FOR_INDIVIDUALS]" target="_blank" class="cta-button" style="background: linear-gradient(45deg, #a3d11b, #2cbf7b); margin-top: 1rem; padding: 0.75rem 1.5rem;">
-                            <i class="fas fa-camera"></i> Register for Creative Workshops
+                            <i class="fas fa-check"></i> Sign Up Now
                         </a>
                     </div>
 
@@ -563,6 +613,21 @@
 
         document.querySelectorAll('.service-card, .about-content').forEach(element => {
             observer.observe(element);
+        });
+
+        // Mobile menu toggle functionality
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked (important for mobile UX)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
         });
     </script>
 </body>
