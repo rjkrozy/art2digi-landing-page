@@ -316,38 +316,48 @@
         }
 
         /* About Section */
-        /* About Section */
+
         .about {
             padding: 3rem 0;
-            /* Use a very light, solid background color */
-            background: #f8f9fa; 
+            background: #f8f9fa; /* Light background for the section */
         }
 
         .about-content {
-            /* Set grid template: 2 parts for text, 1 part for image */
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 40px;
             align-items: flex-start;
-            /* CRITICAL CHANGE: Set text color to dark brand color */
+            /* Paragraph text color: Dark Text/Black */
             color: var(--brand-dark-text); 
             padding: 3rem;
-            /* Use a solid white background for the container */
             background: white; 
             border-radius: 20px;
-            border: 1px solid #ddd; /* Light border */
+            border: 1px solid #ddd; 
         }
 
-        .about-content h2, .about-content h3 {
+        .about-content h2 {
             margin-bottom: 1.5rem;
-            /* CRITICAL CHANGE: Set header color to primary purple */
-            color: var(--brand-purple);
+            color: var(--brand-blue) !important; /* Forced Blue/Cyan */
+        }
+
+        .about-content h3 {
+            margin-bottom: 1.5rem;
+            color: var(--brand-blue) !important; /* Forced Blue/Cyan */
         }
 
         .about-content p {
             margin-bottom: 1rem;
             opacity: 1; /* Ensure full visibility */
-            /* Text color now inherits dark color from .about-content */
+            /* Color inherits from .about-content (var(--brand-dark-text)) */
+        }
+
+        .about-tagline p {
+            font-family: 'Dancing Script', cursive; 
+            font-size: 1.5rem; 
+            margin-top: 3rem; 
+            text-align: center; 
+            color: var(--brand-dark-text) !important; /* Forced Dark Text/Black */
+            text-shadow: none; 
         }
 
         /* Image Styles (remains dark-friendly as it is inside the light box) */
@@ -678,6 +688,9 @@
 
     <section id="about" class="about">
             <div class="container">
+                
+                <h2>About</h2>
+                
                 <div class="about-content">
                     
                     <div>
@@ -694,7 +707,7 @@
                     </div>
                     
                     <div class="about-image-wrapper">
-                        <img src="img/about-pic.JPG" alt="Professional portrait of Chris Tans" class="about-image">
+                        <img src="img/about-pic.JPG" alt="Professional portrait" class="about-image">
                     </div>
                     
                 </div>
