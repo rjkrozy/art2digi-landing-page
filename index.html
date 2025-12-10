@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Art2Digi Solutions - Where Technology Meets Creativity</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* --- BRAND COLORS DEFINITION --- */
         :root {
@@ -316,25 +317,33 @@
 
         /* About Section */
         .about {
-            background: white;
+            padding: 3rem 0;
+            /* Add a lighter background here to separate it from the gradient sections */
+            background: rgba(255, 255, 255, 0.05); 
         }
 
         .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+            /* Set grid template: 2 parts for text, 1 part for image */
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: flex-start;
+            color: white;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .about-content h3 {
-            color: var(--brand-blue); 
-            font-size: 2rem;
+        .about-content h2, .about-content h3 {
             margin-bottom: 1.5rem;
+            color: white;
         }
 
         .about-content p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
+            margin-bottom: 1rem;
+            opacity: 0.9;
         }
 
         .about-content .highlight {
@@ -344,6 +353,47 @@
             margin-top: 2rem;
             border-left: 4px solid var(--brand-blue); 
         }
+
+        /* New style for the image container */
+        .about-image-wrapper {
+            text-align: center;
+        }
+
+        .about-image {
+            width: 100%; /* Make image fill its column */
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            border: 4px solid #1ba3d1; /* Accent border matching the brand cyan */
+        }
+
+        /* New style for the About section image */
+        .about-image-wrapper {
+            text-align: center;
+        }
+
+        .about-image {
+            width: 100%; /* Make image fill its column */
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            border: 4px solid #1ba3d1; /* Accent border matching the brand cyan */
+        }
+
+        /* Style to make the tagline cursive and visually distinct */
+        .about-tagline p {
+            font-family: 'Dancing Script', cursive; /* Uses the new Google Font */
+            font-style: normal; /* Font handles the cursive style, so we remove standard italic */
+            font-size: 1.5rem; 
+            margin-top: 3rem; 
+            text-align: center; 
+            color: white; 
+            /* Enhanced glow to make the white text "pop" more */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 5px rgba(0, 0, 0, 0.5); 
+        }
+
 
         /* Contact Section */
         .contact {
@@ -597,30 +647,35 @@
     </section>
 
     <section id="about" class="about">
-        <div class="container">
-            <h2>About</h2>
-            <div class="about-content">
-                <h3>The Sunset Chasing Girl</h3>
-                
-                <p>I bring technical precision to artistic patience. I chase the light in photography and the perfect flow in technical architecture.</p>
+            <div class="container">
+                <div class="about-content">
+                    
+                    <div>
+                        <h2>The Sunset Chasing Girl</h2> 
+                        
+                        <p>I bring technical precision to artistic patience. I chase the light in photography and the perfect flow in technical architecture.</p>
+                        
+                        <p>Known as "the forever chasing sunset girl," everywhere I go Aruba, Amsterdam, Paris, New York. I'm always hunting golden hour. That perfect light that transforms everything.</p>
+                        
+                        <p>But I learned something chasing all those sunsets: <strong>Light isn't just visual. It's emotional.</strong> The best photos tell stories. The best training does too. The best code bridges understanding.</p>
 
-                <p>Known as "the forever chasing sunset girl," everywhere I go Aruba, Amsterdam, Paris, New York. I'm always hunting golden hour. That perfect light that transforms everything.</p>
-
-                <p>But I learned something chasing all those sunsets: <strong>Light isn't just visual. It's emotional.</strong> The best photos tell stories. The best training does too. The best code bridges understanding.</p>
-
-                <div class="highlight">
-                    <p><strong>I bridge technology and creativity through:</strong></p>
-                    <p>✓ Training that uses storytelling to make learning memorable<br>
-                    ✓ Photography that captures authentic moments in perfect light<br>
-                    ✓ Technical solutions that speak both code and human</p>
+                        <p>With a background as a Sr. Software Developer and professional photographer, I help businesses communicate effectively. Whether through code, images, or training.</p>
+                        
+                    </div>
+                    
+                    <div class="about-image-wrapper">
+                        <img src="img/about-pic.JPG" alt="Professional portrait of Chris Tans" class="about-image">
+                    </div>
+                    
                 </div>
-
-                <p style="margin-top: 2rem;">With a background as a Sr. Software Developer and professional photographer, I help businesses communicate effectively. Whether through code, images, or training.</p>
-
-                <p><em>Where technology meets creativity. Where stories illuminate. Where every moment is worth capturing.</em></p>
+                
+                <div class="about-tagline">
+                    <p>
+                        Where technology meets creativity. Where stories illuminate. Where every moment is worth capturing.
+                    </p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <section id="contact" class="contact">
         <div class="container">
