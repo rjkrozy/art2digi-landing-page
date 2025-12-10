@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Art2Digi Solutions: The Technical Translator for the Digital Age</title>
-    <meta name="description" content="Bridging the gap between complex digital solutions and compelling human connection through expert training, data clarity, and authentic photography.">
+    <title>Art2Digi Solutions - Where Technology Meets Creativity</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
     <style>
-        /* --- CORE STYLES (Mostly Unchanged) --- */
+        /* --- BRAND COLORS DEFINITION --- */
+        :root {
+            --brand-blue: #009ace;       /* Primary Blue (Cyan) */
+            --brand-dark-blue: #0085ca;  /* Secondary Blue */
+            --brand-purple: #500778;     /* Primary Purple Accent */
+            --brand-dark-text: #333;
+            --brand-bubble-border: #00a3d1; /* A brighter blue for the bubble border, matching the image */
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -18,615 +24,650 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            background: linear-gradient(135deg, #1ba3d1 0%, #7b2cbf 100%);
-            min-height: 100vh;
+            color: var(--brand-dark-text);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
+        /* Navigation */
+        nav {
+            background: var(--brand-dark-blue); /* Secondary Blue for nav bar */
+            padding: 1rem 2rem;
+            position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        nav {
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            color: white;
-            text-decoration: none;
+        nav .logo {
+            color: #fff;
             font-size: 1.5rem;
             font-weight: bold;
+            display: flex; 
+            align-items: center;
         }
         
-        .logo-img {
-            height: 40px;
-            margin-right: 10px;
+        nav .logo-img { 
+            height: 40px; 
+            vertical-align: middle;
+            margin-right: 10px; 
         }
 
-        .nav-links {
-            display: flex;
+        nav ul {
             list-style: none;
+            display: flex;
             gap: 2rem;
         }
 
-        .nav-links a {
-            color: white;
+        nav a {
+            color: #fff;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.3s;
         }
 
-        .nav-links a:hover {
-            color: #1ba3d1;
+        nav a:hover {
+            color: var(--brand-blue); 
         }
 
-        main {
-            margin-top: 80px;
-            padding: 2rem 0;
-        }
-
+        /* Hero Section */
         .hero {
-            text-align: center;
-            padding: 4rem 0 6rem 0; /* Increased bottom padding */
+            /* Use brand gradient (Blue to Purple) */
+            background: linear-gradient(135deg, var(--brand-dark-blue) 0%, var(--brand-purple) 100%);
             color: white;
+            padding: 6rem 2rem 8rem; /* Extra padding for visual balance */
+            text-align: center;
         }
 
+        /* Hero Heading Style (Matches Image) */
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            animation: glow 2s ease-in-out infinite alternate;
+            margin-bottom: 2rem; 
+            font-weight: 700;
+            text-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
         }
 
-        @keyframes glow {
-            from { filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3)); }
-            to { filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5)); }
+        /* --- CORRECTED HERO TEXT BUBBLE STYLES (EXACT MATCH) --- */
+        .hero-bubble-container {
+            max-width: 800px;
+            margin: 30px auto 0;
+            position: relative;
+            padding-bottom: 50px; 
+        }
+        
+        .hero-bubble {
+            /* Styling for the main content box (the 'bubble') */
+            background: white; /* White background matching the image */
+            color: var(--brand-dark-text); /* Dark text on white background */
+            padding: 2.5rem 3rem;
+            border-radius: 25px; /* Rounded corners */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); /* Stronger shadow for floating effect */
+            border: 5px solid var(--brand-bubble-border); /* Blue border for the accent */
+            position: relative;
+            z-index: 10;
+            font-size: 1.4rem;
+            font-weight: 500;
+            line-height: 1.6;
+            text-align: center; /* Ensure text is centered inside the bubble */
         }
 
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
+        /* --- STYLING THE SPEECH BUBBLE TAIL (CSS Triangle) --- */
+        /* Outer triangle (border color) */
+        .hero-bubble-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-top: 30px solid var(--brand-bubble-border); 
+            transform: translateX(-50%);
+            z-index: 9;
         }
 
-        .cta-button {
-            background: linear-gradient(45deg, #7b2cbf, #1ba3d1);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        /* Inner triangle (white color) */
+        .hero-bubble-container::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-top: 25px solid white; 
+            transform: translate(-50%, -5px); 
+            z-index: 11;
+        }
+        /* --- END CORRECTED HERO TEXT BUBBLE STYLES --- */
+
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        /* Section Styles */
+        section {
+            padding: 4rem 2rem;
         }
 
-        .services {
-            padding: 2rem 0;
-            margin: 3rem 0;
-        }
-
-        /* --- NEW SERVICE GROUPING STYLES --- */
-        .services-wrapper {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .services h2 {
+        section h2 {
             text-align: center;
-            color: white;
             font-size: 2.5rem;
             margin-bottom: 3rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            color: var(--brand-purple); 
         }
 
-        .service-group-header {
-            text-align: center;
-            color: white;
-            font-size: 2rem;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-            background: linear-gradient(45deg, #1ba3d1, #7b2cbf);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .service-card {
-            background: rgba(255, 255, 255, 0.15);
+        .service-box {
+            background: white;
             padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            color: white;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--brand-blue); 
+            display: flex;
+            flex-direction: column;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        .service-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
-        .service-icon {
-            font-size: 3rem;
+        .service-box h3 {
+            font-size: 1.8rem;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, #1ba3d1, #7b2cbf);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--brand-blue); 
         }
 
-        /* --- ABOUT SECTION STYLES --- */
+        .service-box .service-content {
+            flex-grow: 1;
+        }
+
+        .service-box ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .service-box ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-box ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--brand-blue); 
+            font-weight: bold;
+        }
+
+        /* Service button (Solid) */
+        .service-box .btn {
+            display: inline-block;
+            margin-top: auto;
+            padding: 0.8rem 1.5rem;
+            background: var(--brand-dark-blue); 
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            text-align: center;
+        }
+
+        .service-box .btn:hover {
+            background: var(--brand-purple); 
+        }
+
+        /* Workshop Section (Accordion Styles) */
+        .workshops {
+            background: #f8f9fa;
+        }
+        
+        .workshop-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            background: white;
+        }
+
+        .accordion-header {
+            background: var(--brand-purple); 
+            color: white;
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.4rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+            padding: 0 2rem;
+            background: #fff;
+            color: var(--brand-dark-text);
+        }
+
+        .accordion-content.open {
+            max-height: 600px; 
+            padding: 2rem;
+            border-top: 1px solid #eee;
+        }
+
+        .accordion-content p {
+            margin-bottom: 1rem;
+        }
+
+        .accordion-content ul {
+            list-style: disc;
+            margin: 1rem 0 1rem 20px;
+        }
+        
+        /* WORKSHOP ACCORDION BUTTON (SOLID STYLE) */
+        .accordion-content .btn {
+            margin-top: 1rem;
+            display: block;
+            width: 100%;
+            padding: 0.8rem 1.5rem;
+            background: var(--brand-dark-blue); 
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            text-align: center;
+            border: none;
+        }
+        
+        .accordion-content .btn:hover {
+            background: var(--brand-purple); 
+        }
+
+        /* About Section */
         .about {
-            padding: 3rem 0;
+            background: white;
         }
 
         .about-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 40px;
-            align-items: flex-start;
-            color: white;
-            padding: 3rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        .about-content h2, .about-content h3 {
+        .about-content h3 {
+            color: var(--brand-blue); 
+            font-size: 2rem;
             margin-bottom: 1.5rem;
-            color: white;
         }
 
         .about-content p {
-            margin-bottom: 1rem;
-            opacity: 0.9;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
         }
-        
-        /* --- CONTACT/FOOTER STYLES (Mostly Unchanged) --- */
+
+        .about-content .highlight {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--brand-blue); 
+        }
+
+        /* Contact Section */
         .contact {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 3rem 0;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: var(--brand-dark-blue); 
             color: white;
             text-align: center;
         }
 
-        .contact-links {
+        .contact h2 {
+            color: white;
+        }
+
+        .contact-info {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 3rem;
+            flex-wrap: wrap;
             margin-top: 2rem;
         }
 
-        .contact-link {
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-item strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .contact a {
+            color: var(--brand-blue); 
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- NEW FORM STYLES FOR CONTACT SECTION --- */
+        .contact form {
+            max-width: 500px;
+            margin: 2rem auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1); /* Slightly lighter background for the form itself */
+            border-radius: 10px;
+        }
+
+        .contact input, 
+        .contact textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: var(--brand-dark-text);
+            background: white;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact button.btn {
+            /* Use the existing .btn style but override background for contact contrast */
+            padding: 1rem;
+            background: var(--brand-blue); /* Use the primary blue for the submit button */
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
             color: white;
-            font-size: 2rem;
-            transition: all 0.3s ease;
+            transition: background 0.3s;
         }
 
-        .contact-link:hover {
-            color: #1ba3d1;
-            transform: scale(1.2);
+        .contact button.btn:hover {
+            background: var(--brand-purple); /* Purple hover effect */
         }
 
+        /* Footer */
         footer {
+            background: var(--brand-purple); 
+            color: #fff;
             text-align: center;
-            padding: 2rem 0;
-            color: rgba(255, 255, 255, 0.7);
+            padding: 2rem;
         }
 
-        /* --- MEDIA QUERIES (Mostly Unchanged) --- */
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
+            nav .container {
+                flex-direction: column;
                 gap: 1rem;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-links {
+            nav ul {
                 flex-direction: column;
-                align-items: center;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-bubble {
+                font-size: 1.2rem; 
+            }
+
+            section h2 {
+                font-size: 2rem;
             }
         }
-        /* --- ANIMATION STYLES (Unchanged) --- */
-        .floating-elements {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .floating-element {
-            position: absolute;
-            opacity: 0.1;
-            animation: float 6s ease-in-out infinite;
-            color: white; /* Ensure floating icons are white */
-        }
-
-        .floating-element:nth-child(1) {
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .floating-element:nth-child(2) {
-            top: 20%;
-            right: 10%;
-            animation-delay: 2s;
-        }
-
-        .floating-element:nth-child(3) {
-            bottom: 10%;
-            left: 20%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* --- NEW STYLE FOR THE SERVICE GRID --- */
-        .solution-grid {
-            display: grid;
-            /* Forces exactly three columns for the new structure on larger screens */
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 2rem;
-        }
-
-        /* Media query to ensure panels stack nicely on smaller screens */
-        @media (max-width: 900px) {
-            .solution-grid {
-                /* Allows panels to flow dynamically but ensures a minimum width */
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-        }
-
-        /* --- MOBILE NAVIGATION STYLES --- */
-
-    .menu-toggle {
-        display: none; /* Hidden by default on desktop */
-        background: none;
-        border: none;
-        color: white;
-        font-size: 1.5rem;
-        cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-        /* Show the hamburger icon */
-        .menu-toggle {
-            display: block;
-        }
-
-        /* Stack and align the nav items when menu is closed */
-        .nav-links {
-            display: none; /* Hide menu by default */
-            flex-direction: column;
-            width: 100%;
-            position: absolute;
-            top: 60px; /* Below the header */
-            left: 0;
-            background: rgba(40, 40, 40, 0.95); /* Dark background for visibility */
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 1rem 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Style for menu items */
-        .nav-links li {
-            text-align: center;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Display the menu when the 'active' class is added by JS */
-        .nav-links.active {
-            display: flex; 
-        }
-    }
     </style>
 </head>
 <body>
-    <div class="floating-elements">
-        <i class="fas fa-camera floating-element" style="font-size: 3rem;"></i>
-        <i class="fas fa-code floating-element" style="font-size: 2.5rem;"></i>
-        <i class="fas fa-qrcode floating-element" style="font-size: 2rem;"></i>
-    </div>
-
-    <header>
-        <nav class="container">
-            <a href="#" class="logo">
-                <img src="img/logo.svg" alt="Art2Digi Solutions" class="logo-img"> 
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <img src="img/logo.svg" alt="Art2Digi Solutions Logo" class="logo-img">
                 Art2Digi Solutions
-            </a>
-
-             <button class="menu-toggle" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <ul class="nav-links">
-                <li><a href="#solutions">Business Solutions</a></li>
-                <li><a href="#workshops">Workshops</a></li>  
-                <li><a href="#photography">Creative Work</a></li>
+            </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#workshops">Workshops</a></li> 
+                <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#contact">Connect</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>The Technical Expertise to Build It. The Storytelling to Make It Stick.</h1>
-                <p>Bridging the gap between complex digital solutions and compelling human connection.</p>
-                <a href="#solutions" class="cta-button">
-                    <i class="fas fa-microchip"></i> Explore Business Solutions
-                </a>
-                <a href="#photography" class="cta-button" style="background: linear-gradient(45deg, #a3d11b, #2cbf7b); margin-left: 15px;">
-                    <i class="fas fa-camera"></i> View Creative Portfolio
-                </a>
-            </div>
-        </section>
-
-        <section id="solutions" class="services">
-            <div class="container services-wrapper">
-                <h2 class="service-group-header"><i class="fas fa-microchip"></i> Business Solutions: Solve Your Digital Problem</h2>
-                
-                <div class="solution-grid">
-                    
-                    <div class="service-card" style="background: rgba(123, 44, 191, 0.25); border: 2px solid #7b2cbf;">
-                        <div class="service-icon">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                        </div>
-                        <h3>Trainer-as-a-Service (TaaS)</h3>
-                        <p>Our most requested service. We transform technical documentation into <strong>engaging, story-driven sessions</strong> that guarantee rapid staff adoption, user confidence, and long-term skill retention.</p>
-                        <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.7;">*Includes: Technical Training, Custom Workshops, Team Upskilling.*</p>
-                    </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <h3>Technical Solution Bridging</h3>
-                        <p>Need a system to work better? We act as your <strong>technical translator</strong>, fine-tuning existing software, managing vendors, and providing the custom coding necessary to make all your systems work seamlessly.</p>
-                        <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.7;">*Includes: System Fine-Tuning, Vendor Negotiation, Data Strategy & Consulting.*</p>
-                    </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <h3>Digital Launch & Tools</h3>
-                        <p>Get your professional presence online quickly and effectively. We provide <strong>simple, clearly branded assets</strong> (like QR codes and custom landing pages) that are easy to manage and track for immediate results.</p>
-                        <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.7;">*Includes: QR Codes, Branded Landing Pages, E-Cards, Digital Asset Setup.*</p>
-                    </div>
-
+    <section id="home" class="hero">
+        <div class="container">
+            
+            <div class="hero-bubble-container">
+                <div class="hero-bubble">
+                    "We provide the technical expertise to build your solutions and the storytelling to make them stick. 
+                    <br>
+                    We bridge the gap between complex digital strategy and compelling human connection."
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="workshops" class="services">
-            <div class="container services-wrapper">
-                <h2 class="service-group-header"><i class="fas fa-star"></i> Featured Workshops</h2>
-                <div class="solution-grid">
-                    
-                    <div class="service-card" style="background: rgba(123, 44, 191, 0.25); border: 2px solid #7b2cbf;">
-                        <div class="service-icon">
-                            <i class="fas fa-bullhorn"></i>
-                        </div>
-                        <h3>Go From Boring to Memorable Training</h3>
-                        
-                        <p style="margin-bottom: 1.5rem;">
-                            <strong>Tired of boring training sessions?</strong> You know the drill: attendees drift off, they hear the info but it doesn’t stick, and the promised productivity boost is never fully realized. 
-                        </p>
+    <section id="workshops" class="workshops">
+        <div class="container workshop-container">
+            <h2>Featured Workshops</h2>
+            
+            <div class="accordion-item">
+                <div class="accordion-header" data-target="workshop-1">
+                    <span>📱 Capture & Pose™: Pro Shots with Your Phone</span>
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+                <div class="accordion-content open" id="workshop-1">
+                    <p>
+                        A hands-on workshop for individuals and creators. Master natural light and authentic posing to capture stunning, professional-quality photos with the device you already have in your pocket.
+                    </p>
+                    <ul>
+                        <li>Professional mobile photography techniques</li>
+                        <li>Natural light mastery (indoor & outdoor)</li>
+                        <li>Composition that captivates</li>
+                        <li>Natural posing for yourself and others</li>
+                        <li>Quick editing workflow</li>
+                    </ul>
+                    <a href="#contact" class="btn">Register Now</a>
+                </div>
+            </div>
 
-                        <p style="margin-bottom: 1.5rem;">
-                            Great content delivered badly is wasted time and money. I'll share <strong>practical techniques that make any technical content engaging</strong>, guaranteed to boost adoption and skill retention.
-                        </p>
+            <div class="accordion-item">
+                <div class="accordion-header" data-target="workshop-2">
+                    <span>📚 Storytelling: Go From Boring to Memorable Training</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content" id="workshop-2">
+                    <p>
+                        <strong>Tired of boring training sessions?</strong> This corporate training workshop transforms your complex technical content into engaging, memorable learning experiences. 
+                    </p>
+                    <p>
+                        Great content delivered badly is wasted time and money. I'll share <strong>practical techniques that make any technical content engaging</strong>, guaranteed to boost adoption and skill retention.
+                    </p>
+                    <a href="#contact" class="btn">Inquire for Corporate Booking</a>
+                </div>
+            </div>
 
-                        <h4 style="color: white; margin-bottom: 0.75rem; font-size: 1.1rem; border-top: 1px solid rgba(255, 255, 255, 0.3); padding-top: 10px;">What You'll Learn:</h4>
-                        <ul style="list-style: none; padding-left: 0; text-align: left; margin-bottom: 1.5rem; font-size: 0.95rem;">
-                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check-circle" style="margin-right: 8px; color: #a3d11b;"></i> How to grab attention from <strong>minute one</strong></li>
-                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check-circle" style="margin-right: 8px; color: #a3d11b;"></i> Simple ways to make complex topics <strong>stick</strong></li>
-                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check-circle" style="margin-right: 8px; color: #a3d11b;"></i> Tools to keep people <strong>engaged</strong> from start to finish</li>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-box">
+                    <div class="service-content">
+                        <h3>Training</h3>
+                        <p>Workshops and corporate training designed to make learning stick.</p>
+                        <ul>
+                            <li>Mobile Photography Workshops</li>
+                            <li>Corporate Training (Lens Method™)</li>
+                            <li>Technical Presentation Skills</li>
+                            <li>Custom Training Programs</li>
                         </ul>
-
-                        <a href="[YOUR_WORKSHOP_REGISTRATION_LINK_FOR_BUSINESS]" target="_blank" class="cta-button" style="background: linear-gradient(45deg, #1ba3d1, #a3d11b); margin-top: 1rem; padding: 0.75rem 1.5rem;">
-                            <i class="fas fa-lock"></i> Reserve Your Spot
-                        </a>
+                        <p><em>All training powered by the Lens Method™ framework</em></p>
                     </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <h3>Pro Shots with Your Phone</h3>
-                        <p>
-                            A workshop for individuals and creators. Master natural light and authentic posing to capture stunning, professional-quality photos with the device you already have in your pocket.
-                        </p>
-                        <a href="[YOUR_WORKSHOP_REGISTRATION_LINK_FOR_INDIVIDUALS]" target="_blank" class="cta-button" style="background: linear-gradient(45deg, #a3d11b, #2cbf7b); margin-top: 1rem; padding: 0.75rem 1.5rem;">
-                            <i class="fas fa-check"></i> Sign Up Now
-                        </a>
-                    </div>
+                    <a href="#workshops" class="btn">View Workshops</a>
+                </div>
 
+                <div class="service-box">
+                    <div class="service-content">
+                        <h3>Photography</h3>
+                        <p>Natural light photography that captures authentic moments.</p>
+                        <ul>
+                            <li>Natural Light Portrait Sessions</li>
+                            <li>Real Estate Photography</li>
+                            <li>Pet & Animal Specialty Sessions</li>
+                            <li>Fine Art Prints</li>
+                        </ul>
+                        <p><em>Known as "The Sunset Chasing Girl"</em></p>
+                    </div>
+                    <a href="https://art2digi.pixieset.com" target="_blank" class="btn">View Portfolio & Book</a>
+                </div>
+
+                <div class="service-box">
+                    <div class="service-content">
+                        <h3>Development</h3>
+                        <p>Technical expertise that bridges systems and automates processes.</p>
+                        <ul>
+                            <li>API Development & Integration</li>
+                            <li>System Bridge Creation</li>
+                            <li>Process Automation</li>
+                            <li>Technical Translation & Support</li>
+                        </ul>
+                        <p><em>Your technical translator and bridge builder</em></p>
+                    </div>
+                    <a href="#contact" class="btn">Start a Project</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="photography" class="services">
-            <div class="container services-wrapper">
-                <h2 class="service-group-header"><i class="fas fa-camera-retro"></i> Creative Work: Natural Light Photography</h2>
-                <div class="service-grid" style="grid-template-columns: 1fr;">
-                    
-                    <div class="service-card" style="padding: 3rem; background: rgba(255, 255, 255, 0.25);">
-                        <p style="font-size: 1.25rem; margin-bottom: 2rem;">
-                            Photography is my way of preserving <strong>genuine human connection</strong>. Inspired by the golden light of the Caribbean, I create images that are <strong>warm, real, and full of life.</strong> I capture authentic moments—not artificial poses.
-                        </p>
-                        <a href="[YOUR_PIXIESET_LINK]" target="_blank" class="cta-button" style="background: linear-gradient(45deg, #7b2cbf, #ff8c00); margin-top: 1rem;">
-                            <i class="fas fa-image"></i> View Portfolio & Book a Session
-                        </a>
-                    </div>
-                    
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About</h2>
+            <div class="about-content">
+                <h3>The Sunset Chasing Girl</h3>
+                
+                <p>I bring technical precision to artistic patience. I chase the light in photography and the perfect flow in technical architecture.</p>
+
+                <p>Known as "the forever chasing sunset girl," everywhere I go Aruba, Amsterdam, Paris, New York. I'm always hunting golden hour. That perfect light that transforms everything.</p>
+
+                <p>But I learned something chasing all those sunsets: <strong>Light isn't just visual. It's emotional.</strong> The best photos tell stories. The best training does too. The best code bridges understanding.</p>
+
+                <div class="highlight">
+                    <p><strong>I bridge technology and creativity through:</strong></p>
+                    <p>✓ Training that uses storytelling to make learning memorable<br>
+                    ✓ Photography that captures authentic moments in perfect light<br>
+                    ✓ Technical solutions that speak both code and human</p>
                 </div>
-            </div>
-        </section>
 
+                <p style="margin-top: 2rem;">With a background as a Sr. Software Developer and professional photographer, I help businesses communicate effectively. Whether through code, images, or training.</p>
 
-        <section id="about" class="about">
-            <div class="container">
-                <div class="about-content">
-                    <div>
-                        <h2>About Art2Digi: The Translator for the Digital Age</h2>
-                        <p>I'm a <strong>Digital & Creative Translator</strong> whose mission is to close the gap between technical complexity and business results. While many consultants only speak *code* or only speak *business*, I speak both.</p>
-                        <p>I treat the "lighting"—the emotional and relatable context—in my training just like a photographer chases the perfect <strong>Golden Hour</strong> light. It's about adding warmth and relevance so the information not only lands but *lasts*. <strong>Clarity drives confidence.</strong></p>
-                        <p>Art2Digi is the bridge between the <strong>Art</strong> of authentic storytelling and the <strong>Digi</strong> of reliable technology. My goal is always to <strong>transform complex ideas into memorable experiences.</strong></p>
-                    </div>
-                    
-                </div>
+                <p><em>Where technology meets creativity. Where stories illuminate. Where every moment is worth capturing.</em></p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2>Ready to Bring Clarity to Your Vision?</h2>
-                <p>Let's discuss how I can help bring your digital vision to life</p>
-                <div class="contact-links">
-                    <a href="mailto:hello@art2digi.com" class="contact-link" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="tel:+297-5638194" class="contact-link" title="Phone">
-                        <i class="fas fa-phone"></i>
-                    </a>
-                    <a href="#" class="contact-link" title="WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="#" class="contact-link" title="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
-                <p style="margin-top: 2rem; opacity: 0.8;">
-                    <i class="fas fa-globe"></i> Serving clients worldwide
-                </p>
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <p>Send a message using the form below to inquire about projects or workshops.</p>
+            
+            <form name="art2digi_contact_form" method="POST" data-netlify="true" action="/thank-you">
+                <input type="hidden" name="form-name" value="art2digi_contact_form" />
+                
+                <input type="text" name="name" placeholder="Your Name (Required)" required>
+                <input type="email" name="email" placeholder="Your Email (Required)" required>
+                <textarea name="message" placeholder="Your Message or Project Details" required></textarea>
+                
+                <button type="submit" class="btn">Send My Message</button>
+            </form>
             </div>
-        </section>
-    </main>
+    </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Art2Digi Solutions. Crafted with 
-                <i class="fas fa-heart" style="color: white; text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);"></i> 
-                for digital innovation
-            </p>
+            <p>&copy; 2025 Art2Digi Solutions. All rights reserved.</p>
+            <p>Lens Method™ is a trademark of Art2Digi Solutions.</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                window.scrollTo({
-                    top: target.offsetTop - 70, // Offset for the fixed header
-                    behavior: 'smooth'
+        // JAVASCRIPT FOR ACCORDION FUNCTIONALITY (Harmonica Effect)
+        document.addEventListener('DOMContentLoaded', function() {
+            const headers = document.querySelectorAll('.accordion-header');
+
+            headers.forEach(header => {
+                header.addEventListener('click', () => {
+                    const targetId = header.getAttribute('data-target');
+                    const content = document.getElementById(targetId);
+                    const icon = header.querySelector('.fas');
+
+                    const isOpen = content.classList.contains('open');
+
+                    // 1. Close all currently open accordions (Harmonica Effect)
+                    document.querySelectorAll('.accordion-content.open').forEach(openContent => {
+                        const openHeader = openContent.previousElementSibling;
+                        openContent.classList.remove('open');
+                        openHeader.querySelector('.fas').classList.remove('fa-chevron-up');
+                        openHeader.querySelector('.fas').classList.add('fa-chevron-down');
+                    });
+
+                    // 2. Open the clicked accordion (if it was closed)
+                    if (!isOpen) {
+                        content.classList.add('open');
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    }
                 });
-            });
-        });
-
-        // Add scroll effect to header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.2)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.1)';
-            }
-        });
-
-        // Add animation on scroll (Intersection Observer)
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.service-card, .about-content').forEach(element => {
-            observer.observe(element);
-        });
-
-        // Mobile menu toggle functionality
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close menu when a link is clicked (important for mobile UX)
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
             });
         });
     </script>
