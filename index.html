@@ -147,6 +147,35 @@
             transform: translate(-50%, -5px); 
             z-index: 11;
         }
+
+        /* Hero Section CTA Button (Matching Service Button Aesthetic) */
+        .hero-cta-btn {
+            /* Basic button properties */
+            display: inline-block;
+            margin-top: 3.5rem; /* Sufficient space below the bubble */
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            
+            /* SOLID COLOR & WHITE TEXT */
+            background: var(--brand-blue); /* Use Brand Blue for highest contrast against the purple gradient */
+            color: white; 
+            border: none; /* No border, like the service buttons */
+            border-radius: 5px; /* Slightly rounded corners */
+            
+            /* Add subtle shadow for lift */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            transition: background 0.3s, transform 0.2s;
+            text-decoration: none; /* Ensure it looks like a button */
+        }
+
+        .hero-cta-btn:hover {
+            /* On hover, transition to the secondary brand color (Purple) */
+            background: var(--brand-purple); 
+            transform: scale(1.05); /* Slight lift */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+        }
         /* --- END CORRECTED HERO TEXT BUBBLE STYLES --- */
 
 
@@ -170,6 +199,10 @@
         }
 
         /* Services Grid */
+        #services {
+            background: #f8f9fa; /* Matches the workshop background */
+        }
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -282,7 +315,7 @@
         }
 
         .accordion-content.open {
-            max-height: 600px; 
+            max-height: 800px; 
             padding: 2rem;
             border-top: 1px solid #eee;
         }
@@ -315,8 +348,72 @@
             background: var(--brand-purple); 
         }
 
-        /* About Section */
+        /* --- WORKSHOPS SECTION STYLES (Key Card Styles) --- */
+        
+        /* Adjusted style to fit cleanly inside the accordion-content */
+        .workshop-card-inner-content {
+            text-align: left;
+            padding: 0; 
+            margin: 0 0 1rem 0; /* Only keep a bottom margin */
+        }
+        
+        /* Ensure the Investment block spacing is correct inside the accordion */
+        .workshop-info-grid {
+            /* You can try increasing the gap if the columns are too tight */
+            gap: 10px; 
+            margin-bottom: 1.5rem;
+        }
 
+        .workshop-card {
+            max-width: 750px;
+            margin: 1rem auto 2rem auto; /* Added bottom margin for space above the button */
+            padding: 2.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .workshop-tagline-main {
+            font-size: 1.3rem;
+            font-style: italic;
+            font-weight: 500;
+            color: var(--brand-dark-text);
+            margin-top: 0;
+            margin-bottom: 2.5rem; /* Increased margin for height/spacing */
+        }
+
+        /* Info Grid Styling */
+        .workshop-info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .investment-block {
+            grid-column: 1 / span 3; 
+            background: #e0e6f7; 
+        }
+
+        .info-block {
+            background: #f0f2f5; 
+            padding: 15px;
+            border-radius: 8px;
+            min-height: 80px; 
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: var(--brand-purple); 
+        }
+
+        /* Ensure the Register Button is visible below the card */
+        .accordion-content .btn {
+            margin-top: 1.5rem;
+        }
+
+        /* About Section */
         .about {
             padding: 3rem 0;
             background: #f8f9fa; /* Light background for the section */
@@ -358,6 +455,17 @@
             text-align: center; 
             color: var(--brand-dark-text) !important; /* Forced Dark Text/Black */
             text-shadow: none; 
+        }
+
+        .about-final-statement {
+            font-family: 'Dancing Script', cursive !important;
+            font-size: 2.2rem; /* Significantly larger */
+            font-weight: 700 !important; /* Bold, if available in the font */
+            text-align: center !important; /* Center it */
+            margin: 2rem 0 1rem 0 !important; /* Add space above and below */
+            /* Use the Brand Blue for color accent */
+            color: var(--brand-blue) !important; 
+            line-height: 1.2;
         }
 
         /* Image Styles (remains dark-friendly as it is inside the light box) */
@@ -588,49 +696,119 @@
                     We bridge the gap between complex digital strategy and compelling human connection."
                 </div>
             </div>
+
+            <a href="#workshops" class="btn hero-cta-btn">View Workshops</a>
         </div>
     </section>
 
     <section id="workshops" class="workshops">
-        <div class="container workshop-container">
-            <h2>Featured Workshops</h2>
+    <div class="container workshop-container">
+        <h2>Featured Workshops</h2>
+        
+        <div class="accordion-item">
             
-            <div class="accordion-item">
-                <div class="accordion-header" data-target="workshop-1">
-                    <span>📱 Capture & Pose™: Pro Shots with Your Phone</span>
-                    <i class="fas fa-chevron-up"></i>
-                </div>
-                <div class="accordion-content open" id="workshop-1">
-                    <p>
-                        A hands-on workshop for individuals and creators. Master natural light and authentic posing to capture stunning, professional-quality photos with the device you already have in your pocket.
-                    </p>
-                    <ul>
-                        <li>Professional mobile photography techniques</li>
-                        <li>Natural light mastery (indoor & outdoor)</li>
-                        <li>Composition that captivates</li>
-                        <li>Natural posing for yourself and others</li>
-                        <li>Quick editing workflow</li>
-                    </ul>
-                    <a href="#contact" class="btn">Register Now</a>
-                </div>
+            <div class="accordion-header" data-target="workshop-1">
+                <span> Capture & Pose™: Mobile Photography & Natural Posing</span>
+                <i class="fas fa-chevron-up"></i>
             </div>
+            
+            <div class="accordion-content open" id="workshop-1">
+                
+                <div class="workshop-card-inner-content"> 
+                    
+                    <p class="workshop-tagline-main">Capture the shot. Master your presence. Frame your story.</p>
 
-            <div class="accordion-item">
-                <div class="accordion-header" data-target="workshop-2">
-                    <span>📚 Storytelling: Go From Boring to Memorable Training</span>
-                    <i class="fas fa-chevron-down"></i>
+                    <div class="workshop-info-grid">
+                        <div class="info-block date-block">
+                            <p class="info-label">Date</p>
+                            <p class="info-value">January 24, 2026</p>
+                        </div>
+                        <div class="info-block time-block">
+                            <p class="info-label">Time</p>
+                            <p class="info-value">9:30 AM - 12:00 PM</p>
+                        </div>
+                        
+                        <div class="info-block location-block">
+                            <p class="info-label">Location</p>
+                            <p class="info-value">Hyatt Place Aruba Airport</p>
+                        </div>
+                        
+                        <div class="info-block investment-block">
+                            <p class="info-label">Investment</p>
+                            <p class="info-value">AWG 250 (Early Bird: AWG 200 until Jan 15)</p>
+                        </div>
+                        
+                    </div>
+
+                    <div class="workshop-learn">
+                        <h4>What You'll Learn:</h4>
+                        <ul>
+                            <li>Professional mobile photography techniques</li>
+                            <li>Natural light mastery (indoor & outdoor)</li>
+                            <li>Composition that captivates</li>
+                            <li>Natural posing for yourself and others</li>
+                        </ul>
+                    </div>
+
+                    <p class="workshop-note">Limited spots!!!</p>
+                    
                 </div>
-                <div class="accordion-content" id="workshop-2">
-                    <p>
-                        <strong>Tired of boring training sessions?</strong> This corporate training workshop transforms your complex technical content into engaging, memorable learning experiences. 
-                    </p>
-                    <p>
-                        Great content delivered badly is wasted time and money. I'll share <strong>practical techniques that make any technical content engaging</strong>, guaranteed to boost adoption and skill retention.
-                    </p>
-                    <a href="#contact" class="btn">Inquire for Corporate Booking</a>
-                </div>
+                
+                <a href="#contact" class="btn register-btn">Register Now</a> 
+                
             </div>
+            </div>
+        <div class="accordion-item">
+            <div class="accordion-header" data-target="workshop-2">
+                <span>Storytelling: Go From Boring to Memorable Training</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            
+            <div class="accordion-content" id="workshop-2">
+                
+                <div class="workshop-card-inner-content"> 
+                    
+                    <p class="workshop-tagline-main">Deliver Sessions People Remember & Apply</p>
 
+                    <div class="workshop-info-grid">
+                        <div class="info-block date-block">
+                            <p class="info-label">Date</p>
+                            <p class="info-value">March, 2026</p>
+                        </div>
+                        <div class="info-block time-block">
+                            <p class="info-label">Time</p>
+                            <p class="info-value">9:30 AM - 12:00 PM</p>
+                        </div>
+                        
+                        <div class="info-block location-block">
+                            <p class="info-label">Location</p>
+                            <p class="info-value">TBA</p>
+                        </div>
+                        
+                        <div class="info-block investment-block">
+                            <p class="info-label">Investment</p>
+                            <p class="info-value">TBA</p>
+                        </div>
+                        
+                    </div>
+
+                    <div class="workshop-learn">
+                        <h4>What You'll Learn:</h4>
+                        <ul>
+                            <li>How to grab attention from the very first minute</li>
+                            <li>Simple methods to make complex topics easy to absorb</li>
+                            <li>Proven tools to keep participants engaged start to finish</li>
+                        </ul>
+                    </div>
+
+                    <p class="workshop-note">Limited spots!!!</p>
+                    
+                </div>
+                
+                <a href="#contact" class="btn register-btn">More Info</a> 
+                
+            </div>
+            </div>
         </div>
     </section>
 
@@ -644,8 +822,8 @@
                         <p>Workshops and corporate training designed to make learning stick.</p>
                         <ul>
                             <li>Mobile Photography Workshops</li>
-                            <li>Corporate Training (Lens Method™)</li>
-                            <li>Technical Presentation Skills</li>
+                            <li>Memorable Training Workshops (Lens Method™)</li>
+                            <li>Corporate Training</li>
                             <li>Custom Training Programs</li>
                         </ul>
                         <p><em>All training powered by the Lens Method™ framework</em></p>
@@ -704,6 +882,7 @@
 
                         <p>With a background as a Sr. Software Developer and professional photographer, I help businesses communicate effectively. Whether through code, images, or training.</p>
                         
+                        <p class="about-final-statement">"I bridge technology and creativity"</p>
                     </div>
                     
                     <div class="about-image-wrapper">
