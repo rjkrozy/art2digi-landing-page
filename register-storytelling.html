@@ -9,9 +9,9 @@
 <body>
     <section class="registration-page">
         <div class="container">
-            <h2>Storytelling Workshop Inquiry</h2>
+            <h2>Storytelling Workshop Registration</h2>
             
-            <p class="form-intro">Submit your inquiry for the Storytelling Through a Photographer's Lens™ training!</p>
+            <p class="form-intro">Secure your spot for the Storytelling Through a Photographer's Lens™ training!</p>
 
             <form name="storytelling_reg" method="POST" data-netlify="true" netlify-honeypot="bot-field">
                 
@@ -32,10 +32,10 @@
                     *Investment and final details will be confirmed upon inquiry. Please use the space below for any questions.*
                 </p>
                 
-                <label for="questions">Questions / Inquiry Details</label>
+                <label for="questions">Questions</label>
                 <textarea id="questions" name="Questions"></textarea>
 
-                <button type="submit" class="btn register-btn">Submit Inquiry</button>
+                <input type="hidden" name="next" value="/thank-you-workshop.html?workshop=Storytelling Workshop" />
             </form>
         </div>
     </section>

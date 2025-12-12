@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Registering!</title>
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+    <header></header>
+    
+    <section class="thank-you-page">
+        <div class="container">
+            <h2 id="confirmationTitle">Registration Confirmed!</h2>
+            <h3 id="workshopNameDisplay"></h3> 
+            
+            <p>Thank you! We have successfully received your registration details.</p>
+            
+            <p class="investment-note">
+                **What happens next?** We will be in touch with you at the email provided (the one you used to register) **within 24 hours**. This follow-up email will confirm your spot, finalize your rate, and provide easy payment instructions.
+            </p>
+            
+            <a href="index.html" class="btn register-btn">Return to Workshop List</a>
+        </div>
+    </section>
+    
+    <footer></footer>
+
+    <script>
+        // Function to get the workshop name from the URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const workshopName = urlParams.get('workshop') || 'Workshop'; 
+
+        // Update the page content
+        document.getElementById('workshopNameDisplay').textContent = 
+            `Your spot for the ${workshopName} has been reserved.`;
+        
+        // Update the page title for better branding
+        document.title = `Confirmed: ${workshopName} Registration`;
+    </script>
+</body>
+</html>
