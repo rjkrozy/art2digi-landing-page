@@ -292,6 +292,19 @@
             background: white;
         }
 
+        /* New class to force a clean line break for the title */
+        .title-break::after {
+            content: ""; /* Inserts nothing visible */
+            display: block; /* Forces the next content (the subtitle) onto a new line */
+        }
+        
+        /* Updated rule for the text span (keep existing centering/spacing) */
+        .accordion-header span {
+            text-align: center; 
+            margin-bottom: 0.5rem; 
+            line-height: 1.3; 
+        }
+
         .accordion-header {
             background: var(--brand-purple); 
             color: white;
@@ -303,6 +316,18 @@
             font-size: 1.4rem;
             font-weight: 600;
             transition: background 0.3s;
+        }
+
+        /* Ensure the text spans the full width and centers itself */
+        .accordion-header span {
+            /* CRITICAL: Ensure the span takes up the full width of the header */
+            width: 100%; 
+            
+            /* CRITICAL: Center the text inside the span */
+            text-align: center; 
+            
+            margin-bottom: 0.5rem; 
+            line-height: 1.3; 
         }
 
         .accordion-content {
@@ -372,6 +397,14 @@
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             text-align: left;
+        }
+
+        .workshop-method-subtitle {
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--brand-blue); 
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
         }
 
         .workshop-tagline-main {
@@ -708,13 +741,17 @@
         <div class="accordion-item">
             
             <div class="accordion-header" data-target="workshop-1">
-                <span> Capture & Pose™: Mobile Photography & Natural Posing</span>
+                <span>
+                    <span class="title-break">Capture & Pose™</span> Mobile Photography & Natural Posing
+                </span>
                 <i class="fas fa-chevron-up"></i>
             </div>
             
             <div class="accordion-content open" id="workshop-1">
                 
                 <div class="workshop-card-inner-content"> 
+
+                    <p class="workshop-method-subtitle">Powered by The Lens Method™</p>
                     
                     <p class="workshop-tagline-main">Capture the shot. Master your presence. Frame your story.</p>
 
@@ -730,7 +767,7 @@
                         
                         <div class="info-block location-block">
                             <p class="info-label">Location</p>
-                            <p class="info-value">Hyatt Place Aruba Airport</p>
+                            <p class="info-value">Aeromall 6th floor unit 1. Next to Hyatt Place</p>
                         </div>
                         
                         <div class="info-block investment-block">
@@ -754,19 +791,23 @@
                     
                 </div>
                 
-                <a href="#contact" class="btn register-btn">Register Now</a> 
+                <a href="https://forms.gle/87eo33Ed8q85oDaz6" target="_blank" class="btn register-btn">Register Now</a>
                 
             </div>
             </div>
         <div class="accordion-item">
             <div class="accordion-header" data-target="workshop-2">
-                <span>Storytelling: Go From Boring to Memorable Training</span>
+                <span>
+                    <span class="title-break">Storytelling Through a Photographer's Lens™</span> Go From Boring to Memorable Training
+                </span>
                 <i class="fas fa-chevron-down"></i>
             </div>
             
             <div class="accordion-content" id="workshop-2">
                 
                 <div class="workshop-card-inner-content"> 
+
+                    <p class="workshop-method-subtitle">Powered by The Lens Method™</p>
                     
                     <p class="workshop-tagline-main">Deliver Sessions People Remember & Apply</p>
 
@@ -793,7 +834,7 @@
                     </div>
 
                     <div class="workshop-learn">
-                        <h4>What You'll Learn:</h4>
+                        <h4>What You'll Learn: (The Lens Method™)</h4>
                         <ul>
                             <li>How to grab attention from the very first minute</li>
                             <li>Simple methods to make complex topics easy to absorb</li>
