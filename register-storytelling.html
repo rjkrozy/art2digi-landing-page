@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storytelling Workshop Registration</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <section class="registration-page">
+        <div class="container">
+            <h2>Storytelling Workshop Inquiry</h2>
+            
+            <p class="form-intro">Submit your inquiry for the Storytelling Through a Photographer's Lens™ training!</p>
+
+            <form name="storytelling_reg" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                
+                <input type="hidden" name="form-name" value="storytelling_reg" />
+                <input type="hidden" name="bot-field" /> 
+                <input type="hidden" name="next" value="/" /> 
+
+                <label for="full_name">Full Name *</label>
+                <input type="text" id="full_name" name="Full Name" required>
+
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="Email" required>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="Phone Number">
+
+                <p class="investment-note">
+                    *Investment and final details will be confirmed upon inquiry. Please use the space below for any questions.*
+                </p>
+                
+                <label for="questions">Questions / Inquiry Details</label>
+                <textarea id="questions" name="Questions"></textarea>
+
+                <button type="submit" class="btn register-btn">Submit Inquiry</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

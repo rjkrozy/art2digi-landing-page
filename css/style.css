@@ -1,0 +1,47 @@
+/* --- REGISTRATION FORM STYLES --- */
+.registration-page {
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+.registration-page .container {
+    max-width: 600px;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.form-intro, .investment-note {
+    margin-bottom: 1.5rem;
+    color: var(--brand-dark-text);
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Important for padding/width */
+    font-size: 1rem;
+}
+
+form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+form .btn.register-btn {
+    width: 100%;
+    margin-top: 2rem;
+}
