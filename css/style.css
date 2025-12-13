@@ -1,3 +1,691 @@
+/* --- BRAND COLORS DEFINITION --- */
+        :root {
+            --brand-blue: #009ace;       /* Primary Blue (Cyan) */
+            --brand-dark-blue: #0085ca;  /* Secondary Blue */
+            --brand-purple: #500778;     /* Primary Purple Accent */
+            --brand-dark-text: #333;
+            --brand-bubble-border: #00a3d1; /* A brighter blue for the bubble border, matching the image */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--brand-dark-text);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--brand-dark-blue); /* Secondary Blue for nav bar */
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex; 
+            align-items: center;
+        }
+        
+        nav .logo-img { 
+            height: 40px; 
+            vertical-align: middle;
+            margin-right: 10px; 
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--brand-blue); 
+        }
+
+        /* Hero Section */
+        .hero {
+            /* Use brand gradient (Blue to Purple) */
+            background: linear-gradient(135deg, var(--brand-dark-blue) 0%, var(--brand-purple) 100%);
+            color: white;
+            padding: 6rem 2rem 8rem; /* Extra padding for visual balance */
+            text-align: center;
+        }
+
+        /* Hero Heading Style (Matches Image) */
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem; 
+            font-weight: 700;
+            text-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- CORRECTED HERO TEXT BUBBLE STYLES (EXACT MATCH) --- */
+        .hero-bubble-container {
+            max-width: 800px;
+            margin: 30px auto 0;
+            position: relative;
+            padding-bottom: 50px; 
+        }
+        
+        .hero-bubble {
+            /* Styling for the main content box (the 'bubble') */
+            background: white; /* White background matching the image */
+            color: var(--brand-dark-text); /* Dark text on white background */
+            padding: 2.5rem 3rem;
+            border-radius: 25px; /* Rounded corners */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); /* Stronger shadow for floating effect */
+            border: 5px solid var(--brand-bubble-border); /* Blue border for the accent */
+            position: relative;
+            z-index: 10;
+            font-size: 1.4rem;
+            font-weight: 500;
+            line-height: 1.6;
+            text-align: center; /* Ensure text is centered inside the bubble */
+        }
+
+        /* --- STYLING THE SPEECH BUBBLE TAIL (CSS Triangle) --- */
+        /* Outer triangle (border color) */
+        .hero-bubble-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-top: 30px solid var(--brand-bubble-border); 
+            transform: translateX(-50%);
+            z-index: 9;
+        }
+
+        /* Inner triangle (white color) */
+        .hero-bubble-container::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-top: 25px solid white; 
+            transform: translate(-50%, -5px); 
+            z-index: 11;
+        }
+
+        /* Hero Section CTA Button (Matching Service Button Aesthetic) */
+        .hero-cta-btn {
+            /* Basic button properties */
+            display: inline-block;
+            margin-top: 3.5rem; /* Sufficient space below the bubble */
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            
+            /* SOLID COLOR & WHITE TEXT */
+            background: var(--brand-blue); /* Use Brand Blue for highest contrast against the purple gradient */
+            color: white; 
+            border: none; /* No border, like the service buttons */
+            border-radius: 5px; /* Slightly rounded corners */
+            
+            /* Add subtle shadow for lift */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            transition: background 0.3s, transform 0.2s;
+            text-decoration: none; /* Ensure it looks like a button */
+        }
+
+        .hero-cta-btn:hover {
+            /* On hover, transition to the secondary brand color (Purple) */
+            background: var(--brand-purple); 
+            transform: scale(1.05); /* Slight lift */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+        }
+        /* --- END CORRECTED HERO TEXT BUBBLE STYLES --- */
+
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 2rem;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--brand-purple); 
+        }
+
+        /* Services Grid */
+        #services {
+            background: #f8f9fa; /* Matches the workshop background */
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--brand-blue); 
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--brand-blue); 
+        }
+
+        .service-box .service-content {
+            flex-grow: 1;
+        }
+
+        .service-box ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .service-box ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-box ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--brand-blue); 
+            font-weight: bold;
+        }
+
+        /* Service button (Solid) */
+        .service-box .btn {
+            display: inline-block;
+            margin-top: auto;
+            padding: 0.8rem 1.5rem;
+            background: var(--brand-dark-blue); 
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            text-align: center;
+        }
+
+        .service-box .btn:hover {
+            background: var(--brand-purple); 
+        }
+
+        /* Workshop Section (Accordion Styles) */
+        .workshops {
+            background: #f8f9fa;
+        }
+        
+        .workshop-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            background: white;
+        }
+
+        /* New class to force a clean line break for the title */
+        .title-break::after {
+            content: ""; /* Inserts nothing visible */
+            display: block; /* Forces the next content (the subtitle) onto a new line */
+        }
+        
+        /* Updated rule for the text span (keep existing centering/spacing) */
+        .accordion-header span {
+            text-align: center; 
+            margin-bottom: 0.5rem; 
+            line-height: 1.3; 
+        }
+
+        .accordion-header {
+            background: var(--brand-purple); 
+            color: white;
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.4rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        /* Ensure the text spans the full width and centers itself */
+        .accordion-header span {
+            /* CRITICAL: Ensure the span takes up the full width of the header */
+            width: 100%; 
+            
+            /* CRITICAL: Center the text inside the span */
+            text-align: center; 
+            
+            margin-bottom: 0.5rem; 
+            line-height: 1.3; 
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+            padding: 0 2rem;
+            background: #fff;
+            color: var(--brand-dark-text);
+        }
+
+        .accordion-content.open {
+            max-height: 800px; 
+            padding: 2rem;
+            border-top: 1px solid #eee;
+        }
+
+        .accordion-content p {
+            margin-bottom: 1rem;
+        }
+
+        .accordion-content ul {
+            list-style: disc;
+            margin: 1rem 0 1rem 20px;
+        }
+        
+        /* WORKSHOP ACCORDION BUTTON (SOLID STYLE) */
+        .accordion-content .btn {
+            margin-top: 1rem;
+            display: block;
+            width: 100%;
+            padding: 0.8rem 1.5rem;
+            background: var(--brand-dark-blue); 
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            text-align: center;
+            border: none;
+        }
+        
+        .accordion-content .btn:hover {
+            background: var(--brand-purple); 
+        }
+
+        /* --- WORKSHOPS SECTION STYLES (Key Card Styles) --- */
+        
+        /* Adjusted style to fit cleanly inside the accordion-content */
+        .workshop-card-inner-content {
+            text-align: left;
+            padding: 0; 
+            margin: 0 0 1rem 0; /* Only keep a bottom margin */
+        }
+        
+        /* Ensure the Investment block spacing is correct inside the accordion */
+        .workshop-info-grid {
+            /* You can try increasing the gap if the columns are too tight */
+            gap: 10px; 
+            margin-bottom: 1.5rem;
+        }
+
+        .workshop-card {
+            max-width: 750px;
+            margin: 1rem auto 2rem auto; /* Added bottom margin for space above the button */
+            padding: 2.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .workshop-method-subtitle {
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--brand-blue); 
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .workshop-tagline-main {
+            font-size: 1.3rem;
+            font-style: italic;
+            font-weight: 500;
+            color: var(--brand-dark-text);
+            margin-top: 0;
+            margin-bottom: 2.5rem; /* Increased margin for height/spacing */
+        }
+
+        /* Info Grid Styling */
+        .workshop-info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .investment-block {
+            grid-column: 1 / span 3; 
+            background: #e0e6f7; 
+        }
+
+        .info-block {
+            background: #f0f2f5; 
+            padding: 15px;
+            border-radius: 8px;
+            min-height: 80px; 
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: var(--brand-purple); 
+        }
+
+        /* Ensure the Register Button is visible below the card */
+        .accordion-content .btn {
+            margin-top: 1.5rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 3rem 0;
+            background: #f8f9fa; /* Light background for the section */
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: flex-start;
+            /* Paragraph text color: Dark Text/Black */
+            color: var(--brand-dark-text); 
+            padding: 3rem;
+            background: white; 
+            border-radius: 20px;
+            border: 1px solid #ddd; 
+        }
+
+        .about-content h2 {
+            margin-bottom: 1.5rem;
+            color: var(--brand-blue) !important; /* Forced Blue/Cyan */
+        }
+
+        .about-content h3 {
+            margin-bottom: 1.5rem;
+            color: var(--brand-blue) !important; /* Forced Blue/Cyan */
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+            opacity: 1; /* Ensure full visibility */
+            /* Color inherits from .about-content (var(--brand-dark-text)) */
+        }
+
+        .about-tagline p {
+            font-family: 'Dancing Script', cursive; 
+            font-size: 1.5rem; 
+            margin-top: 3rem; 
+            text-align: center; 
+            color: var(--brand-dark-text) !important; /* Forced Dark Text/Black */
+            text-shadow: none; 
+        }
+
+        .about-final-statement {
+            font-family: 'Dancing Script', cursive !important;
+            font-size: 2.2rem; /* Significantly larger */
+            font-weight: 700 !important; /* Bold, if available in the font */
+            text-align: center !important; /* Center it */
+            margin: 2rem 0 1rem 0 !important; /* Add space above and below */
+            /* Use the Brand Blue for color accent */
+            color: var(--brand-blue) !important; 
+            line-height: 1.2;
+        }
+
+        /* Image Styles (remains dark-friendly as it is inside the light box) */
+        .about-image-wrapper {
+            text-align: center;
+        }
+
+        .about-image {
+            width: 100%; 
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            border: 4px solid #1ba3d1; 
+        }
+        
+        /* Tagline Style (It must also be dark text on a light page background) */
+        .about-tagline p {
+            font-family: 'Dancing Script', cursive; 
+            font-style: normal; 
+            font-size: 1.5rem; 
+            margin-top: 3rem; 
+            text-align: center; 
+            /* CRITICAL CHANGE: Set color to dark brand color */
+            color: var(--brand-dark-text); 
+            text-shadow: none; /* Remove shadows */
+        }
+
+        .about-content .highlight {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--brand-blue); 
+        }
+
+        /* New style for the image container */
+        .about-image-wrapper {
+            text-align: center;
+        }
+
+        .about-image {
+            width: 100%; /* Make image fill its column */
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            border: 4px solid #1ba3d1; /* Accent border matching the brand cyan */
+        }
+
+        /* New style for the About section image */
+        .about-image-wrapper {
+            text-align: center;
+        }
+
+        .about-image {
+            width: 100%; /* Make image fill its column */
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            border: 4px solid #1ba3d1; /* Accent border matching the brand cyan */
+        }
+
+        /* Style to make the tagline cursive and visually distinct */
+        .about-tagline p {
+            font-family: 'Dancing Script', cursive; /* Uses the new Google Font */
+            font-style: normal; 
+            font-size: 1.5rem; 
+            margin-top: 3rem; 
+            text-align: center; 
+            color: white; 
+            /* Ensure it stands out against the dark background */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 5px rgba(0, 0, 0, 0.5); 
+        }
+
+
+        /* Contact Section */
+        .contact {
+            background: var(--brand-dark-blue); 
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-item strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .contact a {
+            color: var(--brand-blue); 
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- NEW FORM STYLES FOR CONTACT SECTION --- */
+        .contact form {
+            max-width: 500px;
+            margin: 2rem auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1); /* Slightly lighter background for the form itself */
+            border-radius: 10px;
+        }
+
+        .contact input, 
+        .contact textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: var(--brand-dark-text);
+            background: white;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact button.btn {
+            /* Use the existing .btn style but override background for contact contrast */
+            padding: 1rem;
+            background: var(--brand-blue); /* Use the primary blue for the submit button */
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: white;
+            transition: background 0.3s;
+        }
+
+        .contact button.btn:hover {
+            background: var(--brand-purple); /* Purple hover effect */
+        }
+
+        /* Footer */
+        footer {
+            background: var(--brand-purple); 
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-bubble {
+                font-size: 1.2rem; 
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+        }
+
 /* --- REGISTRATION FORM STYLES --- */
 .registration-page {
     padding: 4rem 0;
@@ -44,4 +732,18 @@ form textarea {
 form .btn.register-btn {
     width: 100%;
     margin-top: 2rem;
+    padding: 0.8rem 1.5rem; 
+    background: var(--brand-dark-blue); /* Solid Dark Blue */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none; /* Remove default browser button border */
+    transition: background 0.3s;
+    text-align: center;
+    font-size: 1.1rem; /* Match the contact button size */
+    font-weight: bold;
+}
+
+form .btn.register-btn:hover {
+    background: var(--brand-purple); /* Consistent Purple hover effect */
 }
