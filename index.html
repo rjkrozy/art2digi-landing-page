@@ -257,8 +257,12 @@
             <h2>Let's Connect</h2>
             <p>Send a message using the form below to inquire about projects or workshops.</p>
             
-            <form name="art2digi_contact_form" method="POST" data-netlify="true" action="/thank-you">
+           <form name="art2digi_contact_form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    
                 <input type="hidden" name="form-name" value="art2digi_contact_form" />
+                <input type="hidden" name="bot-field" /> 
+                
+                <input type="hidden" name="next" value="/thank-you.html" />
                 
                 <input type="text" name="name" placeholder="Your Name (Required)" required>
                 <input type="email" name="email" placeholder="Your Email (Required)" required>
@@ -266,7 +270,7 @@
                 
                 <button type="submit" class="btn">Send My Message</button>
             </form>
-            </div>
+        </div>
     </section>
 
     <footer>

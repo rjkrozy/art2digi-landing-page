@@ -42,7 +42,9 @@
                 
                 <p class="form-intro">Secure your spot for the Mobile Photography & Natural Posing workshop!</p>
 
-                <form method="POST" action="/thank-you-workshop.html?workshop=CapturePose">
+                <form method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                    <input type="hidden" name="bot-field" />
+                    <input type="hidden" name="next" value="/thank-you-workshop.html?workshop=CapturePose">
                     
                     <input type="hidden" name="form-name" value="capture_pose_reg">
                     
