@@ -21,7 +21,12 @@
                 <img src="img/logo.svg" alt="Art2Digi Solutions Logo" class="logo-img">
                 Art2Digi Solutions
             </div>
-            <ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#workshops">Workshops</a></li> 
                 <li><a href="#services">Services</a></li>
@@ -33,7 +38,6 @@
 
     <section id="home" class="hero">
         <div class="container">
-            
             <div class="hero-bubble-container">
                 <div class="hero-bubble">
                     "We provide the technical expertise to build your solutions and the storytelling to make them stick, so you stand out. 
@@ -41,127 +45,15 @@
                     We bridge the gap between complex digital strategy and compelling human connection, so your tech speaks to hearts, not just screens."
                 </div>
             </div>
-
             <a href="#workshops" class="btn hero-cta-btn">View Workshops</a>
         </div>
     </section>
 
     <section id="workshops" class="workshops">
-    <div class="container workshop-container">
-        <h2>Featured Workshops</h2>
-        
-        <div class="accordion-item">
-            
-            <div class="accordion-header" data-target="workshop-1">
-                <span>
-                    <span class="title-break">Capture & Pose™</span> Mobile Photography & Natural Posing
-                </span>
-                <i class="fas fa-chevron-up"></i>
-            </div>
-            
-            <div class="accordion-content open" id="workshop-1">
-                
-                <div class="workshop-card-inner-content"> 
-
-                    <p class="workshop-method-subtitle">Powered by The Lens Method™</p>
-                    
-                    <p class="workshop-tagline-main">Capture the shot. Master your presence. Frame your story.</p>
-
-                    <div class="workshop-info-grid">
-                        <div class="info-block date-block">
-                            <p class="info-label">Date</p>
-                            <p class="info-value">January 24, 2026</p>
-                        </div>
-                        <div class="info-block time-block">
-                            <p class="info-label">Time</p>
-                            <p class="info-value">9:30 AM - 12:00 PM</p>
-                        </div>
-                        
-                        <div class="info-block location-block">
-                            <p class="info-label">Location</p>
-                            <p class="info-value">Aeromall 6th floor unit 1. Next to Hyatt Place</p>
-                        </div>
-                        
-                        <div class="info-block investment-block">
-                            <p class="info-label">Investment</p>
-                            <p class="info-value">AWG 250 (Early Bird: AWG 200 until Jan 15)</p>
-                        </div>
-                        
-                    </div>
-
-                    <div class="workshop-learn">
-                        <h4>What You'll Learn:</h4>
-                        <ul>
-                            <li>Professional mobile photography techniques</li>
-                            <li>Natural light mastery (indoor & outdoor)</li>
-                            <li>Composition that captivates</li>
-                            <li>Natural posing for yourself and others</li>
-                        </ul>
-                    </div>
-
-                    <p class="workshop-note">Limited spots!!!</p>
-                    
-                </div>
-                
-                <a href="register-capture-pose.html" target="_blank" class="btn register-btn">Register Now</a>
-                
-            </div>
-            </div>
-        <div class="accordion-item">
-            <div class="accordion-header" data-target="workshop-2">
-                <span>
-                    <span class="title-break">Storytelling Through a Photographer's Lens™</span> Go From Boring to Memorable Training
-                </span>
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            
-            <div class="accordion-content" id="workshop-2">
-                
-                <div class="workshop-card-inner-content"> 
-
-                    <p class="workshop-method-subtitle">Powered by The Lens Method™</p>
-                    
-                    <p class="workshop-tagline-main">Deliver Sessions People Remember & Apply</p>
-
-                    <div class="workshop-info-grid">
-                        <div class="info-block date-block">
-                            <p class="info-label">Date</p>
-                            <p class="info-value">March, 2026</p>
-                        </div>
-                        <div class="info-block time-block">
-                            <p class="info-label">Time</p>
-                            <p class="info-value">9:30 AM - 12:00 PM</p>
-                        </div>
-                        
-                        <div class="info-block location-block">
-                            <p class="info-label">Location</p>
-                            <p class="info-value">TBA</p>
-                        </div>
-                        
-                        <div class="info-block investment-block">
-                            <p class="info-label">Investment</p>
-                            <p class="info-value">TBA</p>
-                        </div>
-                        
-                    </div>
-
-                    <div class="workshop-learn">
-                        <h4>What You'll Learn: (The Lens Method™)</h4>
-                        <ul>
-                            <li>How to grab attention from the very first minute</li>
-                            <li>Simple methods to make complex topics easy to absorb</li>
-                            <li>Proven tools to keep participants engaged start to finish</li>
-                        </ul>
-                    </div>
-
-                    <p class="workshop-note">Limited spots!!!</p>
-                    
-                </div>
-                
-                <a href="#contact" class="btn register-btn">More Info</a> 
-                
-            </div>
-            </div>
+        <div class="container workshop-container">
+            <h2>Featured Workshops</h2>
+            <!-- Workshops are injected here by JavaScript from workshops.json -->
+            <div id="workshops-list"></div>
         </div>
     </section>
 
@@ -218,56 +110,37 @@
     </section>
 
     <section id="about" class="about">
-            <div class="container">
-                
-                <h2>About</h2>
-                
-                <div class="about-content">
-                    
-                    <div>
-                        <h2>The Sunset Chasing Girl</h2> 
-                        
-                        <p>I bring technical precision to artistic patience. I chase the light in photography and the perfect flow in technical architecture.</p>
-                        
-                        <p>Known as "the forever chasing sunset girl," everywhere I go Aruba, Amsterdam, Paris, New York. I'm always hunting golden hour. That perfect light that transforms everything.</p>
-                        
-                        <p>But I learned something chasing all those sunsets: <strong>Light isn't just visual. It's emotional.</strong> The best photos tell stories. The best training does too. The best code bridges understanding.</p>
-
-                        <p>With a background as a Sr. Software Developer and professional photographer, I help businesses communicate effectively. Whether through code, images, or training.</p>
-                        
-                        <p class="about-final-statement">"I bridge technology and creativity"</p>
-                    </div>
-                    
-                    <div class="about-image-wrapper">
-                        <img src="img/about-pic.JPG" alt="Professional portrait" class="about-image">
-                    </div>
-                    
+        <div class="container">
+            <h2>About</h2>
+            <div class="about-content">
+                <div>
+                    <h2>The Sunset Chasing Girl</h2> 
+                    <p>I bring technical precision to artistic patience. I chase the light in photography and the perfect flow in technical architecture.</p>
+                    <p>Known as "the forever chasing sunset girl," everywhere I go Aruba, Amsterdam, Paris, New York. I'm always hunting golden hour. That perfect light that transforms everything.</p>
+                    <p>But I learned something chasing all those sunsets: <strong>Light isn't just visual. It's emotional.</strong> The best photos tell stories. The best training does too. The best code bridges understanding.</p>
+                    <p>With a background as a Sr. Software Developer and professional photographer, I help businesses communicate effectively. Whether through code, images, or training.</p>
+                    <p class="about-final-statement">"I bridge technology and creativity"</p>
                 </div>
-                
-                <div class="about-tagline">
-                    <p>
-                        Where technology meets creativity. Where stories illuminate. Where every moment is worth capturing.
-                    </p>
+                <div class="about-image-wrapper">
+                    <img src="img/about-pic.JPG" alt="Professional portrait" class="about-image">
                 </div>
             </div>
-        </section>
+            <div class="about-tagline">
+                <p>Where technology meets creativity. Where stories illuminate. Where every moment is worth capturing.</p>
+            </div>
+        </div>
+    </section>
 
     <section id="contact" class="contact">
         <div class="container">
             <h2>Let's Connect</h2>
             <p>Send a message using the form below to inquire about projects or workshops.</p>
-            
-           <form name="art2digi_contact_form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-    
+            <form name="art2digi_contact_form" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
                 <input type="hidden" name="form-name" value="art2digi_contact_form" />
                 <input type="hidden" name="bot-field" /> 
-                
-                <input type="hidden" name="next" value="/thank-you.html" />
-                
                 <input type="text" name="name" placeholder="Your Name (Required)" required>
                 <input type="email" name="email" placeholder="Your Email (Required)" required>
                 <textarea name="message" placeholder="Your Message or Project Details" required></textarea>
-                
                 <button type="submit" class="btn">Send My Message</button>
             </form>
         </div>
@@ -275,25 +148,119 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Art2Digi Solutions. All rights reserved.</p>
+            <p>&copy; 2026 Art2Digi Solutions. All rights reserved.</p>
             <p>Lens Method™ is a trademark of Art2Digi Solutions.</p>
         </div>
     </footer>
 
     <script>
-        // JAVASCRIPT FOR ACCORDION FUNCTIONALITY (Harmonica Effect)
-        document.addEventListener('DOMContentLoaded', function() {
-            const headers = document.querySelectorAll('.accordion-header');
+        // ================================================
+        // LOAD WORKSHOPS FROM JSON
+        // ================================================
+        async function loadWorkshops() {
+            try {
+                const response = await fetch('workshops.json');
+                const data = await response.json();
+                renderWorkshops(data);
+            } catch (error) {
+                console.error('Could not load workshops.json:', error);
+            }
+        }
 
+        function renderWorkshops(data) {
+            const container = document.getElementById('workshops-list');
+            const workshops = Object.values(data);
+
+            workshops.forEach((workshop, index) => {
+                const isFirst = index === 0;
+                const isOpen = isFirst;
+
+                // Build investment text
+                let investmentText = 'TBA';
+                if (workshop.price_regular) {
+                    investmentText = `${workshop.currency} ${workshop.price_regular}`;
+                    if (workshop.price_earlybird) {
+                        investmentText += ` — Early Bird: ${workshop.currency} ${workshop.price_earlybird} (${workshop.earlybird_label})`;
+                    }
+                }
+
+                // Build learn list items
+                const learnItems = workshop.learn
+                    .map(item => `<li>${item}</li>`)
+                    .join('');
+
+                // Build register/more info button
+                let actionButton = '';
+                if (workshop.status === 'open' && workshop.register_url) {
+                    actionButton = `<a href="${workshop.register_url}" target="_blank" class="btn register-btn">Register Now</a>`;
+                } else {
+                    actionButton = `<a href="#contact" class="btn register-btn">More Info</a>`;
+                }
+
+                // Build payment deadline note (only for open workshops)
+                const deadlineNote = workshop.status === 'open'
+                    ? `<p class="workshop-note">⚡ First ${workshop.earlybird_spots} registrations get the early bird rate of ${workshop.currency} ${workshop.price_earlybird}. Payment required within ${workshop.payment_deadline_hours} hours to confirm your spot.</p>`
+                    : `<p class="workshop-note">Coming soon — contact us for more info.</p>`;
+
+                const accordionHTML = `
+                    <div class="accordion-item">
+                        <div class="accordion-header" data-target="workshop-${index + 1}">
+                            <span>
+                                <span class="title-break">${workshop.name}</span> ${workshop.subtitle}
+                            </span>
+                            <i class="fas ${isOpen ? 'fa-chevron-up' : 'fa-chevron-down'}"></i>
+                        </div>
+                        <div class="accordion-content ${isOpen ? 'open' : ''}" id="workshop-${index + 1}">
+                            <div class="workshop-card-inner-content">
+                                <p class="workshop-method-subtitle">${workshop.method}</p>
+                                <p class="workshop-tagline-main">${workshop.tagline}</p>
+                                <div class="workshop-info-grid">
+                                    <div class="info-block date-block">
+                                        <p class="info-label">Date</p>
+                                        <p class="info-value">${workshop.date}</p>
+                                    </div>
+                                    <div class="info-block time-block">
+                                        <p class="info-label">Time</p>
+                                        <p class="info-value">${workshop.time}</p>
+                                    </div>
+                                    <div class="info-block location-block">
+                                        <p class="info-label">Location</p>
+                                        <p class="info-value">${workshop.location}</p>
+                                    </div>
+                                    <div class="info-block investment-block">
+                                        <p class="info-label">Investment</p>
+                                        <p class="info-value">${investmentText}</p>
+                                    </div>
+                                </div>
+                                <div class="workshop-learn">
+                                    <h4>What You'll Learn:</h4>
+                                    <ul>${learnItems}</ul>
+                                </div>
+                                ${deadlineNote}
+                            </div>
+                            ${actionButton}
+                        </div>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', accordionHTML);
+            });
+
+            // Init accordion after rendering
+            initAccordion();
+        }
+
+        // ================================================
+        // ACCORDION
+        // ================================================
+        function initAccordion() {
+            const headers = document.querySelectorAll('.accordion-header');
             headers.forEach(header => {
                 header.addEventListener('click', () => {
                     const targetId = header.getAttribute('data-target');
                     const content = document.getElementById(targetId);
                     const icon = header.querySelector('.fas');
-
                     const isOpen = content.classList.contains('open');
 
-                    // 1. Close all currently open accordions (Harmonica Effect)
                     document.querySelectorAll('.accordion-content.open').forEach(openContent => {
                         const openHeader = openContent.previousElementSibling;
                         openContent.classList.remove('open');
@@ -301,7 +268,6 @@
                         openHeader.querySelector('.fas').classList.add('fa-chevron-down');
                     });
 
-                    // 2. Open the clicked accordion (if it was closed)
                     if (!isOpen) {
                         content.classList.add('open');
                         icon.classList.remove('fa-chevron-down');
@@ -309,6 +275,35 @@
                     }
                 });
             });
+        }
+
+        // ================================================
+        // HAMBURGER MENU
+        // ================================================
+        function initHamburger() {
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('open');
+                navMenu.classList.toggle('nav-open');
+            });
+
+            // Close menu when a nav link is clicked
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('open');
+                    navMenu.classList.remove('nav-open');
+                });
+            });
+        }
+
+        // ================================================
+        // INIT
+        // ================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            loadWorkshops();
+            initHamburger();
         });
     </script>
 </body>

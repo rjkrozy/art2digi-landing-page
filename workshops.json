@@ -1,0 +1,72 @@
+{
+  "capture-pose": {
+    "id": "capture-pose",
+    "slug": "CapturePose",
+    "name": "Capture & Pose™",
+    "fullName": "Capture & Pose™ Mobile Photography & Natural Posing",
+    "subtitle": "Mobile Photography & Natural Posing",
+    "method": "Powered by The Lens Method™",
+    "tagline": "Capture the shot. Master your presence. Frame your story.",
+    "date": "March 28, 2026",
+    "time": "9:30 AM - 12:00 PM",
+    "duration": "2.5 hours",
+    "location": "Aeromall 6th floor unit 1, next to Hyatt Place",
+    "price_regular": 250,
+    "price_earlybird": 200,
+    "earlybird_spots": 5,
+    "earlybird_label": "First 5 registrations",
+    "currency": "AWG",
+    "payment_deadline_hours": 48,
+    "register_url": "register-capture-pose.html",
+    "status": "open",
+    "learn": [
+      "Professional mobile photography techniques",
+      "Natural light mastery (indoor & outdoor)",
+      "Composition that captivates",
+      "Natural posing for yourself and others"
+    ],
+    "includes": [
+      "Snacks & drinks included",
+      "Parking included",
+      "Hands-on practice session",
+      "Personal feedback from instructor"
+    ],
+    "bank": {
+      "name": "[YOUR BANK NAME]",
+      "account": "[YOUR ACCOUNT NUMBER]",
+      "holder": "Art2Digi Solutions"
+    }
+  },
+  "storytelling": {
+    "id": "storytelling",
+    "slug": "Storytelling",
+    "name": "Storytelling Through a Photographer's Lens™",
+    "fullName": "Storytelling Through a Photographer's Lens™ Go From Boring to Memorable Training",
+    "subtitle": "Go From Boring to Memorable Training",
+    "method": "Powered by The Lens Method™",
+    "tagline": "Deliver Sessions People Remember & Apply",
+    "date": "TBA",
+    "time": "9:30 AM - 12:00 PM",
+    "duration": "2.5 hours",
+    "location": "TBA",
+    "price_regular": null,
+    "price_earlybird": null,
+    "earlybird_spots": 5,
+    "earlybird_label": "First 5 registrations",
+    "currency": "AWG",
+    "payment_deadline_hours": 48,
+    "register_url": null,
+    "status": "coming-soon",
+    "learn": [
+      "How to grab attention from the very first minute",
+      "Simple methods to make complex topics easy to absorb",
+      "Proven tools to keep participants engaged start to finish"
+    ],
+    "includes": [],
+    "bank": {
+      "name": "[YOUR BANK NAME]",
+      "account": "[YOUR ACCOUNT NUMBER]",
+      "holder": "Art2Digi Solutions"
+    }
+  }
+}

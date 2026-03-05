@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Confirmed — Capture & Pose™</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue:   #0085ca;
+            --purple: #500778;
+            --light:  #009ace;
+            --white:  #ffffff;
+            --gray:   #f5f7fa;
+            --text:   #2d2d2d;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0085ca 0%, #500778 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            color: var(--text);
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            max-width: 640px;
+            width: 100%;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        /* Header */
+        .card-header {
+            background: linear-gradient(135deg, #0085ca, #500778);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            color: white;
+        }
+        .card-header .check-icon {
+            font-size: 3rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+        .card-header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .card-header p {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        /* Body */
+        .card-body {
+            padding: 2rem;
+        }
+
+        /* Workshop summary */
+        .workshop-summary {
+            background: var(--gray);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.75rem;
+        }
+        .workshop-summary h3 {
+            color: var(--purple);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+        .summary-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .summary-row i {
+            color: var(--blue);
+            width: 18px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        /* Payment section */
+        .payment-section {
+            border: 2px solid var(--blue);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1.75rem;
+        }
+        .payment-header {
+            background: var(--blue);
+            color: white;
+            padding: 0.85rem 1.5rem;
+            font-weight: 700;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .payment-body {
+            padding: 1.25rem 1.5rem;
+        }
+        .price-highlight {
+            background: linear-gradient(135deg, #0085ca15, #50077815);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.25rem;
+            text-align: center;
+        }
+        .price-highlight .price-label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.25rem;
+        }
+        .price-highlight .price-amount {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--purple);
+        }
+        .price-highlight .price-note {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 0.25rem;
+        }
+
+        .bank-details {
+            background: var(--gray);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .bank-details h4 {
+            color: var(--purple);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+        .bank-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #e8e8e8;
+            font-size: 0.9rem;
+        }
+        .bank-row:last-child { border-bottom: none; }
+        .bank-row .label { color: #666; }
+        .bank-row .value { font-weight: 600; color: var(--text); }
+
+        .deadline-warning {
+            background: #fff8e1;
+            border-left: 4px solid #f59e0b;
+            border-radius: 0 8px 8px 0;
+            padding: 0.85rem 1rem;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        .deadline-warning i { color: #f59e0b; margin-top: 2px; flex-shrink: 0; }
+
+        /* Transfer reference */
+        .reference-note {
+            background: #e8f4fd;
+            border-radius: 8px;
+            padding: 0.85rem 1rem;
+            font-size: 0.88rem;
+            margin-top: 1rem;
+            color: #0056a0;
+        }
+        .reference-note strong { display: block; margin-bottom: 0.25rem; }
+
+        /* What's included */
+        .includes-section {
+            margin-bottom: 1.75rem;
+        }
+        .includes-section h3 {
+            color: var(--purple);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+        .includes-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+        .includes-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .includes-list li i { color: var(--blue); font-size: 0.8rem; }
+
+        /* Footer actions */
+        .card-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--blue);
+            color: white;
+            flex: 1;
+            justify-content: center;
+        }
+        .btn-primary:hover { background: var(--purple); }
+        .btn-secondary {
+            background: var(--gray);
+            color: var(--text);
+            flex: 1;
+            justify-content: center;
+        }
+        .btn-secondary:hover { background: #e0e0e0; }
+
+        /* Card footer */
+        .card-footer {
+            background: var(--gray);
+            padding: 1rem 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #888;
+            border-top: 1px solid #eee;
+        }
+
+        @media (max-width: 480px) {
+            .includes-list { grid-template-columns: 1fr; }
+            .card-actions { flex-direction: column; }
+            .card-body { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+
+        <!-- Header -->
+        <div class="card-header">
+            <i class="fas fa-check-circle check-icon"></i>
+            <h1>You're Registered! 🎉</h1>
+            <p>Capture & Pose™ — Mobile Photography & Natural Posing</p>
+        </div>
+
+        <!-- Body -->
+        <div class="card-body">
+
+            <!-- Workshop Summary -->
+            <div class="workshop-summary">
+                <h3><i class="fas fa-info-circle"></i> Workshop Details</h3>
+                <div id="workshopSummary">
+                    <!-- Loaded from workshops.json -->
+                </div>
+            </div>
+
+            <!-- Payment Section -->
+            <div class="payment-section">
+                <div class="payment-header">
+                    <i class="fas fa-credit-card"></i>
+                    Payment Instructions — Action Required
+                </div>
+                <div class="payment-body">
+
+                    <div class="price-highlight">
+                        <p class="price-label">Your investment</p>
+                        <p class="price-amount" id="priceDisplay">Loading...</p>
+                        <p class="price-note" id="priceNote"></p>
+                    </div>
+
+                    <div class="bank-details">
+                        <h4><i class="fas fa-university"></i> Bank Transfer Details</h4>
+                        <div id="bankDetails">
+                            <!-- Loaded from workshops.json -->
+                        </div>
+                    </div>
+
+                    <div class="deadline-warning" id="deadlineWarning">
+                        <!-- Loaded from workshops.json -->
+                    </div>
+
+                    <div class="reference-note">
+                        <strong>📝 Payment Reference</strong>
+                        Please use your full name as the payment reference so we can match your payment easily.
+                    </div>
+                </div>
+            </div>
+
+            <!-- What's Included -->
+            <div class="includes-section">
+                <h3>✨ What's Included</h3>
+                <ul class="includes-list" id="includesList">
+                    <!-- Loaded from workshops.json -->
+                </ul>
+            </div>
+
+            <!-- Actions -->
+            <div class="card-actions">
+                <a href="index.html" class="btn btn-secondary">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+                <a href="index.html#contact" class="btn btn-primary">
+                    <i class="fas fa-question-circle"></i> Have a Question?
+                </a>
+            </div>
+
+        </div>
+
+        <div class="card-footer">
+            A confirmation email with these payment details has been sent to your inbox.<br>
+            &copy; 2026 Art2Digi Solutions · Lens Method™ is a trademark of Art2Digi Solutions.
+        </div>
+    </div>
+
+    <script>
+        async function loadWorkshopData() {
+            try {
+                const response = await fetch('workshops.json');
+                const data = await response.json();
+                const w = data['capture-pose'];
+                renderPage(w);
+            } catch (error) {
+                console.error('Could not load workshops.json:', error);
+            }
+        }
+
+        function renderPage(w) {
+            // Workshop summary
+            document.getElementById('workshopSummary').innerHTML = `
+                <div class="summary-row">
+                    <i class="fas fa-calendar"></i>
+                    <span><strong>${w.date}</strong></span>
+                </div>
+                <div class="summary-row">
+                    <i class="fas fa-clock"></i>
+                    <span>${w.time}</span>
+                </div>
+                <div class="summary-row">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>${w.location}</span>
+                </div>
+            `;
+
+            // Price
+            document.getElementById('priceDisplay').textContent =
+                `${w.currency} ${w.price_earlybird} – ${w.currency} ${w.price_regular}`;
+            document.getElementById('priceNote').textContent =
+                `Early Bird ${w.currency} ${w.price_earlybird} (${w.earlybird_label}) · Regular ${w.currency} ${w.price_regular}`;
+
+            // Bank details
+            document.getElementById('bankDetails').innerHTML = `
+                <div class="bank-row">
+                    <span class="label">Bank</span>
+                    <span class="value">${w.bank.name}</span>
+                </div>
+                <div class="bank-row">
+                    <span class="label">Account Holder</span>
+                    <span class="value">${w.bank.holder}</span>
+                </div>
+                <div class="bank-row">
+                    <span class="label">Account Number</span>
+                    <span class="value">${w.bank.account}</span>
+                </div>
+            `;
+
+            // Deadline warning
+            document.getElementById('deadlineWarning').innerHTML = `
+                <i class="fas fa-exclamation-triangle"></i>
+                <span><strong>${w.payment_deadline_hours}-hour payment deadline.</strong> 
+                Your spot is reserved but not confirmed until payment is received. 
+                If payment is not received within ${w.payment_deadline_hours} hours, your spot will be released.</span>
+            `;
+
+            // Includes list
+            document.getElementById('includesList').innerHTML =
+                w.includes.map(item => `
+                    <li><i class="fas fa-check"></i> ${item}</li>
+                `).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', loadWorkshopData);
+    </script>
+</body>
+</html>

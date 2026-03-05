@@ -4,12 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capture & Pose™ Registration</title>
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css"> 
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        // =============================================
+        // EMAILJS CONFIG — Fill in your credentials
+        // =============================================
+        (function(){
+            emailjs.init("XfV62oYNl_QAwWLuW"); // 🔑 Replace with your EmailJS Public Key
+        })();
+    </script>
 </head>
 <body>
-    
+    <!-- Netlify bot detection hidden form -->
+    <form name="capture_pose_reg" netlify hidden>
+        <input type="text" name="full_name">
+        <input type="email" name="email">
+        <input type="tel" name="phone">
+        <textarea name="questions"></textarea>
+    </form>
+
     <header>
         <nav>
             <div class="container">
@@ -29,42 +46,49 @@
     </header>
     
     <main> 
-        <form name="capture_pose_reg" netlify hidden>
-            <input type="text" name="Full Name">
-            <input type="email" name="Email">
-            <input type="tel" name="Phone Number">
-            <textarea name="Questions"></textarea>
-        </form>
-
         <section class="registration-page">
             <div class="container">
                 <h2>Capture & Pose™ Workshop Registration</h2>
-                
                 <p class="form-intro">Secure your spot for the Mobile Photography & Natural Posing workshop!</p>
 
-                <form method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <div class="workshop-reg-details" id="workshopDetails">
+                    <!-- Loaded from workshops.json -->
+                </div>
+
+                <p class="investment-note" id="paymentNote">
+                    <!-- Loaded from workshops.json -->
+                </p>
+
+                <!-- 
+                    NETLIFY FIX: action attribute on the form tag is what controls the redirect.
+                    Do NOT use <input type="hidden" name="next"> — that does not work reliably.
+                -->
+                <form 
+                    id="registrationForm"
+                    name="capture_pose_reg" 
+                    method="POST" 
+                    data-netlify="true" 
+                    netlify-honeypot="bot-field"
+                    action="/thank-you-capture-pose.html"
+                >
                     <input type="hidden" name="bot-field" />
-                    <input type="hidden" name="next" value="/thank-you-workshop.html?workshop=CapturePose">
-                    
                     <input type="hidden" name="form-name" value="capture_pose_reg">
                     
                     <label for="full_name">Full Name *</label>
-                    <input type="text" id="full_name" name="Full Name" required>
+                    <input type="text" id="full_name" name="full_name" required placeholder="Your full name">
 
                     <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="Email" required>
+                    <input type="email" id="email" name="email" required placeholder="your@email.com">
 
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="Phone Number">
-
-                    <p class="investment-note">
-                        *The investment is AWG 250 (Early Bird AWG 200 before Jan 15). We will contact you with payment details.*
-                    </p>
+                    <label for="phone">Phone Number (WhatsApp preferred)</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+297 XXX XXXX">
 
                     <label for="questions">Questions for the instructor?</label>
-                    <textarea id="questions" name="Questions"></textarea>
+                    <textarea id="questions" name="questions" placeholder="Any questions or special requests..."></textarea>
 
-                    <button type="submit" class="btn register-btn">Submit Registration</button>
+                    <button type="submit" class="btn register-btn" id="submitBtn">
+                        <i class="fas fa-camera"></i> Secure My Spot
+                    </button>
                 </form>
             </div>
         </section>
@@ -72,10 +96,86 @@
     
     <footer>
         <div class="container">
-            <p>&copy; 2025 Art2Digi Solutions. All rights reserved.</p>
+            <p>&copy; 2026 Art2Digi Solutions. All rights reserved.</p>
             <p>Lens Method™ is a trademark of Art2Digi Solutions.</p>
         </div>
     </footer>
 
+    <script>
+        // =============================================
+        // EMAILJS CREDENTIALS — Fill in your own
+        // =============================================
+        const EMAILJS_SERVICE_ID  = "service_4ewil9m";   // 🔑 e.g. "service_abc123"
+        const EMAILJS_TEMPLATE_ID = "template_ngxt1ck";  // 🔑 e.g. "template_xyz789"
+
+        // =============================================
+        // LOAD WORKSHOP DATA FROM JSON
+        // =============================================
+        let workshopData = null;
+
+        async function loadWorkshopData() {
+            try {
+                const response = await fetch('workshops.json');
+                const data = await response.json();
+                workshopData = data['capture-pose'];
+                renderPageDetails(workshopData);
+            } catch (error) {
+                console.error('Could not load workshops.json:', error);
+            }
+        }
+
+        function renderPageDetails(w) {
+            // Populate workshop details block
+            document.getElementById('workshopDetails').innerHTML = `
+                <p><i class="fas fa-calendar"></i> <strong>${w.date}</strong> &nbsp;|&nbsp; <i class="fas fa-clock"></i> ${w.time}</p>
+                <p><i class="fas fa-map-marker-alt"></i> ${w.location}</p>
+                <p><i class="fas fa-tag"></i> Early Bird <strong>${w.currency} ${w.price_earlybird}</strong> (${w.earlybird_label}) &nbsp;|&nbsp; Regular <strong>${w.currency} ${w.price_regular}</strong></p>
+                ${w.includes.length ? `<p><i class="fas fa-gift"></i> ${w.includes.join(' · ')}</p>` : ''}
+            `;
+
+            // Populate payment note
+            document.getElementById('paymentNote').innerHTML = `
+                ⚡ Payment required within <strong>${w.payment_deadline_hours} hours</strong> to confirm your spot. 
+                Payment instructions will be sent to your email immediately after registration.
+            `;
+        }
+
+        // =============================================
+        // FORM SUBMIT — EmailJS fires from JSON data
+        // =============================================
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            if (!workshopData) return; // safety check
+
+            const name  = document.getElementById('full_name').value;
+            const email = document.getElementById('email').value;
+            const btn   = document.getElementById('submitBtn');
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+
+            const w = workshopData;
+
+            // All values come from workshops.json — update there, not here
+            const templateParams = {
+                to_name:      name,
+                to_email:     email,
+                workshop:     w.fullName,
+                date:         w.date,
+                time:         w.time,
+                location:     w.location,
+                price_note:   `Early Bird ${w.currency} ${w.price_earlybird} (${w.earlybird_label}) | Regular ${w.currency} ${w.price_regular}`,
+                bank_name:    w.bank.name,
+                bank_account: w.bank.account,
+                bank_holder:  w.bank.holder,
+                deadline:     `${w.payment_deadline_hours} hours`
+            };
+
+            // Fire and forget — Netlify handles the redirect
+            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+                .then(() => console.log('Confirmation email sent'))
+                .catch(err => console.error('EmailJS error:', err));
+        });
+
+        document.addEventListener('DOMContentLoaded', loadWorkshopData);
+    </script>
 </body>
 </html>
