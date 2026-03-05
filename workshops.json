@@ -64,8 +64,8 @@
     ],
     "includes": [],
     "bank": {
-      "name": "[YOUR BANK NAME]",
-      "account": "[YOUR ACCOUNT NUMBER]",
+      "name": "Aruba Bank",
+      "account": "7644990190",
       "holder": "Art2Digi Solutions"
     }
   }
