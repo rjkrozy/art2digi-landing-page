@@ -116,9 +116,10 @@
 
         async function loadWorkshopData() {
             try {
-                const response = await fetch('workshops.json');
+                const response = await fetch('workshops.json?v=' + Date.now());
                 const data = await response.json();
                 workshopData = data['capture-pose'];
+                workshopData.bank = data.bank; // use shared bank details
                 renderPageDetails(workshopData);
             } catch (error) {
                 console.error('Could not load workshops.json:', error);

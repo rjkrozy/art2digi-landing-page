@@ -1,4 +1,9 @@
 {
+  "bank": {
+    "name": "Aruba Bank",
+    "account": "7644990190",
+    "holder": "Art2Digi Solutions"
+  },
   "capture-pose": {
     "id": "capture-pose",
     "slug": "CapturePose",
@@ -30,12 +35,7 @@
       "Parking included",
       "Hands-on practice session",
       "Personal feedback from instructor"
-    ],
-    "bank": {
-      "name": "[YOUR BANK NAME]",
-      "account": "[YOUR ACCOUNT NUMBER]",
-      "holder": "Art2Digi Solutions"
-    }
+    ]
   },
   "storytelling": {
     "id": "storytelling",
@@ -62,11 +62,7 @@
       "Simple methods to make complex topics easy to absorb",
       "Proven tools to keep participants engaged start to finish"
     ],
-    "includes": [],
-    "bank": {
-      "name": "Aruba Bank",
-      "account": "7644990190",
-      "holder": "Art2Digi Solutions"
-    }
+    "includes": []
   }
 }
+

@@ -340,9 +340,10 @@
     <script>
         async function loadWorkshopData() {
             try {
-                const response = await fetch('workshops.json');
+                const response = await fetch('workshops.json?v=' + Date.now());
                 const data = await response.json();
                 const w = data['capture-pose'];
+                w.bank = data.bank; // use shared bank details
                 renderPage(w);
             } catch (error) {
                 console.error('Could not load workshops.json:', error);
