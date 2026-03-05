@@ -142,38 +142,72 @@
         }
 
         // =============================================
-        // FORM SUBMIT — EmailJS fires from JSON data
+        // FORM SUBMIT
+        // We handle everything manually:
+        // 1. Submit to Netlify via fetch
+        // 2. Send EmailJS confirmation
+        // 3. Redirect to custom thank-you page
         // =============================================
-        document.getElementById('registrationForm').addEventListener('submit', function(e) {
-            if (!workshopData) return; // safety check
+        document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+            e.preventDefault(); // Stop default form submit — we handle it ourselves
+
+            if (!workshopData) return;
+
+            const btn   = document.getElementById('submitBtn');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            btn.disabled = true;
 
             const name  = document.getElementById('full_name').value;
             const email = document.getElementById('email').value;
-            const btn   = document.getElementById('submitBtn');
-            btn.textContent = 'Sending...';
-            btn.disabled = true;
-
+            const phone = document.getElementById('phone').value;
+            const questions = document.getElementById('questions').value;
             const w = workshopData;
 
-            // All values come from workshops.json — update there, not here
-            const templateParams = {
-                to_name:      name,
-                to_email:     email,
-                workshop:     w.fullName,
-                date:         w.date,
-                time:         w.time,
-                location:     w.location,
-                price_note:   `Early Bird ${w.currency} ${w.price_earlybird} (${w.earlybird_label}) | Regular ${w.currency} ${w.price_regular}`,
-                bank_name:    w.bank.name,
-                bank_account: w.bank.account,
-                bank_holder:  w.bank.holder,
-                deadline:     `${w.payment_deadline_hours} hours`
-            };
+            // Step 1 — Submit to Netlify via fetch
+            try {
+                const formData = new FormData();
+                formData.append('form-name', 'capture_pose_reg');
+                formData.append('full_name', name);
+                formData.append('email', email);
+                formData.append('phone', phone);
+                formData.append('questions', questions);
 
-            // Fire and forget — Netlify handles the redirect
-            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
-                .then(() => console.log('Confirmation email sent'))
-                .catch(err => console.error('EmailJS error:', err));
+                await fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                });
+
+                console.log('Netlify submission successful');
+            } catch (err) {
+                console.error('Netlify submission error:', err);
+            }
+
+            // Step 2 — Send EmailJS confirmation email
+            try {
+                const templateParams = {
+                    to_name:      name,
+                    to_email:     email,
+                    workshop:     w.fullName,
+                    date:         w.date,
+                    time:         w.time,
+                    location:     w.location,
+                    price_note:   `Early Bird ${w.currency} ${w.price_earlybird} (${w.earlybird_label}) | Regular ${w.currency} ${w.price_regular}`,
+                    bank_name:    w.bank.name,
+                    bank_account: w.bank.account,
+                    bank_holder:  w.bank.holder,
+                    deadline:     `${w.payment_deadline_hours} hours`
+                };
+
+                await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+                console.log('Confirmation email sent');
+            } catch (err) {
+                console.error('EmailJS error:', err);
+                // Don't block redirect if email fails
+            }
+
+            // Step 3 — Redirect to custom thank-you page
+            window.location.href = '/thank-you-capture-pose.html';
         });
 
         document.addEventListener('DOMContentLoaded', loadWorkshopData);
