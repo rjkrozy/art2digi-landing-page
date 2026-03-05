@@ -159,7 +159,7 @@
         // ================================================
         async function loadWorkshops() {
             try {
-                const response = await fetch('workshops.json');
+                const response = await fetch('workshops.json?v=' + Date.now());
                 const data = await response.json();
                 renderWorkshops(data);
             } catch (error) {
@@ -169,7 +169,7 @@
 
         function renderWorkshops(data) {
             const container = document.getElementById('workshops-list');
-            const workshops = Object.values(data);
+            const workshops = Object.entries(data).filter(([key]) => key !== "bank").map(([, value]) => value);
 
             workshops.forEach((workshop, index) => {
                 const isFirst = index === 0;
