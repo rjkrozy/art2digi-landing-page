@@ -131,7 +131,7 @@
             document.getElementById('workshopDetails').innerHTML = `
                 <p><i class="fas fa-calendar"></i> <strong>${w.date}</strong> &nbsp;|&nbsp; <i class="fas fa-clock"></i> ${w.time}</p>
                 <p><i class="fas fa-map-marker-alt"></i> ${w.location}</p>
-                <p><i class="fas fa-tag"></i> ${w.price_earlybird ? `Early Bird <strong>${w.currency} ${w.price_earlybird}</strong> (${w.earlybird_label}) &nbsp;|&nbsp; ` : ''}Regular <strong>${w.currency} ${w.price_regular}</strong></p>
+                <p><i class="fas fa-tag"></i> ${w.price_earlybird ? `Early Bird <strong>${w.currency} ${w.price_earlybird}</strong> (${w.earlybird_label}) &nbsp;|&nbsp; Regular <strong>${w.currency} ${w.price_regular}</strong>` : `<strong>${w.currency} ${w.price_regular}</strong>`}</p>
                 ${w.includes.length ? `<p><i class="fas fa-gift"></i> ${w.includes.join(' · ')}</p>` : ''}
             `;
 
