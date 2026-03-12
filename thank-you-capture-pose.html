@@ -251,7 +251,23 @@
             border-top: 1px solid #eee;
         }
 
-        @media (max-width: 480px) {
+        .personal-note {
+            margin-top: 1.5rem;
+            padding: 1.25rem 1.5rem;
+            background: linear-gradient(135deg, #0085ca10, #50077810);
+            border-left: 4px solid var(--purple);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .note-signature {
+            margin-top: 0.75rem;
+            font-weight: 700;
+            font-style: normal;
+            color: var(--purple);
+        }
             .includes-list { grid-template-columns: 1fr; }
             .card-actions { flex-direction: column; }
             .card-body { padding: 1.5rem; }
@@ -311,12 +327,16 @@
                 </div>
             </div>
 
-            <!-- What's Included -->
+            <!-- What You're Getting -->
             <div class="includes-section">
-                <h3>✨ What's Included</h3>
+                <h3>✨ Here's what you're getting on March 28 👇</h3>
                 <ul class="includes-list" id="includesList">
                     <!-- Loaded from workshops.json -->
                 </ul>
+                <div class="personal-note">
+                    <p>"I'm so excited to meet you on March 28! This workshop is close to my heart because I know exactly how it feels to take a photo and be disappointed by the result. That frustration is what inspired me to create Capture & Pose™. I can't wait to share everything I know with you. See you in the LAB!</p>
+                    <p class="note-signature">— Rutsella"</p>
+                </div>
             </div>
 
             <!-- Actions -->
@@ -397,9 +417,9 @@
                 If payment is not received within ${w.payment_deadline_hours} hours, your spot will be released.</span>
             `;
 
-            // Includes list
+            // Learn bullets
             document.getElementById('includesList').innerHTML =
-                w.includes.map(item => `
+                w.learn.map(item => `
                     <li><i class="fas fa-check"></i> ${item}</li>
                 `).join('');
         }
