@@ -199,7 +199,7 @@
 
                 // Build payment deadline note (only for open workshops)
                 const deadlineNote = workshop.status === 'open'
-                    ? `<p class="workshop-note">⚡ First ${workshop.earlybird_spots} registrations get the early bird rate of ${workshop.currency} ${workshop.price_earlybird}. Payment required within ${workshop.payment_deadline_hours} hours to confirm your spot.</p>`
+                    ? `<p class="workshop-note">⚡ Payment required within ${workshop.payment_deadline_hours} hours to confirm your spot.</p>`
                     : `<p class="workshop-note">Coming soon — contact us for more info.</p>`;
 
                 const accordionHTML = `

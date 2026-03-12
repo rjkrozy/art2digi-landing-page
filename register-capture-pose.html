@@ -132,7 +132,6 @@
                 <p><i class="fas fa-calendar"></i> <strong>${w.date}</strong> &nbsp;|&nbsp; <i class="fas fa-clock"></i> ${w.time}</p>
                 <p><i class="fas fa-map-marker-alt"></i> ${w.location}</p>
                 <p><i class="fas fa-tag"></i> ${w.price_earlybird ? `Early Bird <strong>${w.currency} ${w.price_earlybird}</strong> (${w.earlybird_label}) &nbsp;|&nbsp; Regular <strong>${w.currency} ${w.price_regular}</strong>` : `<strong>${w.currency} ${w.price_regular}</strong>`}</p>
-                ${w.includes.length ? `<p><i class="fas fa-gift"></i> ${w.includes.join(' · ')}</p>` : ''}
             `;
 
             // Populate payment note
@@ -193,7 +192,7 @@
                     date:         w.date,
                     time:         w.time,
                     location:     w.location,
-                    price_note:   `Early Bird ${w.currency} ${w.price_earlybird} (${w.earlybird_label}) | Regular ${w.currency} ${w.price_regular}`,
+                    price_note:   w.price_earlybird ? `Early Bird ${w.currency} ${w.price_earlybird} (${w.earlybird_label}) | Regular ${w.currency} ${w.price_regular}` : `${w.currency} ${w.price_regular}`,
                     bank_name:    w.bank.name,
                     bank_account: w.bank.account,
                     bank_holder:  w.bank.holder,
