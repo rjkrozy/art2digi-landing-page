@@ -268,6 +268,7 @@
             font-style: normal;
             color: var(--purple);
         }
+        @media (max-width: 480px) {
             .includes-list { grid-template-columns: 1fr; }
             .card-actions { flex-direction: column; }
             .card-body { padding: 1.5rem; }
@@ -389,9 +390,13 @@
 
             // Price
             document.getElementById('priceDisplay').textContent =
-                `${w.currency} ${w.price_earlybird} – ${w.currency} ${w.price_regular}`;
+                w.price_earlybird
+                    ? `${w.currency} ${w.price_earlybird} – ${w.currency} ${w.price_regular}`
+                    : `${w.currency} ${w.price_regular}`;
             document.getElementById('priceNote').textContent =
-                `Early Bird ${w.currency} ${w.price_earlybird} (${w.earlybird_label}) · Regular ${w.currency} ${w.price_regular}`;
+                w.price_earlybird
+                    ? `Early Bird ${w.currency} ${w.price_earlybird} (${w.earlybird_label}) · Regular ${w.currency} ${w.price_regular}`
+                    : '';
 
             // Bank details
             document.getElementById('bankDetails').innerHTML = `
