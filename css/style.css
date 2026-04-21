@@ -69,11 +69,42 @@
 
         /* Hero Section */
         .hero {
-            /* Use brand gradient (Blue to Purple) */
-            background: linear-gradient(135deg, var(--brand-dark-blue) 0%, var(--brand-purple) 100%);
+            position: relative;
             color: white;
-            padding: 6rem 2rem 8rem; /* Extra padding for visual balance */
+            padding: 6rem 2rem 8rem;
             text-align: center;
+            overflow: hidden;
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Hero background photo */
+        .hero-bg-photo {
+            position: absolute;
+            inset: 0;
+            background-image: url('img/Aruba_Malmok_Bird_Golden_Hour_10022026.jpg');
+            background-size: cover;
+            background-position: center 30%;
+            background-repeat: no-repeat;
+        }
+
+        /* Dark overlay so text stays readable */
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(0, 133, 202, 0.72) 0%,
+                rgba(80, 7, 120, 0.68) 100%
+            );
+        }
+
+        /* Content sits above photo + overlay */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
         }
 
         /* Hero Heading Style (Matches Image) */
@@ -732,6 +763,7 @@
             /* --- HERO --- */
             .hero {
                 padding: 3rem 1rem 5rem;
+                min-height: 400px;
             }
 
             .hero h1 {
