@@ -83,7 +83,7 @@
         .hero-bg-photo {
             position: absolute;
             inset: 0;
-            background-image: url('img/Aruba_Malmok_Bird_Golden_Hour_10022026.jpg');
+            background-image: url('../img/Aruba_Malmok_Bird_Golden_Hour_10022026.jpg');
             background-size: cover;
             background-position: center 30%;
             background-repeat: no-repeat;
@@ -526,18 +526,22 @@
         /* Image Styles (remains dark-friendly as it is inside the light box) */
         .about-image-wrapper {
             text-align: center;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
         }
 
         .about-image {
             width: 100%; 
-            max-height: 450px;
-            object-fit: cover;
+            max-width: 340px;
+            height: auto;
+            max-height: none;
+            object-fit: contain;
+            object-position: top center;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
             border: 4px solid #1ba3d1; 
         }
-        
-        /* Tagline Style (It must also be dark text on a light page background) */
         .about-tagline p {
             font-family: 'Dancing Script', cursive; 
             font-style: normal; 
@@ -555,34 +559,6 @@
             border-radius: 10px;
             margin-top: 2rem;
             border-left: 4px solid var(--brand-blue); 
-        }
-
-        /* New style for the image container */
-        .about-image-wrapper {
-            text-align: center;
-        }
-
-        .about-image {
-            width: 100%; /* Make image fill its column */
-            max-height: 450px;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            border: 4px solid #1ba3d1; /* Accent border matching the brand cyan */
-        }
-
-        /* New style for the About section image */
-        .about-image-wrapper {
-            text-align: center;
-        }
-
-        .about-image {
-            width: 100%; /* Make image fill its column */
-            max-height: 450px;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            border: 4px solid #1ba3d1; /* Accent border matching the brand cyan */
         }
 
         /* Style to make the tagline cursive and visually distinct */
@@ -834,7 +810,10 @@
             }
 
             .about-image {
-                max-height: 300px;
+                max-width: 280px;
+                max-height: none;
+                margin: 0 auto;
+                display: block;
             }
 
             /* --- CONTACT FORM --- */
