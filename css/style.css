@@ -89,14 +89,14 @@
             background-repeat: no-repeat;
         }
 
-        /* Dark overlay so text stays readable */
+        /* Subtle dark overlay - just enough for text readability */
         .hero-overlay {
             position: absolute;
             inset: 0;
             background: linear-gradient(
-                135deg,
-                rgba(0, 133, 202, 0.72) 0%,
-                rgba(80, 7, 120, 0.68) 100%
+                to bottom,
+                rgba(0, 0, 0, 0.25) 0%,
+                rgba(0, 0, 0, 0.45) 100%
             );
         }
 
@@ -115,76 +115,33 @@
             text-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
         }
 
-        /* --- CORRECTED HERO TEXT BUBBLE STYLES (EXACT MATCH) --- */
-        .hero-bubble-container {
-            max-width: 800px;
-            margin: 30px auto 0;
-            position: relative;
-            padding-bottom: 50px; 
-        }
-        
-        .hero-bubble {
-            /* Styling for the main content box (the 'bubble') */
-            background: white; /* White background matching the image */
-            color: var(--brand-dark-text); /* Dark text on white background */
-            padding: 2.5rem 3rem;
-            border-radius: 25px; /* Rounded corners */
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); /* Stronger shadow for floating effect */
-            border: 5px solid var(--brand-bubble-border); /* Blue border for the accent */
-            position: relative;
-            z-index: 10;
-            font-size: 1.4rem;
-            font-weight: 500;
-            line-height: 1.6;
-            text-align: center; /* Ensure text is centered inside the bubble */
-        }
-
-        /* --- STYLING THE SPEECH BUBBLE TAIL (CSS Triangle) --- */
-        /* Outer triangle (border color) */
-        .hero-bubble-container::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-left: 30px solid transparent;
-            border-right: 30px solid transparent;
-            border-top: 30px solid var(--brand-bubble-border); 
-            transform: translateX(-50%);
-            z-index: 9;
-        }
-
-        /* Inner triangle (white color) */
-        .hero-bubble-container::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-left: 25px solid transparent;
-            border-right: 25px solid transparent;
-            border-top: 25px solid white; 
-            transform: translate(-50%, -5px); 
-            z-index: 11;
+        /* Hero one-liner tagline */
+        .hero-tagline {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+            margin: 0 auto 2.5rem;
+            max-width: 700px;
+            line-height: 1.4;
+            letter-spacing: 0.01em;
         }
 
         /* Hero Section CTA Button (Matching Service Button Aesthetic) */
         .hero-cta-btn {
             /* Basic button properties */
             display: inline-block;
-            margin-top: 3.5rem; /* Sufficient space below the bubble */
+            margin-top: 0;
             padding: 1rem 2.5rem;
             font-size: 1.2rem;
             font-weight: 600;
             text-transform: uppercase;
             
             /* SOLID COLOR & WHITE TEXT */
-            background: var(--brand-blue); /* Use Brand Blue for highest contrast against the purple gradient */
+            background: var(--brand-blue);
             color: white; 
-            border: none; /* No border, like the service buttons */
-            border-radius: 5px; /* Slightly rounded corners */
+            border: none;
+            border-radius: 5px;
             
             /* Add subtle shadow for lift */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
@@ -746,9 +703,8 @@
                 font-size: 2rem;
             }
 
-            .hero-bubble {
-                font-size: 1rem;
-                padding: 1.5rem;
+            .hero-tagline {
+                font-size: 1.35rem;
             }
 
             /* --- SECTION HEADINGS --- */
