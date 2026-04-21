@@ -71,12 +71,13 @@
         .hero {
             position: relative;
             color: white;
-            padding: 6rem 2rem 8rem;
+            padding: 0;
             text-align: center;
             overflow: hidden;
-            min-height: 520px;
+            min-height: 600px;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
+            justify-content: center;
         }
 
         /* Hero background photo */
@@ -85,26 +86,28 @@
             inset: 0;
             background-image: url('../img/Aruba_Malmok_Bird_Golden_Hour_10022026.jpg');
             background-size: cover;
-            background-position: center 30%;
+            background-position: center 25%;
             background-repeat: no-repeat;
         }
 
-        /* Subtle dark overlay - just enough for text readability */
+        /* Overlay only at the bottom where text sits */
         .hero-overlay {
             position: absolute;
             inset: 0;
             background: linear-gradient(
                 to bottom,
-                rgba(0, 0, 0, 0.25) 0%,
-                rgba(0, 0, 0, 0.45) 100%
+                rgba(0, 0, 0, 0.0) 0%,
+                rgba(0, 0, 0, 0.0) 55%,
+                rgba(0, 0, 0, 0.55) 100%
             );
         }
 
-        /* Content sits above photo + overlay */
+        /* Content sits above photo + overlay, pinned to bottom */
         .hero-content {
             position: relative;
             z-index: 2;
             width: 100%;
+            padding: 2.5rem 2rem;
         }
 
         /* Hero Heading Style (Matches Image) */
@@ -117,13 +120,13 @@
 
         /* Hero one-liner tagline */
         .hero-tagline {
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: white;
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
-            margin: 0 auto 2.5rem;
-            max-width: 700px;
-            line-height: 1.4;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+            margin: 0 auto 1.5rem;
+            max-width: 800px;
+            line-height: 1.3;
             letter-spacing: 0.01em;
         }
 
@@ -695,8 +698,7 @@
 
             /* --- HERO --- */
             .hero {
-                padding: 3rem 1rem 5rem;
-                min-height: 400px;
+                min-height: 420px;
             }
 
             .hero h1 {
@@ -704,7 +706,7 @@
             }
 
             .hero-tagline {
-                font-size: 1.35rem;
+                font-size: 1.1rem;
             }
 
             /* --- SECTION HEADINGS --- */
