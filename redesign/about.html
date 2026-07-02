@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Art2Digi Solutions</title>
+    <meta name="description" content="The Sunset Chasing Girl — 25 years in tech, a lifetime chasing golden hour. Rutsella Krosendijk, Natural Light Branding Photographer & Trainer, Aruba.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav id="main-nav" class="scrolled">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="img/logo.svg" alt="Art2Digi Solutions" class="nav-logo-img">
+                <span>Art2Digi Solutions</span>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="workshops.html" class="nav-link">Workshops</a></li>
+                <li><a href="about.html" class="nav-link active">About</a></li>
+                <li><a href="contact.html" class="nav-link nav-contact-btn">Let's Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="about-page">
+        <div class="page-header">
+            <p class="section-eyebrow">The Sunset Chasing Girl</p>
+            <h1>About</h1>
+        </div>
+        <div class="about-intro-grid">
+            <div class="about-intro-text">
+                <p class="section-eyebrow">The Sunset Chasing Girl</p>
+                <h1>I fell in love with photography the moment I captured my first sunset.</h1>
+                <p>That golden light that takes your breath away. I've been chasing it ever since.</p>
+                <p>I shoot in natural light because it gives you the real energy of a moment — nothing added, nothing faked. I work with what's there and find the story in it.</p>
+                <blockquote class="about-quote">I'm wired to go all in. Half measures don't exist in my world.</blockquote>
+                <p>I will capture your story exactly as it deserves to be.</p>
+                <p style="margin-top: 2.5rem; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em; color: var(--text-light);">Rutsella Krosendijk<br><span style="color: var(--gold); font-weight: 500;">Natural Light Branding Photographer &amp; Trainer</span></p>
+                <p style="margin-top: 2rem;"><a href="contact.html" class="btn btn-primary">Let's talk</a></p>
+            </div>
+            <div class="about-img">
+                <img src="img/about-pic-pose.jpg" alt="Rutsella Krosendijk — Art2Digi Solutions founder">
+            </div>
+        </div>
+    </div>
+
+    <section class="quote-break">
+        <div class="container">
+            <blockquote>I don't want the fame.<br><em>I want to shine.</em></blockquote>
+        </div>
+    </section>
+
+    <section class="contact-strip">
+        <div class="container">
+            <div class="contact-strip-inner">
+                <div>
+                    <h2>Ready to tell your story?</h2>
+                    <p>Reach out for a photo session, a workshop, or just a conversation.</p>
+                </div>
+                <a href="contact.html" class="btn btn-light">Send a message</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <img src="img/logo.svg" alt="Art2Digi Solutions" class="footer-logo">
+                <p class="footer-name">Art2Digi Solutions</p>
+                <p class="footer-sub">Natural Light Branding Photographer &amp; Trainer</p>
+            </div>
+            <div class="footer-right">
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/art2digi" target="_blank" rel="noopener" aria-label="Instagram @art2digi" class="social-link"><i class="fab fa-instagram"></i><span>@art2digi</span></a>
+                    <a href="https://www.facebook.com/share/1AZFb571Yq/?mibe" target="_blank" rel="noopener" aria-label="Facebook" class="social-link"><i class="fab fa-facebook"></i><span>Art2Digi</span></a>
+                    <a href="https://wa.me/2975638194" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-link"><i class="fab fa-whatsapp"></i><span>+297 563 8194</span></a>
+                </div>
+                <nav class="footer-nav"><a href="portfolio.html">Portfolio</a><a href="workshops.html">Workshops</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>© 2026 Art2Digi Solutions. All rights reserved.</p></div>
+    </footer>
+
+    <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); navMenu.classList.toggle('nav-open'); });
+    navMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('open'); navMenu.classList.remove('nav-open'); }));
+    </script>
+</body>
+</html>
