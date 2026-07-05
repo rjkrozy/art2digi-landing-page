@@ -118,36 +118,28 @@ a { color: inherit; text-decoration: none; }
 .wtc-badge { background: var(--blue); color: var(--white); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 100px; white-space: nowrap; align-self: flex-start; flex-shrink: 0; }
 .wtc-body { flex: 1; min-width: 240px; }
 .wtc-body h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--purple); margin-bottom: 0.2rem; }
-.wtc-sub { font-size: 0.82rem; color: var(--gold); font-weight: 600; letter-spacing: 0.05em; margin-bottom: 0.6rem; }
+.wtc-sub { font-size: 0.82rem; color: var(--blue); font-weight: 600; letter-spacing: 0.05em; margin-bottom: 0.6rem; }
 .wtc-desc { font-size: 0.88rem; color: var(--text-light); margin-bottom: 1rem; line-height: 1.6; }
 .wtc-meta { display: flex; gap: 1.2rem; flex-wrap: wrap; font-size: 0.82rem; color: var(--text); }
 .wtc-meta span { display: flex; align-items: center; gap: 0.4rem; }
 .wtc-meta i { color: var(--blue); font-size: 0.8rem; }
 
 /* CONTACT STRIP */
-.contact-strip { background: var(--blue); padding: 2.5rem 2rem; }
-.contact-strip-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
-.contact-strip h2 { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 1.8rem); font-weight: 600; color: var(--white); margin-bottom: 0.4rem; }
-.contact-strip p { color: rgba(255,255,255,0.85); font-size: 0.9rem; max-width: 480px; }
+.contact-strip { background: var(--blue); padding: 1.8rem 2rem; }
+.contact-strip-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+.contact-strip h2 { font-family: var(--font-display); font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-weight: 600; color: var(--white); margin-bottom: 0; }
+.contact-strip p { display: none; }
 
 /* FOOTER */
-footer { background: var(--purple); padding: 3rem 2rem 0; }
-.footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.12); flex-wrap: wrap; }
-.footer-brand { display: flex; flex-direction: column; gap: 0.4rem; }
-.footer-logo { height: 36px; width: auto; filter: brightness(0) invert(1); opacity: 0.85; margin-bottom: 0.3rem; }
-.footer-name { color: var(--white); font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; }
-.footer-sub { font-size: 0.8rem; color: rgba(255,255,255,0.45); font-style: italic; }
-.footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 1.2rem; }
-.footer-socials { display: flex; gap: 1.2rem; align-items: flex-start; }
-.social-link { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; color: rgba(255,255,255,0.7); transition: color 0.2s; text-decoration: none; }
+footer { background: var(--purple); padding: 1.2rem 2rem 0; }
+.footer-inner { display: flex; justify-content: center; align-items: center; padding-bottom: 1rem; }
+.footer-socials { display: flex; gap: 1.5rem; align-items: center; }
+.social-link { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; color: rgba(255,255,255,0.7); transition: color 0.2s; text-decoration: none; }
 .social-link:hover { color: var(--white); }
-.social-link i { font-size: 1.3rem; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.1); border: 0.5px solid rgba(255,255,255,0.18); transition: background 0.2s; }
+.social-link i { font-size: 1.2rem; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 6px; background: rgba(255,255,255,0.1); border: 0.5px solid rgba(255,255,255,0.18); transition: background 0.2s; }
 .social-link:hover i { background: rgba(255,255,255,0.2); }
-.social-link span { font-size: 0.72rem; color: rgba(255,255,255,0.4); }
-.footer-nav { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: flex-end; }
-.footer-nav a { font-size: 0.85rem; color: rgba(255,255,255,0.5); transition: color 0.2s; }
-.footer-nav a:hover { color: var(--white); }
-.footer-bottom { text-align: center; padding: 1.2rem 0; font-size: 0.78rem; color: rgba(255,255,255,0.28); }
+.social-link span { font-size: 0.68rem; color: rgba(255,255,255,0.4); }
+.footer-bottom { text-align: center; padding: 0.8rem 0; font-size: 0.75rem; color: rgba(255,255,255,0.28); border-top: 1px solid rgba(255,255,255,0.1); }
 
 /* INNER PAGES — shared header */
 .page-header { background: var(--purple); padding: calc(var(--nav-h) + 3rem) 2rem 3rem; text-align: center; }
