@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Personal Branding Story — Art2Digi Solutions</title>
+    <meta name="description" content="Every brand has a face, a feeling, a moment of confidence ready to be captured. Personal branding photography by Rutsella Krosendijk — Art2Digi Solutions.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .story-page { padding-top: var(--nav-h); background: var(--cream); }
+
+        .story-hook-section { background: var(--white); padding: 3rem 2rem; border-bottom: 0.5px solid var(--border); }
+        .story-hook-inner { max-width: 760px; margin: 0 auto; }
+        .story-hook-quote { font-family: var(--font-display); font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-style: italic; color: var(--purple); line-height: 1.4; margin-bottom: 1.2rem; }
+        .story-hook-body { font-size: 1rem; color: var(--text); line-height: 1.8; margin-bottom: 0.8rem; }
+
+        .story-section { padding: 3rem 2rem; border-bottom: 0.5px solid var(--border); }
+        .story-section:nth-child(even) { background: var(--warm-mid); }
+        .story-section:nth-child(odd) { background: var(--cream); }
+        .story-section-inner { max-width: 900px; margin: 0 auto; }
+
+        .story-section-header { border-left: 3px solid var(--blue); padding-left: 1rem; margin-bottom: 1.5rem; }
+        .story-section-title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--purple); line-height: 1.2; margin-bottom: 0.3rem; }
+        .story-section-eye { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.4rem; display: block; }
+
+        .story-photographer-voice { font-size: 0.95rem; color: var(--text); line-height: 1.8; margin-bottom: 1.5rem; font-style: italic; }
+
+        .story-signature-line { font-family: var(--font-display); font-size: 1.2rem; font-style: italic; color: var(--purple); border-left: 3px solid var(--gold); padding-left: 1rem; margin: 1.5rem 0; line-height: 1.4; }
+
+        .story-client-quote { background: var(--white); border-radius: 6px; padding: 1.5rem 2rem; margin: 2rem 0; border: 0.5px solid var(--border); text-align: center; }
+        .story-client-quote p { font-family: var(--font-display); font-size: 1.3rem; font-style: italic; color: var(--purple); line-height: 1.5; margin-bottom: 0.5rem; }
+        .story-client-quote span { font-size: 0.82rem; color: var(--text-light); font-weight: 500; }
+
+        .story-photo-grid { display: grid; gap: 8px; margin-bottom: 0.5rem; }
+        .story-photo-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+        .story-photo-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+        .story-photo-item { cursor: pointer; border-radius: 4px; overflow: hidden; position: relative; }
+        .story-photo-item img { width: 100%; display: block; aspect-ratio: 4/3; object-fit: cover; object-position: center top; transition: transform 0.4s ease; }
+        .story-photo-item:hover img { transform: scale(1.03); }
+        .story-photo-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0); display: flex; align-items: flex-end; padding: 0.8rem; transition: background 0.3s; }
+        .story-photo-item:hover .story-photo-overlay { background: rgba(0,0,0,0.3); }
+        .story-photo-caption { font-family: var(--font-display); font-size: 0.85rem; font-style: italic; color: #fff; opacity: 0; transition: opacity 0.3s; }
+        .story-photo-item:hover .story-photo-caption { opacity: 1; }
+        .story-photo-hint { font-size: 0.72rem; color: var(--text-muted); text-align: center; margin-top: 0.5rem; letter-spacing: 0.06em; }
+
+        /* LIGHTBOX */
+        .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 9999; align-items: center; justify-content: center; padding: 1rem; }
+        .lightbox.active { display: flex; }
+        .lightbox-inner { position: relative; max-width: 90vw; max-height: 90vh; }
+        .lightbox-img { max-width: 100%; max-height: 85vh; object-fit: contain; border-radius: 4px; display: block; }
+        .lightbox-caption { font-family: var(--font-display); font-size: 1rem; font-style: italic; color: rgba(255,255,255,0.8); text-align: center; margin-top: 0.8rem; }
+        .lightbox-close { position: fixed; top: 1rem; right: 1rem; background: rgba(255,255,255,0.15); border: 1.5px solid rgba(255,255,255,0.4); color: #fff; font-size: 1.2rem; cursor: pointer; padding: 0.5rem 0.75rem; border-radius: 4px; z-index: 10001; transition: background 0.2s; }
+        .lightbox-close:hover { background: rgba(255,255,255,0.3); }
+        .lightbox-prev, .lightbox-next { position: fixed; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.1); border: none; color: #fff; font-size: 1.5rem; cursor: pointer; padding: 1rem 0.8rem; border-radius: 4px; transition: background 0.2s; z-index: 10000; }
+        .lightbox-prev { left: 1rem; }
+        .lightbox-next { right: 1rem; }
+        .lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.2); }
+
+        .story-cta { background: var(--blue); padding: 1.8rem 2rem; text-align: center; }
+        .story-cta h2 { font-family: var(--font-display); font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--white); margin-bottom: 0.8rem; font-weight: 600; }
+
+        .story-back { padding: 0.6rem 2rem; background: var(--cream); }
+        .story-back a { font-size: 0.85rem; color: var(--blue); font-weight: 500; display: inline-flex; align-items: center; gap: 0.4rem; }
+        .story-back a:hover { color: var(--purple); }
+
+        @media (max-width: 640px) {
+            .story-photo-grid.cols-3 { grid-template-columns: 1fr 1fr; }
+            .story-photo-grid.cols-2 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-label="Photo viewer">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox"><i class="fas fa-times"></i> Close</button>
+        <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous photo"><i class="fas fa-chevron-left"></i></button>
+        <div class="lightbox-inner">
+            <img class="lightbox-img" id="lightbox-img" src="" alt="">
+            <p class="lightbox-caption" id="lightbox-caption"></p>
+        </div>
+        <button class="lightbox-next" id="lightbox-next" aria-label="Next photo"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <nav id="main-nav" class="scrolled">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="img/logo.svg" alt="Art2Digi Solutions" class="nav-logo-img">
+                <span>Art2Digi Solutions</span>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+                <li><a href="workshops.html" class="nav-link">Workshops</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link nav-contact-btn">Let's Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="story-page">
+
+        <div class="page-header">
+            <p class="section-eyebrow">Portfolio</p>
+            <h1>The Personal Branding Story</h1>
+        </div>
+
+        <div class="story-back">
+            <a href="portfolio.html"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        </div>
+
+        <!-- OPENING HOOK -->
+        <div class="story-hook-section">
+            <div class="story-hook-inner">
+                <p class="story-hook-quote">"Every brand has a face, a feeling, a moment of confidence ready to be captured. I worked with Annaica to find hers."</p>
+                <p class="story-hook-body">Annaica needed new photos. LinkedIn, Teams, social media. The usual ask. But I don't do usual.</p>
+                <p class="story-hook-body">I came with an idea. Two locations. Two sides of the same person. The real her and the professional her. Both authentic. Neither staged.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 1 — The Day -->
+        <div class="story-section">
+            <div class="story-section-inner">
+                <div class="story-section-header">
+                    <span class="story-section-eye">How the day started</span>
+                    <h2 class="story-section-title">First, makeup. Then, Malmok.</h2>
+                </div>
+                <p class="story-photographer-voice">I picked her up. We went to do makeup. Then I asked her if she wanted to climb a tree and jump into the water — in her dress. She said yes. That's when I knew we were going to get something real.</p>
+                <p class="story-photographer-voice">I go with the vibe of my client. I ask what they want me to capture. Then I come with the crazy ideas. She was up for all of it.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 2 — Malmok Photos -->
+        <div class="story-section">
+            <div class="story-section-inner">
+                <div class="story-section-header">
+                    <span class="story-section-eye">Location 1 — Malmok</span>
+                    <h2 class="story-section-title">Playful. Free. Completely herself.</h2>
+                </div>
+                <p class="story-photographer-voice">Natural light, rocks, water, trees. No studio. No backdrop. Just Annaica in her element — laughing, moving, forgetting the camera was there.</p>
+                <div class="story-photo-grid cols-2" style="margin-bottom: 8px;">
+                    <div class="story-photo-item" data-src="img/stories/personal-branding/Aruba_Malmok_29Jan2026_Chilling_In_Tree.jpg" data-caption="Chilling In The Tree">
+                        <img src="img/stories/personal-branding/Aruba_Malmok_29Jan2026_Chilling_In_Tree.jpg" alt="Chilling In The Tree" loading="lazy">
+                        <div class="story-photo-overlay"><span class="story-photo-caption">Chilling In The Tree</span></div>
+                    </div>
+                    <div class="story-photo-item" data-src="img/stories/personal-branding/Aruba_Malmok_29Jan2026_Posing_On_Tree.jpg" data-caption="Posing On The Tree">
+                        <img src="img/stories/personal-branding/Aruba_Malmok_29Jan2026_Posing_On_Tree.jpg" alt="Posing On The Tree" loading="lazy">
+                        <div class="story-photo-overlay"><span class="story-photo-caption">Posing On The Tree</span></div>
+                    </div>
+                </div>
+                <div class="story-photo-grid cols-3">
+                    <div class="story-photo-item" data-src="img/stories/personal-branding/Aruba_Malmok_29Jan2026_Enjoying_The_Water.jpg" data-caption="Enjoying The Water">
+                        <img src="img/stories/personal-branding/Aruba_Malmok_29Jan2026_Enjoying_The_Water.jpg" alt="Enjoying The Water" loading="lazy">
+                        <div class="story-photo-overlay"><span class="story-photo-caption">Enjoying The Water</span></div>
+                    </div>
+                    <div class="story-photo-item" data-src="img/stories/personal-branding/Aruba_Malmok_29Jan2026_Standing_In_Water.jpg" data-caption="Standing In The Water">
+                        <img src="img/stories/personal-branding/Aruba_Malmok_29Jan2026_Standing_In_Water.jpg" alt="Standing In The Water" loading="lazy">
+                        <div class="story-photo-overlay"><span class="story-photo-caption">Standing In The Water</span></div>
+                    </div>
+                    <div class="story-photo-item" data-src="img/stories/personal-branding/Aruba_Malmok_29Jan2026_Posing_On_Rocks.jpg" data-caption="Posing On The Rocks">
+                        <img src="img/stories/personal-branding/Aruba_Malmok_29Jan2026_Posing_On_Rocks.jpg" alt="Posing On The Rocks" loading="lazy">
+                        <div class="story-photo-overlay"><span class="story-photo-caption">Posing On The Rocks</span></div>
+                    </div>
+                </div>
+                <p class="story-photo-hint"><i class="fas fa-expand-alt"></i> Click any photo to view full size</p>
+            </div>
+        </div>
+
+        <!-- SECTION 3 — Renaissance -->
+        <div class="story-section">
+            <div class="story-section-inner">
+                <div class="story-section-header">
+                    <span class="story-section-eye">Location 2 — Renaissance</span>
+                    <h2 class="story-section-title">Confident. Warm. Still her.</h2>
+                </div>
+                <p class="story-photographer-voice">She hesitated. I didn't. I knew the light coming through that building would do something. She changed, we explored the space together, and the ideas came naturally. From the light, from the space, from her.</p>
+                <div class="story-photo-grid cols-3">
+                    <div class="story-photo-item" data-src="img/stories/personal-branding/Aruba_Renaissance_Mall_29Jan2026_Casual_Sit.jpg" data-caption="The Casual Side">
+                        <img src="img/stories/personal-branding/Aruba_Renaissance_Mall_29Jan2026_Casual_Sit.jpg" alt="The Casual Side" loading="lazy">
+                        <div class="story-photo-overlay"><span class="story-photo-caption">The Casual Side</span></div>
+                    </div>
+                    <div class="story-photo-item" data-src="img/stories/personal-branding/Aruba_Renaissance_Mall_29Jan2026_Headshot.jpg" data-caption="The Confident Edge">
+                        <img src="img/stories/personal-branding/Aruba_Renaissance_Mall_29Jan2026_Headshot.jpg" alt="The Confident Edge" loading="lazy">
+                        <div class="story-photo-overlay"><span class="story-photo-caption">The Confident Edge</span></div>
+                    </div>
+                    <div class="story-photo-item" data-src="img/stories/personal-branding/Aruba_Renaissance_Mall_29Jan2026_Reflection.jpg" data-caption="The Reflection">
+                        <img src="img/stories/personal-branding/Aruba_Renaissance_Mall_29Jan2026_Reflection.jpg" alt="The Reflection" loading="lazy">
+                        <div class="story-photo-overlay"><span class="story-photo-caption">The Reflection</span></div>
+                    </div>
+                </div>
+                <p class="story-photo-hint"><i class="fas fa-expand-alt"></i> Click any photo to view full size</p>
+            </div>
+        </div>
+
+        <!-- SIGNATURE LINE -->
+        <div class="story-hook-section">
+            <div class="story-hook-inner">
+                <p class="story-signature-line">"My job wasn't to give her directions. My job was to make her forget the camera was there."</p>
+
+                <!-- CLIENT QUOTE -->
+                <div class="story-client-quote">
+                    <p>"I finally have photos that tell who I am."</p>
+                    <span>— Annaica</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="story-cta">
+            <h2>Want to tell your story?</h2>
+            <a href="contact.html" class="btn btn-light">Let's talk</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/art2digi" target="_blank" rel="noopener" aria-label="Instagram @art2digi" class="social-link"><i class="fab fa-instagram"></i><span>@art2digi</span></a>
+                <a href="https://www.facebook.com/share/1AZFb571Yq/?mibe" target="_blank" rel="noopener" aria-label="Facebook" class="social-link"><i class="fab fa-facebook"></i><span>Art2Digi</span></a>
+                <a href="https://wa.me/2975638194" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-link"><i class="fab fa-whatsapp"></i><span>+297 563 8194</span></a>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>© 2026 Art2Digi Solutions. All rights reserved.</p></div>
+    </footer>
+
+    <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); navMenu.classList.toggle('nav-open'); });
+    navMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('open'); navMenu.classList.remove('nav-open'); }));
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+    const allPhotos = Array.from(document.querySelectorAll('.story-photo-item'));
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+        currentIndex = index;
+        const item = allPhotos[index];
+        lightboxImg.src = item.getAttribute('data-src');
+        lightboxImg.alt = item.getAttribute('data-caption');
+        lightboxCaption.textContent = item.getAttribute('data-caption');
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function showPrev() { currentIndex = (currentIndex - 1 + allPhotos.length) % allPhotos.length; openLightbox(currentIndex); }
+    function showNext() { currentIndex = (currentIndex + 1) % allPhotos.length; openLightbox(currentIndex); }
+
+    allPhotos.forEach((item, index) => { item.addEventListener('click', () => openLightbox(index)); });
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', showPrev);
+    lightboxNext.addEventListener('click', showNext);
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showPrev();
+        if (e.key === 'ArrowRight') showNext();
+    });
+    </script>
+</body>
+</html>
