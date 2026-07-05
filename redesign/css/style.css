@@ -151,11 +151,11 @@ footer { background: var(--purple); padding: 1.2rem 2rem 0; }
 .about-page { padding-top: var(--nav-h); background: var(--cream); }
 .about-content-wrap { padding: 3rem 2rem 4rem; max-width: var(--max-w); margin: 0 auto; }
 .about-content-grid { display: grid; grid-template-columns: 1fr 380px; gap: 4rem; align-items: start; background: var(--white); border-radius: 12px; padding: 2.5rem; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
-.about-text h2 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; color: var(--blue); margin-bottom: 1.2rem; line-height: 1.2; }
-.about-text p { font-size: 0.95rem; color: var(--text); line-height: 1.75; margin-bottom: 1rem; }
-.about-quote { font-family: var(--font-display); font-size: 1.2rem; font-style: italic; color: var(--blue); margin: 1.5rem 0; line-height: 1.4; }
-.about-signature { margin-top: 1.2rem; font-size: 0.88rem; font-weight: 600; color: var(--ink); line-height: 1.6; }
-.about-signature span { color: var(--gold); font-weight: 500; }
+.about-text h2 { font-family: var(--font-display); font-size: 2rem; font-weight: 600; color: var(--blue); margin-bottom: 1.2rem; line-height: 1.2; }
+.about-text p { font-size: 1.05rem; color: var(--text); line-height: 1.8; margin-bottom: 1.1rem; }
+.about-quote { font-family: var(--font-display); font-size: 1.3rem; font-style: italic; color: var(--blue); margin: 1.5rem 0; line-height: 1.4; }
+.about-signature { margin-top: 1.2rem; font-size: 0.95rem; font-weight: 600; color: var(--ink); line-height: 1.6; }
+.about-signature span { color: var(--blue); font-weight: 500; }
 .about-photo-wrap { border-radius: 12px; overflow: hidden; border: 2.5px solid var(--blue); }
 .about-photo-wrap img { width: 100%; display: block; object-fit: cover; }
 
