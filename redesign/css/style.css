@@ -24,7 +24,7 @@
     --white:        #FFFFFF;
     --font-display: 'Cormorant Garant', Georgia, serif;
     --font-body:    'DM Sans', system-ui, sans-serif;
-    --nav-h:        72px;
+    --nav-h:        52px;
     --max-w:        1200px;
     --ease:         cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -142,7 +142,7 @@ footer { background: var(--purple); padding: 1.2rem 2rem 0; }
 .footer-bottom { text-align: center; padding: 0.8rem 0; font-size: 0.75rem; color: rgba(255,255,255,0.28); border-top: 1px solid rgba(255,255,255,0.1); }
 
 /* INNER PAGES — shared header */
-.page-header { background: var(--blue); padding: 74px 2rem 6px; text-align: center; }
+.page-header { background: var(--blue); padding: 54px 2rem 6px; text-align: center; }
 .page-header .section-eyebrow { color: rgba(255,255,255,0.7); font-size: 0.65rem; margin-bottom: 0; line-height: 1; display: block; }
 .page-header h1 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--white); margin-top: 0.1rem; line-height: 1; }
 .page-header p { color: rgba(255,255,255,0.75); margin-top: 0.2rem; font-size: 0.8rem; max-width: 500px; margin-left: auto; margin-right: auto; }
