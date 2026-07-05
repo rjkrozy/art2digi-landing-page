@@ -84,11 +84,11 @@ a { color: inherit; text-decoration: none; }
 .station-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,154,206,0.18); }
 .station-card-img { height: 160px; background-size: cover; background-position: center top; background-color: var(--blue); transition: transform 0.6s var(--ease); }
 .station-card:hover .station-card-img { transform: scale(1.05); }
-.station-card-body { padding: 1rem 1.2rem 1.2rem; }
+.station-card-body { padding: 1rem 1.2rem 1.2rem; display: flex; flex-direction: column; }
 .station-card-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue); display: block; margin-bottom: 0.3rem; }
 .station-card-body h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--purple); margin-bottom: 0.3rem; line-height: 1.2; }
-.station-card-body p { font-size: 0.85rem; color: var(--text-light); margin-bottom: 0.8rem; line-height: 1.5; }
-.station-card-cta { font-size: 0.8rem; font-weight: 600; color: var(--blue); letter-spacing: 0.03em; display: flex; align-items: center; gap: 0.4rem; transition: gap 0.2s; }
+.station-card-body p { font-size: 0.85rem; color: var(--text-light); margin-bottom: 0.8rem; line-height: 1.5; flex: 1; }
+.station-card-cta { font-size: 0.8rem; font-weight: 600; color: var(--blue); letter-spacing: 0.03em; display: flex; align-items: center; gap: 0.4rem; transition: gap 0.2s; margin-top: auto; }
 .station-card:hover .station-card-cta { gap: 0.7rem; }
 
 /* PORTFOLIO PREVIEW */
@@ -102,9 +102,9 @@ a { color: inherit; text-decoration: none; }
 .portfolio-item:hover .portfolio-hover { opacity: 1; }
 .portfolio-hook { font-family: var(--font-display); font-size: 1.1rem; font-style: italic; color: var(--white); line-height: 1.4; }
 .portfolio-caption { padding: 1rem 1.25rem 1.25rem; background: var(--white); }
-.portfolio-tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.35rem; }
-.portfolio-caption h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--ink); transition: color 0.2s; }
-.portfolio-item:hover .portfolio-caption h3 { color: var(--purple); }
+.portfolio-tag { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue); display: block; margin-bottom: 0.35rem; }
+.portfolio-caption h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--purple); transition: color 0.2s; }
+.portfolio-item:hover .portfolio-caption h3 { color: var(--blue); }
 
 /* QUOTE BREAK */
 .quote-break { background: var(--purple); padding: 2.5rem 2rem; text-align: center; }
