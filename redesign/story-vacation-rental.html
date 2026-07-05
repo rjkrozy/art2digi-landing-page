@@ -61,14 +61,18 @@
         .lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.2); }
 
         /* CTA */
-        .story-cta { background: var(--blue); padding: 2.5rem 2rem; text-align: center; }
-        .story-cta h2 { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 2rem); color: var(--white); margin-bottom: 1rem; font-weight: 600; }
+        .story-cta { background: var(--blue); padding: 1.8rem 2rem; text-align: center; }
+        .story-cta h2 { font-family: var(--font-display); font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--white); margin-bottom: 0.8rem; font-weight: 600; }
         .story-cta .btn-light { display: inline-block; }
 
         /* BACK LINK */
-        .story-back { padding: 1rem 2rem; background: var(--cream); }
+        .story-back { padding: 0.6rem 2rem; background: var(--cream); }
         .story-back a { font-size: 0.85rem; color: var(--blue); font-weight: 500; display: inline-flex; align-items: center; gap: 0.4rem; }
         .story-back a:hover { color: var(--purple); }
+
+        /* LIGHTBOX CLOSE — large visible X */
+        .lightbox-close { position: fixed; top: 1rem; right: 1rem; background: rgba(255,255,255,0.15); border: 1.5px solid rgba(255,255,255,0.4); color: #fff; font-size: 1.2rem; cursor: pointer; padding: 0.5rem 0.75rem; border-radius: 4px; z-index: 10001; transition: background 0.2s; }
+        .lightbox-close:hover { background: rgba(255,255,255,0.3); }
 
         @media (max-width: 640px) {
             .story-photo-grid.cols-3 { grid-template-columns: 1fr 1fr; }
@@ -80,7 +84,7 @@
 
     <!-- LIGHTBOX -->
     <div class="lightbox" id="lightbox" role="dialog" aria-label="Photo viewer">
-        <button class="lightbox-close" id="lightbox-close" aria-label="Close"><i class="fas fa-times"></i></button>
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox"><i class="fas fa-times"></i> Close</button>
         <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous photo"><i class="fas fa-chevron-left"></i></button>
         <div class="lightbox-inner">
             <img class="lightbox-img" id="lightbox-img" src="" alt="">
@@ -134,7 +138,7 @@
                     <span class="story-section-eye">The Living Spaces</span>
                     <h2 class="story-section-title">Apartment 1 — Cozy Sunshine Bliss</h2>
                 </div>
-                <p class="story-photographer-voice">Morning light does something to an interior. It doesn't just illuminate — it tells you what the space feels like to wake up in. I waited for it.</p>
+                <p class="story-photographer-voice">Morning light does something to an interior. It doesn't just illuminate. It tells you what the space feels like to wake up in. I waited for it.</p>
                 <p class="story-brochure-text">A kitchen, a living room, one bedroom and one bathroom. Spacious, warm, with natural lighting that gives the place a taste of sunshine. Imagine waking up to it.</p>
                 <div class="story-photo-grid cols-2">
                     <div class="story-photo-item" data-src="img/stories/vacation-rental/Aruba_VR_Ap1_Overview.jpg" data-caption="Cozy Sunshine Bliss">
@@ -225,7 +229,7 @@
 
         <!-- CTA -->
         <div class="story-cta">
-            <h2>Want to tell your space story?</h2>
+            <h2>Want to tell your story?</h2>
             <a href="contact.html" class="btn btn-light">Let's talk</a>
         </div>
 
