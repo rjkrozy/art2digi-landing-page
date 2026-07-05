@@ -142,10 +142,10 @@ footer { background: var(--purple); padding: 1.2rem 2rem 0; }
 .footer-bottom { text-align: center; padding: 0.8rem 0; font-size: 0.75rem; color: rgba(255,255,255,0.28); border-top: 1px solid rgba(255,255,255,0.1); }
 
 /* INNER PAGES — shared header */
-.page-header { background: var(--blue); padding: 80px 2rem 12px; text-align: center; }
-.page-header .section-eyebrow { color: rgba(255,255,255,0.7); }
-.page-header h1 { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 600; color: var(--white); margin-top: 0.3rem; }
-.page-header p { color: rgba(255,255,255,0.75); margin-top: 0.5rem; font-size: 0.88rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+.page-header { background: var(--blue); padding: 76px 2rem 10px; text-align: center; }
+.page-header .section-eyebrow { color: rgba(255,255,255,0.7); font-size: 0.7rem; margin-bottom: 0.2rem; }
+.page-header h1 { font-family: var(--font-display); font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-weight: 600; color: var(--white); margin-top: 0.2rem; }
+.page-header p { color: rgba(255,255,255,0.75); margin-top: 0.3rem; font-size: 0.85rem; max-width: 500px; margin-left: auto; margin-right: auto; }
 
 /* ABOUT PAGE */
 .about-page { padding-top: var(--nav-h); background: var(--cream); }

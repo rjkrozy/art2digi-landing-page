@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Vacation Rental Story — Art2Digi Solutions</title>
+    <meta name="description" content="Every space has a story. Natural light vacation rental photography by Rutsella Krosendijk — Art2Digi Solutions.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* STORY PAGE */
+        .story-page { padding-top: var(--nav-h); background: var(--cream); }
+
+        /* OPENING HOOK */
+        .story-hook-section { background: var(--white); padding: 3rem 2rem; border-bottom: 0.5px solid var(--border); }
+        .story-hook-inner { max-width: 760px; margin: 0 auto; }
+        .story-hook-quote { font-family: var(--font-display); font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-style: italic; color: var(--purple); line-height: 1.4; margin-bottom: 1.2rem; }
+        .story-hook-body { font-size: 1rem; color: var(--text); line-height: 1.8; }
+
+        /* STORY SECTIONS */
+        .story-section { padding: 3rem 2rem; border-bottom: 0.5px solid var(--border); }
+        .story-section:nth-child(even) { background: var(--warm-mid); }
+        .story-section:nth-child(odd) { background: var(--cream); }
+        .story-section-inner { max-width: 900px; margin: 0 auto; }
+
+        .story-section-header { border-left: 3px solid var(--blue); padding-left: 1rem; margin-bottom: 1.5rem; }
+        .story-section-title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--purple); line-height: 1.2; margin-bottom: 0.3rem; }
+        .story-section-eye { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.4rem; display: block; }
+
+        .story-photographer-voice { font-size: 0.95rem; color: var(--text); line-height: 1.8; margin-bottom: 1rem; font-style: italic; }
+        .story-brochure-text { font-size: 0.9rem; color: var(--text-light); line-height: 1.75; margin-bottom: 1.5rem; border-left: 2px solid var(--border); padding-left: 1rem; }
+
+        /* PHOTO GRID */
+        .story-photo-grid { display: grid; gap: 8px; margin-bottom: 0.5rem; }
+        .story-photo-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+        .story-photo-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+        .story-photo-grid.cols-1 { grid-template-columns: 1fr; max-width: 600px; }
+
+        .story-photo-item { cursor: pointer; border-radius: 4px; overflow: hidden; position: relative; }
+        .story-photo-item img { width: 100%; display: block; aspect-ratio: 4/3; object-fit: cover; transition: transform 0.4s ease; }
+        .story-photo-grid.cols-1 .story-photo-item img { aspect-ratio: 16/9; }
+        .story-photo-item:hover img { transform: scale(1.03); }
+        .story-photo-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0); display: flex; align-items: flex-end; padding: 0.8rem; transition: background 0.3s; }
+        .story-photo-item:hover .story-photo-overlay { background: rgba(0,0,0,0.3); }
+        .story-photo-caption { font-family: var(--font-display); font-size: 0.85rem; font-style: italic; color: #fff; opacity: 0; transition: opacity 0.3s; }
+        .story-photo-item:hover .story-photo-caption { opacity: 1; }
+        .story-photo-hint { font-size: 0.72rem; color: var(--text-muted); text-align: center; margin-top: 0.5rem; letter-spacing: 0.06em; }
+
+        /* LIGHTBOX */
+        .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 9999; align-items: center; justify-content: center; padding: 1rem; }
+        .lightbox.active { display: flex; }
+        .lightbox-inner { position: relative; max-width: 90vw; max-height: 90vh; }
+        .lightbox-img { max-width: 100%; max-height: 85vh; object-fit: contain; border-radius: 4px; display: block; }
+        .lightbox-caption { font-family: var(--font-display); font-size: 1rem; font-style: italic; color: rgba(255,255,255,0.8); text-align: center; margin-top: 0.8rem; }
+        .lightbox-close { position: absolute; top: -40px; right: 0; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; padding: 8px; opacity: 0.7; transition: opacity 0.2s; }
+        .lightbox-close:hover { opacity: 1; }
+        .lightbox-prev, .lightbox-next { position: fixed; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.1); border: none; color: #fff; font-size: 1.5rem; cursor: pointer; padding: 1rem 0.8rem; border-radius: 4px; transition: background 0.2s; z-index: 10000; }
+        .lightbox-prev { left: 1rem; }
+        .lightbox-next { right: 1rem; }
+        .lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.2); }
+
+        /* CTA */
+        .story-cta { background: var(--blue); padding: 2.5rem 2rem; text-align: center; }
+        .story-cta h2 { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 2rem); color: var(--white); margin-bottom: 1rem; font-weight: 600; }
+        .story-cta .btn-light { display: inline-block; }
+
+        /* BACK LINK */
+        .story-back { padding: 1rem 2rem; background: var(--cream); }
+        .story-back a { font-size: 0.85rem; color: var(--blue); font-weight: 500; display: inline-flex; align-items: center; gap: 0.4rem; }
+        .story-back a:hover { color: var(--purple); }
+
+        @media (max-width: 640px) {
+            .story-photo-grid.cols-3 { grid-template-columns: 1fr 1fr; }
+            .story-photo-grid.cols-2 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-label="Photo viewer">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close"><i class="fas fa-times"></i></button>
+        <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous photo"><i class="fas fa-chevron-left"></i></button>
+        <div class="lightbox-inner">
+            <img class="lightbox-img" id="lightbox-img" src="" alt="">
+            <p class="lightbox-caption" id="lightbox-caption"></p>
+        </div>
+        <button class="lightbox-next" id="lightbox-next" aria-label="Next photo"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <nav id="main-nav" class="scrolled">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="img/logo.svg" alt="Art2Digi Solutions" class="nav-logo-img">
+                <span>Art2Digi Solutions</span>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+                <li><a href="workshops.html" class="nav-link">Workshops</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link nav-contact-btn">Let's Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="story-page">
+
+        <div class="page-header">
+            <p class="section-eyebrow">Portfolio</p>
+            <h1>The Vacation Rental Story</h1>
+        </div>
+
+        <div class="story-back">
+            <a href="portfolio.html"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        </div>
+
+        <!-- OPENING HOOK -->
+        <div class="story-hook-section">
+            <div class="story-hook-inner">
+                <p class="story-hook-quote">"Every space has a story. I walk the property, feel the light, find the moments that make someone stop scrolling and feel something."</p>
+                <p class="story-hook-body">I work with what's there. Morning, golden hour, night. The same space tells a different story at every hour. My job is to capture all of them.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 1 — Apartment 1 -->
+        <div class="story-section">
+            <div class="story-section-inner">
+                <div class="story-section-header">
+                    <span class="story-section-eye">The Living Spaces</span>
+                    <h2 class="story-section-title">Apartment 1 — Cozy Sunshine Bliss</h2>
+                </div>
+                <p class="story-photographer-voice">Morning light does something to an interior. It doesn't just illuminate — it tells you what the space feels like to wake up in. I waited for it.</p>
+                <p class="story-brochure-text">A kitchen, a living room, one bedroom and one bathroom. Spacious, warm, with natural lighting that gives the place a taste of sunshine. Imagine waking up to it.</p>
+                <div class="story-photo-grid cols-2">
+                    <div class="story-photo-item" data-src="img/stories/vacation-rental/Aruba_VR_Ap1_Overview.jpg" data-caption="Cozy Sunshine Bliss">
+                        <img src="img/stories/vacation-rental/Aruba_VR_Ap1_Overview.jpg" alt="Cozy Sunshine Bliss" loading="lazy">
+                        <div class="story-photo-overlay"><span class="story-photo-caption">Cozy Sunshine Bliss</span></div>
+                    </div>
+                    <div class="story-photo-item" data-src="img/stories/vacation-rental/Aruba_VR_Ap1_The_Island_Experience.jpg" data-caption="The Island Experience">
+                        <img src="img/stories/vacation-rental/Aruba_VR_Ap1_The_Island_Experience.jpg" alt="The Island Experience" loading="lazy">
+                        <div class="story-photo-overlay"><span class="story-photo-caption">The Island Experience</span></div>
+                    </div>
+                </div>
+                <p class="story-photo-hint"><i class="fas fa-expand-alt"></i> Click any photo to view full size</p>
+            </div>
+        </div>
+
+        <!-- SECTION 2 — Apartment 2 -->
+        <div class="story-section">
+            <div class="story-section-inner">
+                <div class="story-section-header">
+                    <span class="story-section-eye">The Living Spaces</span>
+                    <h2 class="story-section-title">Apartment 2 — Relaxing Retreat</h2>
+                </div>
+                <p class="story-photographer-voice">The second apartment has a different energy. Quieter. More room to breathe. I let that stillness speak in every frame.</p>
+                <p class="story-brochure-text">Two bedrooms, one bathroom, a kitchen and a comfy living room with a dining table. Surrounded by nature, without the busy air of popular tourist spots. A real retreat.</p>
+                <div class="story-photo-grid cols-2">
+                    <div class="story-photo-item" data-src="img/stories/vacation-rental/Aruba_VR_Ap2_Livingroom_Kitchen.jpg" data-caption="Relaxing Retreat">
+                        <img src="img/stories/vacation-rental/Aruba_VR_Ap2_Livingroom_Kitchen.jpg" alt="Relaxing Retreat" loading="lazy">
+                        <div class="story-photo-overlay"><span class="story-photo-caption">Relaxing Retreat</span></div>
+                    </div>
+                    <div class="story-photo-item" data-src="img/stories/vacation-rental/Aruba_VR_Ap2_Livingroom.jpg" data-caption="The Living Room">
+                        <img src="img/stories/vacation-rental/Aruba_VR_Ap2_Livingroom.jpg" alt="The Living Room" loading="lazy">
+                        <div class="story-photo-overlay"><span class="story-photo-caption">The Living Room</span></div>
+                    </div>
+                </div>
+                <p class="story-photo-hint"><i class="fas fa-expand-alt"></i> Click any photo to view full size</p>
+            </div>
+        </div>
+
+        <!-- SECTION 3 — Exterior -->
+        <div class="story-section">
+            <div class="story-section-inner">
+                <div class="story-section-header">
+                    <span class="story-section-eye">Exterior & Tropical Grounds</span>
+                    <h2 class="story-section-title">The Perfect View</h2>
+                </div>
+                <p class="story-photographer-voice">A property is more than its walls. The grounds, the sky, the light hitting the palms at just the right angle. That's what makes a guest picture themselves there.</p>
+                <p class="story-brochure-text">Surrounded by beautiful tropical palm trees and flowers. When coming back from island adventures at night, beautiful lights illuminate the path to the pool and apartments.</p>
+                <div class="story-photo-grid cols-2">
+                    <div class="story-photo-item" data-src="img/stories/vacation-rental/Aruba_VR_Landscape.jpg" data-caption="The Perfect View">
+                        <img src="img/stories/vacation-rental/Aruba_VR_Landscape.jpg" alt="The Perfect View" loading="lazy">
+                        <div class="story-photo-overlay"><span class="story-photo-caption">The Perfect View</span></div>
+                    </div>
+                    <div class="story-photo-item" data-src="img/stories/vacation-rental/Aruba_VR_Ap1_Hooiberg_View.jpg" data-caption="The Hooiberg View">
+                        <img src="img/stories/vacation-rental/Aruba_VR_Ap1_Hooiberg_View.jpg" alt="The Hooiberg View" loading="lazy">
+                        <div class="story-photo-overlay"><span class="story-photo-caption">The Hooiberg View</span></div>
+                    </div>
+                </div>
+                <p class="story-photo-hint"><i class="fas fa-expand-alt"></i> Click any photo to view full size</p>
+            </div>
+        </div>
+
+        <!-- SECTION 4 — Pool & Night -->
+        <div class="story-section">
+            <div class="story-section-inner">
+                <div class="story-section-header">
+                    <span class="story-section-eye">Sunset & Night Magic</span>
+                    <h2 class="story-section-title">From Golden Hour to Midnight Glow</h2>
+                </div>
+                <p class="story-photographer-voice">I stayed until dark. Because this space doesn't stop at sunset. It transforms. And that transformation is the story nobody else was telling.</p>
+                <p class="story-brochure-text">Lounge poolside as the sun dips low and golden hour paints the sky. As night falls, the pool lights ignite in a dazzling display. Retreat to the gazebo for unforgettable evenings under the stars.</p>
+                <div class="story-photo-grid cols-3">
+                    <div class="story-photo-item" data-src="img/stories/vacation-rental/Aruba_VR_Pool_Golden_Hour.jpg" data-caption="Sunset Magic">
+                        <img src="img/stories/vacation-rental/Aruba_VR_Pool_Golden_Hour.jpg" alt="Sunset Magic" loading="lazy">
+                        <div class="story-photo-overlay"><span class="story-photo-caption">Sunset Magic</span></div>
+                    </div>
+                    <div class="story-photo-item" data-src="img/stories/vacation-rental/Aruba_VR_Night_Landscape.jpg" data-caption="The Night Landscape">
+                        <img src="img/stories/vacation-rental/Aruba_VR_Night_Landscape.jpg" alt="The Night Landscape" loading="lazy">
+                        <div class="story-photo-overlay"><span class="story-photo-caption">The Night Landscape</span></div>
+                    </div>
+                    <div class="story-photo-item" data-src="img/stories/vacation-rental/Aruba_VR_Pool_Nightlife.jpg" data-caption="The Night Life">
+                        <img src="img/stories/vacation-rental/Aruba_VR_Pool_Nightlife.jpg" alt="The Night Life" loading="lazy">
+                        <div class="story-photo-overlay"><span class="story-photo-caption">The Night Life</span></div>
+                    </div>
+                </div>
+                <p class="story-photo-hint"><i class="fas fa-expand-alt"></i> Click any photo to view full size</p>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="story-cta">
+            <h2>Want to tell your space story?</h2>
+            <a href="contact.html" class="btn btn-light">Let's talk</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/art2digi" target="_blank" rel="noopener" aria-label="Instagram @art2digi" class="social-link"><i class="fab fa-instagram"></i><span>@art2digi</span></a>
+                <a href="https://www.facebook.com/share/1AZFb571Yq/?mibe" target="_blank" rel="noopener" aria-label="Facebook" class="social-link"><i class="fab fa-facebook"></i><span>Art2Digi</span></a>
+                <a href="https://wa.me/2975638194" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-link"><i class="fab fa-whatsapp"></i><span>+297 563 8194</span></a>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>© 2026 Art2Digi Solutions. All rights reserved.</p></div>
+    </footer>
+
+    <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); navMenu.classList.toggle('nav-open'); });
+    navMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('open'); navMenu.classList.remove('nav-open'); }));
+
+    // LIGHTBOX
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+
+    const allPhotos = Array.from(document.querySelectorAll('.story-photo-item'));
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+        currentIndex = index;
+        const item = allPhotos[index];
+        lightboxImg.src = item.getAttribute('data-src');
+        lightboxImg.alt = item.getAttribute('data-caption');
+        lightboxCaption.textContent = item.getAttribute('data-caption');
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + allPhotos.length) % allPhotos.length;
+        openLightbox(currentIndex);
+    }
+
+    function showNext() {
+        currentIndex = (currentIndex + 1) % allPhotos.length;
+        openLightbox(currentIndex);
+    }
+
+    allPhotos.forEach((item, index) => {
+        item.addEventListener('click', () => openLightbox(index));
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', showPrev);
+    lightboxNext.addEventListener('click', showNext);
+
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showPrev();
+        if (e.key === 'ArrowRight') showNext();
+    });
+    </script>
+</body>
+</html>
