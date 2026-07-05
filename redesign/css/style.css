@@ -142,18 +142,10 @@ footer { background: var(--purple); padding: 1.2rem 2rem 0; }
 .footer-bottom { text-align: center; padding: 0.8rem 0; font-size: 0.75rem; color: rgba(255,255,255,0.28); border-top: 1px solid rgba(255,255,255,0.1); }
 
 /* INNER PAGES — shared header */
-.page-header { background: var(--purple); padding: calc(var(--nav-h) + 3rem) 2rem 3rem; text-align: center; }
-.page-header .section-eyebrow { color: var(--gold-light); }
-.page-header h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3rem); font-weight: 600; color: var(--white); margin-top: 0.4rem; }
-.page-header p { color: rgba(255,255,255,0.65); margin-top: 0.8rem; font-size: 0.95rem; max-width: 500px; margin-left: auto; margin-right: auto; }
-
-/* PORTFOLIO PAGE HERO — matches home hero */
-.portfolio-page-hero { position: relative; height: 42vh; min-height: 300px; max-height: 460px; display: flex; align-items: flex-end; overflow: hidden; }
-.portfolio-page-hero-photo { position: absolute; inset: 0; background-image: url('../img/photography-card.jpg'); background-size: cover; background-position: center top; }
-.portfolio-page-hero-gradient { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.0) 45%, rgba(0,0,0,0.45) 75%, rgba(0,0,0,0.65) 100%); }
-.portfolio-page-hero-content { position: relative; z-index: 2; width: 100%; padding: 0 2rem 1.8rem; max-width: var(--max-w); margin: 0 auto; }
-.portfolio-page-hero-content .section-eyebrow { color: var(--gold-light); }
-.portfolio-page-hero-content h1 { font-family: var(--font-display); font-size: clamp(1.4rem, 2.5vw, 2.2rem); font-weight: 600; color: var(--white); line-height: 1.15; margin-top: 0.4rem; }
+.page-header { background: var(--blue); padding: calc(var(--nav-h) + 1.2rem) 2rem 1.2rem; text-align: center; }
+.page-header .section-eyebrow { color: rgba(255,255,255,0.7); }
+.page-header h1 { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 600; color: var(--white); margin-top: 0.3rem; }
+.page-header p { color: rgba(255,255,255,0.75); margin-top: 0.5rem; font-size: 0.88rem; max-width: 500px; margin-left: auto; margin-right: auto; }
 
 /* ABOUT PAGE */
 .about-page { padding-top: var(--nav-h); background: var(--cream); }
