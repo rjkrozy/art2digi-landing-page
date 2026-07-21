@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshops — Art2Digi Solutions</title>
+    <meta name="description" content="Join the Capture & Pose™ mobile photography workshop in Aruba. Hands-on, personal feedback, real results.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav id="main-nav" class="scrolled">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="img/logo.svg" alt="Art2Digi Solutions" class="nav-logo-img">
+                <span>Art2Digi Solutions</span>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="workshops.html" class="nav-link active">Workshops</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link nav-contact-btn">Let's Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="workshops-page">
+        <div class="page-header">
+            <p class="section-eyebrow">Learn with me</p>
+            <h1>Workshops</h1>
+            <p>Hands-on sessions designed to get you results.</p>
+        </div>
+        <div class="workshops-content">
+            <div class="container" style="max-width:800px;">
+                <div id="workshops-list"></div>
+            </div>
+        </div>
+    </div>
+
+        <footer>
+        <div class="footer-inner">
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/art2digi" target="_blank" rel="noopener" aria-label="Instagram @art2digi" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                    <span>@art2digi</span>
+                </a>
+                <a href="https://www.facebook.com/share/1AZFb571Yq/?mibe" target="_blank" rel="noopener" aria-label="Facebook Art2Digi" class="social-link">
+                    <i class="fab fa-facebook"></i>
+                    <span>Art2Digi</span>
+                </a>
+                <a href="https://wa.me/2975638194" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-link">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>+297 563 8194</span>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Art2Digi Solutions. All rights reserved. <a href="privacy-policy.html" style="color: rgba(255,255,255,0.4);">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); navMenu.classList.toggle('nav-open'); });
+    navMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('open'); navMenu.classList.remove('nav-open'); }));
+
+    async function loadWorkshops() {
+        try {
+            const response = await fetch('workshops.json?v=' + Date.now());
+            const data = await response.json();
+            renderWorkshops(data);
+        } catch (error) { console.error('Could not load workshops.json:', error); }
+    }
+
+    function renderWorkshops(data) {
+        const container = document.getElementById('workshops-list');
+        const workshops = Object.entries(data).filter(([key]) => key !== "bank").map(([, v]) => v);
+        workshops.forEach((workshop, index) => {
+            const isOpen = index === 0;
+            let investmentText = 'TBA';
+            if (workshop.price_regular) {
+                investmentText = workshop.currency + ' ' + workshop.price_regular;
+                if (workshop.price_earlybird) investmentText += ' — Early Bird: ' + workshop.currency + ' ' + workshop.price_earlybird + ' (' + workshop.earlybird_label + ')';
+            }
+            const learnItems = workshop.learn.map(item => '<li>' + item + '</li>').join('');
+            let actionButton = workshop.status === 'open' && workshop.register_url
+                ? '<a href="' + workshop.register_url + '" class="register-btn">Register Now</a>'
+                : '<a href="contact.html" class="register-btn">Get Notified</a>';
+            const deadlineNote = workshop.status === 'open'
+                ? '<p class="workshop-note">⚡ Payment required within ' + workshop.payment_deadline_hours + ' hours to confirm your spot.</p>'
+                : '<p class="workshop-note">Coming soon — contact us to get on the early bird list.</p>';
+            container.insertAdjacentHTML('beforeend', `
+                <div class="accordion-item">
+                    <div class="accordion-header" data-target="workshop-${index+1}">
+                        <span>${workshop.name} — ${workshop.subtitle}</span>
+                        <i class="fas ${isOpen ? 'fa-chevron-up' : 'fa-chevron-down'}"></i>
+                    </div>
+                    <div class="accordion-content ${isOpen ? 'open' : ''}" id="workshop-${index+1}">
+                        <div class="workshop-card-inner-content">
+                            <p class="workshop-method-subtitle">${workshop.method}</p>
+                            <p class="workshop-tagline-main">${workshop.tagline}</p>
+                            <div class="workshop-info-grid">
+                                <div class="info-block"><p class="info-label">Date</p><p class="info-value">${workshop.date}</p></div>
+                                <div class="info-block"><p class="info-label">Time</p><p class="info-value">${workshop.time}</p></div>
+                                <div class="info-block"><p class="info-label">Location</p><p class="info-value">${workshop.location}</p></div>
+                                <div class="info-block investment-block"><p class="info-label">Investment</p><p class="info-value">${investmentText}</p></div>
+                            </div>
+                            <div class="workshop-learn"><h4>What You'll Learn:</h4><ul>${learnItems}</ul></div>
+                            ${deadlineNote}
+                        </div>
+                        ${actionButton}
+                    </div>
+                </div>`);
+        });
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = document.getElementById(header.getAttribute('data-target'));
+                const icon = header.querySelector('.fas');
+                const isOpen = content.classList.contains('open');
+                document.querySelectorAll('.accordion-content.open').forEach(c => {
+                    c.classList.remove('open');
+                    c.previousElementSibling.querySelector('.fas').classList.replace('fa-chevron-up','fa-chevron-down');
+                });
+                if (!isOpen) { content.classList.add('open'); icon.classList.replace('fa-chevron-down','fa-chevron-up'); }
+            });
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', loadWorkshops);
+    </script>
+</body>
+</html>

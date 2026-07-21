@@ -10,9 +10,9 @@
     "name": "Capture & Pose™",
     "fullName": "Capture & Pose™ Mobile Photography & Natural Posing",
     "subtitle": "Mobile Photography & Natural Posing",
-    "method": "Powered by The Lens Method™",
+    "method": "Hands-on workshop with personal feedback",
     "tagline": "Capture the shot. Master your presence. Frame your story.",
-    "date": "May 23, 2026",
+    "date": "Date TBA",
     "time": "9:30 AM - 12:00 PM",
     "duration": "2.5 hours",
     "location": "Aeromall 6th floor unit 1, next to Hyatt Place",
@@ -42,9 +42,9 @@
     "id": "storytelling",
     "slug": "Storytelling",
     "name": "Storytelling Through a Photographer's Lens™",
-    "fullName": "Storytelling Through a Photographer's Lens™ Go From Boring to Memorable Training",
+    "fullName": "Storytelling Through a Photographer's Lens™. Go From Boring to Memorable Training",
     "subtitle": "Go From Boring to Memorable Training",
-    "method": "Powered by The Lens Method™",
+    "method": "Workshop for trainers, facilitators and educators",
     "tagline": "Deliver Sessions People Remember & Apply",
     "date": "TBA",
     "time": "9:30 AM - 12:00 PM",
@@ -66,4 +66,3 @@
     "includes": []
   }
 }
-
