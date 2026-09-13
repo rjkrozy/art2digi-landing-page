@@ -14,7 +14,7 @@ import { supabase } from './supabase-client.js';
 // ---- EDIT THESE with your real EmailJS values ----
 const EMAILJS_SERVICE_ID = 'service_4ewil9m';
 const EMAILJS_TEMPLATE_CLIENT = 'template_v5bsi6v';
-const EMAILJS_TEMPLATE_ADMIN = 'YOUR_ADMIN_NOTIFICATION_TEMPLATE_ID';
+const EMAILJS_TEMPLATE_ADMIN = 'template_lx2t0za';
 const ADMIN_EMAIL = 'hello@art2digi.com';
 
 // Payment instructions per campaign — edit the text to match your real
@@ -65,6 +65,13 @@ export async function loadOpenSlots(campaignType, selectEl) {
   selectEl.innerHTML =
     '<option value="">Select a date/time…</option>' +
     data.map(s => `<option value="${s.id}">${s.label}</option>`).join('');
+}
+
+// Small delay helper — EmailJS enforces 1 request/second, so we space
+// out the client + admin sends to make sure the second one isn't
+// silently rejected for arriving too soon after the first.
+function wait(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 /**
@@ -143,6 +150,8 @@ export async function submitSingleSlotBooking(fields, formEl) {
         amount: config.amount,
         payment_instructions: config.paymentInstructions
       });
+
+      await wait(1200); // stay under EmailJS's 1 request/second limit
 
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ADMIN, {
         to_email: ADMIN_EMAIL,
@@ -228,6 +237,8 @@ export async function submitBooking(fields, formEl, selectEl) {
         amount: config.amount,
         payment_instructions: config.paymentInstructions
       });
+
+      await wait(1200); // stay under EmailJS's 1 request/second limit
 
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ADMIN, {
         to_email: ADMIN_EMAIL,
