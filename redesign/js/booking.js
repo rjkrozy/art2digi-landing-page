@@ -14,7 +14,7 @@ import { supabase } from './supabase-client.js';
 // ---- EDIT THESE with your real EmailJS values ----
 const EMAILJS_SERVICE_ID = 'service_4ewil9m';
 const EMAILJS_TEMPLATE_CLIENT = 'template_v5bsi6v';
-const EMAILJS_TEMPLATE_ADMIN = 'template_lx2t0za';
+const EMAILJS_TEMPLATE_ADMIN = 'YOUR_ADMIN_NOTIFICATION_TEMPLATE_ID';
 const ADMIN_EMAIL = 'hello@art2digi.com';
 
 // Payment instructions per campaign — edit the text to match your real
@@ -166,6 +166,11 @@ export async function submitSingleSlotBooking(fields, formEl) {
     return false;
   }
 }
+
+/**
+ * Submit a booking. Handles the atomic slot-lock via the book_slot()
+ * Postgres function, then fires both EmailJS emails.
+ *
  * @param {Object} fields - { campaignType, slotId, name, email, phone, notes }
  * @param {HTMLFormElement} formEl - the form being submitted (for button state + reset)
  * @param {HTMLSelectElement} selectEl - the slot dropdown (to refresh on failure)
