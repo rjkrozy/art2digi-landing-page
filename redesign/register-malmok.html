@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Session — Golden Hour Personal Branding Campaign</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>emailjs.init('XfV62oYNl_QAwWLuW');</script>
+</head>
+<body>
+
+    <nav id="main-nav" class="scrolled">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="img/logo.svg" alt="Art2Digi Solutions" class="nav-logo-img">
+                <span>Art2Digi Solutions</span>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="workshops.html" class="nav-link">Workshops</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link nav-contact-btn">Let's Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div style="padding-top: var(--nav-h); min-height: 100vh; background: var(--warm-mid); display: flex; align-items: center; justify-content: center; padding-bottom: 3rem;">
+        <div style="background: var(--white); border-radius: 8px; padding: 2.5rem; max-width: 560px; width: 100%; margin: 2rem 1.5rem; box-shadow: 0 4px 24px rgba(0,0,0,0.08);">
+
+            <h1 style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--purple); text-align: center; line-height: 1.2; margin-bottom: 0.3rem;">Golden Hour Personal Branding Campaign</h1>
+            <h2 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: var(--purple); text-align: center; margin-bottom: 1.5rem;">Book Your Session</h2>
+
+            <p style="font-size: 0.92rem; color: var(--text); margin-bottom: 0.8rem;">Golden Hour: the magical light just before sunset.</p>
+            <p style="font-size: 0.92rem; color: var(--text); margin-bottom: 1.2rem;">You deserve more than just a photo. You deserve images that capture you, your essence and your story in the beautiful Golden Light of Malmok.</p>
+
+            <div style="font-size: 0.88rem; color: var(--text); margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.4rem;">
+                <p>✨ 15 professionally shot photos</p>
+                <p>📍 Malmok</p>
+                <p>🕔 Sessions start at 5:00 PM</p>
+                <p>💰 AWG 100</p>
+                <p style="margin-top: 0.3rem;">Available every Saturday &amp; Sunday, October 17 – November 28 &mdash; only 12 spots.</p>
+                <p style="margin-top: 0.3rem;">⚡ Payment instructions will be sent to your email immediately after booking.</p>
+            </div>
+
+            <form id="malmok-form">
+
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; font-size: 0.82rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem;">Choose Your Session *</label>
+                    <select name="slot_id" required style="width: 100%; padding: 0.75rem 1rem; border: 1.5px solid var(--border); border-radius: 4px; font-family: var(--font-body); font-size: 0.92rem; color: var(--ink); background: var(--cream); outline: none;">
+                        <option value="">Loading available dates…</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; font-size: 0.82rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem;">Full Name *</label>
+                    <input type="text" name="name" placeholder="Your full name" required style="width: 100%; padding: 0.75rem 1rem; border: 1.5px solid var(--border); border-radius: 4px; font-family: var(--font-body); font-size: 0.92rem; color: var(--ink); background: var(--cream); outline: none;">
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; font-size: 0.82rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem;">Email Address *</label>
+                    <input type="email" name="email" placeholder="your@email.com" required style="width: 100%; padding: 0.75rem 1rem; border: 1.5px solid var(--border); border-radius: 4px; font-family: var(--font-body); font-size: 0.92rem; color: var(--ink); background: var(--cream); outline: none;">
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; font-size: 0.82rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem;">Phone Number (WhatsApp preferred)</label>
+                    <input type="tel" name="phone" placeholder="+297 XXX XXXX" style="width: 100%; padding: 0.75rem 1rem; border: 1.5px solid var(--border); border-radius: 4px; font-family: var(--font-body); font-size: 0.92rem; color: var(--ink); background: var(--cream); outline: none;">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-size: 0.82rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem;">Anything I should know?</label>
+                    <textarea name="notes" placeholder="Solo or couple, styling questions, anything else..." rows="4" style="width: 100%; padding: 0.75rem 1rem; border: 1.5px solid var(--border); border-radius: 4px; font-family: var(--font-body); font-size: 0.92rem; color: var(--ink); background: var(--cream); outline: none; resize: vertical;"></textarea>
+                </div>
+
+                <button type="submit" style="width: 100%; padding: 1rem; background: var(--blue); color: var(--white); border: none; border-radius: 4px; font-family: var(--font-body); font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: background 0.2s;">
+                    <i class="fas fa-camera"></i> Book My Session
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/art2digi" target="_blank" rel="noopener" aria-label="Instagram @art2digi" class="social-link">
+                    <i class="fab fa-instagram"></i><span>@art2digi</span>
+                </a>
+                <a href="https://www.facebook.com/share/1AZFb571Yq/?mibe" target="_blank" rel="noopener" aria-label="Facebook" class="social-link">
+                    <i class="fab fa-facebook"></i><span>Art2Digi</span>
+                </a>
+                <a href="https://wa.me/2975638194" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-link">
+                    <i class="fab fa-whatsapp"></i><span>+297 563 8194</span>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>© 2026 Art2Digi Solutions. All rights reserved.</p></div>
+    </footer>
+
+    <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); navMenu.classList.toggle('nav-open'); });
+    navMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('open'); navMenu.classList.remove('nav-open'); }));
+    </script>
+
+    <!-- Booking logic: dropdown of 12 open Malmok dates -->
+    <script type="module">
+        import { loadOpenSlots, submitBooking } from './js/booking.js';
+
+        const form = document.getElementById('malmok-form');
+        const slotSelect = form.querySelector('[name="slot_id"]');
+
+        loadOpenSlots('malmok', slotSelect);
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const success = await submitBooking(
+                {
+                    campaignType: 'malmok',
+                    slotId: slotSelect.value,
+                    name: form.name.value.trim(),
+                    email: form.email.value.trim(),
+                    phone: form.phone.value.trim(),
+                    notes: form.notes.value.trim()
+                },
+                form,
+                slotSelect
+            );
+
+            if (success) {
+                window.location.href = 'thank-you-malmok.html';
+            }
+        });
+    </script>
+</body>
+</html>
