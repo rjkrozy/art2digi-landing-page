@@ -110,7 +110,7 @@
 
         async function loadSlot() {
             currentSlot = await loadSingleOpenSlot('capture_pose');
-            dateEl.textContent = currentSlot ? currentSlot.label : 'Fully booked — check back soon';
+            dateEl.textContent = currentSlot ? currentSlot.label : 'Next date to be announced';
             if (!currentSlot) {
                 form.querySelector('[type="submit"]').disabled = true;
             }
