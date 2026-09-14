@@ -41,13 +41,9 @@ export async function loadOpenSlots(campaignType, selectEl) {
   selectEl.innerHTML = '<option value="">Loading available dates…</option>';
   selectEl.disabled = true;
 
-  const { data, error } = await supabase
-    .from('slots')
-    .select('id, label')
-    .eq('campaign_type', campaignType)
-    .eq('status', 'open')
-    .order('slot_date', { ascending: true })
-    .order('slot_time', { ascending: true });
+  const { data, error } = await supabase.rpc('get_open_slots', {
+    p_campaign_type: campaignType
+  });
 
   selectEl.disabled = false;
 
@@ -81,14 +77,9 @@ function wait(ms) {
  * text rather than a dropdown.
  */
 export async function loadSingleOpenSlot(campaignType) {
-  const { data, error } = await supabase
-    .from('slots')
-    .select('id, label')
-    .eq('campaign_type', campaignType)
-    .eq('status', 'open')
-    .order('slot_date', { ascending: true })
-    .order('slot_time', { ascending: true })
-    .limit(1);
+  const { data, error } = await supabase.rpc('get_open_slots', {
+    p_campaign_type: campaignType
+  });
 
   if (error) {
     console.error('loadSingleOpenSlot error:', error);
