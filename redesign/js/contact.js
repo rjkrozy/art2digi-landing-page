@@ -6,7 +6,7 @@
 import { supabase } from './supabase-client.js';
 
 const EMAILJS_SERVICE_ID = 'service_4ewil9m';
-const EMAILJS_TEMPLATE_ADMIN = 'template_lx2t0za'; // can reuse the same template as booking.js
+const EMAILJS_TEMPLATE_ADMIN = 'template_lx2t0za'; // reusing the same admin-notification template as booking.js
 const ADMIN_EMAIL = 'hello@art2digi.com';
 
 export async function submitContact({ name, email, message }, formEl) {

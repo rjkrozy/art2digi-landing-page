@@ -3,47 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You! - Art2Digi Solutions</title>
+    <title>Message Sent — Art2Digi Solutions</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            text-align: center; 
-            padding-top: 100px;
-            background: linear-gradient(135deg, #0085ca 0%, #500778 100%);
-            color: white;
-            min-height: 100vh;
-        }
-        .thank-you-box {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 3rem;
-            background: white;
-            color: #333;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        h1 { color: #009ace; margin-bottom: 1rem; }
-        p { margin-bottom: 1.5rem; line-height: 1.6; }
-        .btn-back {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            background: #0085ca;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        .btn-back:hover { background: #500778; }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="thank-you-box">
-        <h1><i class="fas fa-check-circle" style="color: #009ace; margin-right: 10px;"></i> Message Sent!</h1>
-        <p>Thank you for reaching out to Art2Digi Solutions. I have received your message and will be in touch shortly.</p>
-        <p>In the meantime, feel free to explore more of our services.</p>
-        <a href="index.html" class="btn-back">Go Back to Home</a>
+
+    <nav id="main-nav" class="scrolled">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="img/logo.svg" alt="Art2Digi Solutions" class="nav-logo-img">
+                <span>Art2Digi Solutions</span>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="workshops.html" class="nav-link">Workshops</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link nav-contact-btn">Let's Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div style="padding-top: var(--nav-h); min-height: 100vh; background: var(--warm-mid); display: flex; align-items: center; justify-content: center; padding-bottom: 3rem;">
+        <div style="background: var(--white); border-radius: 8px; padding: 2.5rem; max-width: 560px; width: 100%; margin: 2rem 1.5rem; box-shadow: 0 4px 24px rgba(0,0,0,0.08); text-align: center;">
+
+            <i class="fas fa-check-circle" style="font-size: 2.5rem; color: var(--blue); margin-bottom: 1rem; display: block;"></i>
+
+            <h1 style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--purple); margin-bottom: 0.5rem;">Message Sent!</h1>
+
+            <p style="font-size: 0.92rem; color: var(--text); margin-bottom: 2rem; line-height: 1.6;">
+                Thank you for reaching out. I've received your message and will be in touch within 48 hours.
+            </p>
+
+            <a href="index.html" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.75rem; border-radius: 4px; background: var(--blue); color: var(--white); text-decoration: none; font-family: var(--font-body); font-weight: 600; font-size: 0.92rem;">
+                <i class="fas fa-home"></i> Back to Home
+            </a>
+        </div>
     </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/art2digi" target="_blank" rel="noopener" aria-label="Instagram @art2digi" class="social-link">
+                    <i class="fab fa-instagram"></i><span>@art2digi</span>
+                </a>
+                <a href="https://www.facebook.com/share/1AZFb571Yq/?mibe" target="_blank" rel="noopener" aria-label="Facebook" class="social-link">
+                    <i class="fab fa-facebook"></i><span>Art2Digi</span>
+                </a>
+                <a href="https://wa.me/2975638194" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-link">
+                    <i class="fab fa-whatsapp"></i><span>+297 563 8194</span>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>© 2026 Art2Digi Solutions. All rights reserved.</p></div>
+    </footer>
+
+    <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); navMenu.classList.toggle('nav-open'); });
+    navMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('open'); navMenu.classList.remove('nav-open'); }));
+    </script>
 </body>
 </html>
