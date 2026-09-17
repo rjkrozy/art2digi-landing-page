@@ -17,18 +17,17 @@ const EMAILJS_TEMPLATE_CLIENT = 'template_v5bsi6v';
 const EMAILJS_TEMPLATE_ADMIN = 'template_lx2t0za';
 const ADMIN_EMAIL = 'hello@art2digi.com';
 
-// Payment instructions per campaign — edit the text to match your real
-// payment method (bank transfer details, Tikkie/Splikto link, etc.)
+// Payment details (bank transfer) are hardcoded directly into the
+// client-confirmation EmailJS template since they're the same for every
+// campaign. Only the amount and label differ per campaign below.
 const CAMPAIGN_CONFIG = {
   malmok: {
     label: 'Malmok Golden Hour Stories',
-    amount: 100,
-    paymentInstructions: 'AWG 100, due before your session. [ADD YOUR PAYMENT DETAILS HERE]'
+    amount: 100
   },
   capture_pose: {
     label: 'Capture & Pose',
-    amount: 250,
-    paymentInstructions: 'AWG 250, due to confirm your spot. [ADD YOUR PAYMENT DETAILS HERE]'
+    amount: 250
   }
 };
 
@@ -138,8 +137,7 @@ export async function submitSingleSlotBooking(fields, formEl) {
         to_name: name,
         campaign_name: config.label,
         session_label: booking.slot_label,
-        amount: config.amount,
-        payment_instructions: config.paymentInstructions
+        amount: config.amount
       });
 
       await wait(1200); // stay under EmailJS's 1 request/second limit
@@ -225,8 +223,7 @@ export async function submitBooking(fields, formEl, selectEl) {
         to_name: name,
         campaign_name: config.label,
         session_label: booking.slot_label,
-        amount: config.amount,
-        payment_instructions: config.paymentInstructions
+        amount: config.amount
       });
 
       await wait(1200); // stay under EmailJS's 1 request/second limit
