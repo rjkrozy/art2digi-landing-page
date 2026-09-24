@@ -69,9 +69,9 @@
                     <div class="station-card-img" style="background-image: url('img/workshops-card.jpg')"></div>
                     <div class="station-card-body">
                         <span class="station-card-label">Workshops</span>
-                        <h3>Capture &amp; Pose™</h3>
-                        <p>Master your phone camera and your presence in front of it.</p>
-                        <span class="station-card-cta">See upcoming dates <i class="fas fa-arrow-right"></i></span>
+                        <h3>Learn With Me</h3>
+                        <p>Hands-on sessions designed to get you results.</p>
+                        <span class="station-card-cta">Explore workshops <i class="fas fa-arrow-right"></i></span>
                     </div>
                 </a>
 
@@ -142,19 +142,19 @@
                 </div>
                 <a href="workshops.html" class="btn btn-outline">See all workshops</a>
             </div>
-            <div class="workshop-teaser-card">
-                <div class="wtc-badge">Now Open</div>
-                <div class="wtc-body">
-                    <h3>Capture &amp; Pose™</h3>
-                    <p class="wtc-sub">Mobile Photography &amp; Natural Posing</p>
-                    <p class="wtc-desc">Capture the shot. Master your presence. Frame your story. In 2.5 hours with hands-on practice and personal feedback.</p>
-                    <div class="wtc-meta">
-                        <span><i class="fas fa-calendar-alt"></i> <strong id="next-workshop-date">Loading...</strong></span>
-                        <span><i class="fas fa-map-marker-alt"></i> Aeromall, Aruba</span>
-                        <span><i class="fas fa-tag"></i> AWG 250</span>
+            <div class="portfolio-grid" style="max-width: 420px;">
+                <a href="story-capture-pose.html" class="portfolio-item">
+                    <div class="portfolio-img-wrap">
+                        <div class="portfolio-img" style="background-image: url('img/capture-pose-card.jpg')"></div>
+                        <div class="portfolio-hover">
+                            <p class="portfolio-hook">"You pick up your phone, take the shot... and delete it. Again."</p>
+                        </div>
                     </div>
-                </div>
-                <a href="workshops.html" class="btn btn-primary">Register Now</a>
+                    <div class="portfolio-caption">
+                        <span class="portfolio-tag">Workshops</span>
+                        <h3>Capture &amp; Pose™</h3>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -215,21 +215,6 @@
             navMenu.classList.remove('nav-open');
         });
     });
-
-    async function loadNextWorkshopDate() {
-        try {
-            const response = await fetch('workshops.json?v=' + Date.now());
-            const data = await response.json();
-            const workshop = data['capture-pose'];
-            const el = document.getElementById('next-workshop-date');
-            if (el && workshop && workshop.date) el.textContent = workshop.date;
-        } catch (e) {
-            const el = document.getElementById('next-workshop-date');
-            if (el) el.textContent = 'Date TBA — join the waitlist';
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', loadNextWorkshopDate);
     </script>
 </body>
 </html>
