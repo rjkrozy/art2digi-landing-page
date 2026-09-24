@@ -252,7 +252,7 @@
     });
     </script>
 
-    <!-- Dynamic CTA: "Reserve your spot™" if a slot is open, "Let's talk" if not -->
+    <!-- Dynamic CTA: "Reserve your spot" if a slot is open, "Let's talk" if not -->
     <script type="module">
         import { loadSingleOpenSlot } from './js/booking.js';
 
@@ -260,7 +260,7 @@
             const btn = document.getElementById('cp-cta-btn');
             const slot = await loadSingleOpenSlot('capture_pose');
             if (slot) {
-                btn.textContent = 'Reserve your spot™';
+                btn.textContent = 'Reserve your spot';
                 btn.setAttribute('href', 'register-capture-pose.html');
             } else {
                 btn.textContent = "Let's talk";
