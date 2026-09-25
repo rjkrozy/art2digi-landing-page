@@ -12,10 +12,10 @@
 import { supabase } from './supabase-client.js';
 
 // ---- EDIT THESE with your real EmailJS values ----
-const EMAILJS_SERVICE_ID = 'YOUR_EMAILJS_SERVICE_ID';
-const EMAILJS_TEMPLATE_CLIENT = 'YOUR_CLIENT_CONFIRMATION_TEMPLATE_ID';
-const EMAILJS_TEMPLATE_ADMIN = 'YOUR_ADMIN_NOTIFICATION_TEMPLATE_ID';
-const ADMIN_EMAIL = 'you@art2digi.com';
+const EMAILJS_SERVICE_ID = 'service_4ewil9m';
+const EMAILJS_TEMPLATE_CLIENT = 'template_v5bsi6v';
+const EMAILJS_TEMPLATE_ADMIN = 'template_lx2t0za';
+const ADMIN_EMAIL = 'hello@art2digi.com';
 
 // Payment details (bank transfer) are hardcoded directly into the
 // client-confirmation EmailJS template since they're the same for every
