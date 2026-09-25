@@ -15,9 +15,14 @@
          variables from style.css; the CTA button reuses the existing
          .btn .btn-light classes rather than duplicating that style. -->
     <style>
-        .campaign-divider { height: 8px; background: var(--blue); }
+        .campaign-banner-section { padding: 2rem 2rem 0; background: var(--cream); }
         .campaign-banner {
-            background-image: url('img/malmok-golden-hour.jpg');
+            max-width: var(--max-w);
+            margin: 0 auto;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 0.5px solid var(--border);
+            background-image: url('img/malmok-golden-hour-sea-only.jpg');
             background-position: center;
             background-size: cover;
             padding: 2.25rem 1.5rem;
@@ -88,21 +93,22 @@
 
     <!-- CAMPAIGN BANNER — currently: Malmok Golden Hour Stories.
          This section is meant to be swapped or removed as campaigns come and go:
-         - Ending the campaign entirely: delete this whole block (the divider div
-           and the campaign-banner section below), plus the <style> block in <head>.
+         - Ending the campaign entirely: delete this whole <section> block,
+           plus the <style> block in <head>.
          - Starting a new campaign: replace the eyebrow text, heading, details
            paragraph, the href on the button, and the background-image path in
-           the <style> block above (img/malmok-golden-hour.jpg). -->
-    <div class="campaign-divider"></div>
-    <section class="campaign-banner">
-        <p class="campaign-eyebrow">Malmok golden hour stories</p>
-        <h2>Your story deserves more than a stock headshot.</h2>
-        <p class="campaign-details">
-            12 golden hour sessions at Malmok.<br>
-            Weekends only, Oct 17 to Nov 28.<br>
-            15 edited photos, delivered in 48 hours.
-        </p>
-        <a href="register-malmok.html" class="btn btn-light">Book your spot</a>
+           the <style> block above (img/malmok-golden-hour-sea-only.jpg). -->
+    <section class="campaign-banner-section">
+        <div class="campaign-banner">
+            <p class="campaign-eyebrow">Malmok golden hour stories</p>
+            <h2>Your story deserves more than a stock headshot.</h2>
+            <p class="campaign-details">
+                12 golden hour sessions at Malmok.<br>
+                Weekends only, Oct 17 to Nov 28.<br>
+                15 edited photos, delivered in 48 hours.
+            </p>
+            <a href="register-malmok.html" class="btn btn-light">Book your spot</a>
+        </div>
     </section>
 
     <!-- STATION — entry points -->
