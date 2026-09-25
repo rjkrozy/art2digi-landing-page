@@ -8,6 +8,46 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <!-- CAMPAIGN BANNER STYLES — remove this whole <style> block along with the
+         CAMPAIGN BANNER section below once there's no active campaign, or swap
+         the content each time a new campaign starts (see comments below).
+         Uses this site's existing --blue/--purple/--font-display/--font-body
+         variables from style.css; the CTA button reuses the existing
+         .btn .btn-light classes rather than duplicating that style. -->
+    <style>
+        .campaign-divider { height: 8px; background: var(--blue); }
+        .campaign-banner {
+            background-image: url('img/malmok-golden-hour.jpg');
+            background-position: center;
+            background-size: cover;
+            padding: 2.25rem 1.5rem;
+            color: var(--white);
+        }
+        .campaign-banner .campaign-eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin: 0 0 0.5rem;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+        }
+        .campaign-banner h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+            font-weight: 600;
+            line-height: 1.25;
+            margin: 0 0 0.5rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.75);
+        }
+        .campaign-banner p.campaign-details {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            line-height: 1.9;
+            margin: 0 0 1.25rem;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+        }
+    </style>
 </head>
 <body>
 
@@ -44,6 +84,25 @@
         <div class="hero-content">
             <h1 class="hero-headline">I translate your story into visuals and language people connect with.</h1>
         </div>
+    </section>
+
+    <!-- CAMPAIGN BANNER — currently: Malmok Golden Hour Stories.
+         This section is meant to be swapped or removed as campaigns come and go:
+         - Ending the campaign entirely: delete this whole block (the divider div
+           and the campaign-banner section below), plus the <style> block in <head>.
+         - Starting a new campaign: replace the eyebrow text, heading, details
+           paragraph, the href on the button, and the background-image path in
+           the <style> block above (img/malmok-golden-hour.jpg). -->
+    <div class="campaign-divider"></div>
+    <section class="campaign-banner">
+        <p class="campaign-eyebrow">Malmok golden hour stories</p>
+        <h2>Your story deserves more than a stock headshot.</h2>
+        <p class="campaign-details">
+            12 golden hour sessions at Malmok.<br>
+            Weekends only, Oct 17 to Nov 28.<br>
+            15 edited photos, delivered in 48 hours.
+        </p>
+        <a href="register-malmok.html" class="btn btn-light">Book your spot</a>
     </section>
 
     <!-- STATION — entry points -->

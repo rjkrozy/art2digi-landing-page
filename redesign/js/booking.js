@@ -12,22 +12,31 @@
 import { supabase } from './supabase-client.js';
 
 // ---- EDIT THESE with your real EmailJS values ----
-const EMAILJS_SERVICE_ID = 'service_4ewil9m';
-const EMAILJS_TEMPLATE_CLIENT = 'template_v5bsi6v';
-const EMAILJS_TEMPLATE_ADMIN = 'template_lx2t0za';
-const ADMIN_EMAIL = 'hello@art2digi.com';
+const EMAILJS_SERVICE_ID = 'YOUR_EMAILJS_SERVICE_ID';
+const EMAILJS_TEMPLATE_CLIENT = 'YOUR_CLIENT_CONFIRMATION_TEMPLATE_ID';
+const EMAILJS_TEMPLATE_ADMIN = 'YOUR_ADMIN_NOTIFICATION_TEMPLATE_ID';
+const ADMIN_EMAIL = 'you@art2digi.com';
 
 // Payment details (bank transfer) are hardcoded directly into the
 // client-confirmation EmailJS template since they're the same for every
-// campaign. Only the amount and label differ per campaign below.
+// campaign. Only the amount, label, and licensingNote differ per campaign.
+//
+// licensingNote is raw HTML injected via {{{licensing_note}}} in the email
+// template (triple braces = unescaped). Only Malmok delivers photos, so
+// only Malmok gets the licensing line — Capture & Pose gets an empty string
+// and the line simply doesn't appear in that email.
+const LICENSING_NOTE_HTML = '<p style="margin: 0 0 20px; font-size: 13px; line-height: 1.6; color: #777777;">Your images come with a royalty-free license for unlimited personal use.</p>';
+
 const CAMPAIGN_CONFIG = {
   malmok: {
     label: 'Malmok Golden Hour Stories',
-    amount: 100
+    amount: 100,
+    licensingNote: LICENSING_NOTE_HTML
   },
   capture_pose: {
     label: 'Capture & Pose',
-    amount: 250
+    amount: 250,
+    licensingNote: ''
   }
 };
 
@@ -137,7 +146,8 @@ export async function submitSingleSlotBooking(fields, formEl) {
         to_name: name,
         campaign_name: config.label,
         session_label: booking.slot_label,
-        amount: config.amount
+        amount: config.amount,
+        licensing_note: config.licensingNote
       });
 
       await wait(1200); // stay under EmailJS's 1 request/second limit
@@ -223,7 +233,8 @@ export async function submitBooking(fields, formEl, selectEl) {
         to_name: name,
         campaign_name: config.label,
         session_label: booking.slot_label,
-        amount: config.amount
+        amount: config.amount,
+        licensing_note: config.licensingNote
       });
 
       await wait(1200); // stay under EmailJS's 1 request/second limit
